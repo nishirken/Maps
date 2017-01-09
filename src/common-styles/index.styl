@@ -1,0 +1,21 @@
+@import "../../node_modules/kouto-swiss"
+@import "functions-and-mixins.styl"
+@import "variables.styl"
+@import "list.styl"
+
+ks-normalize()
+
+*
+  margin: 0
+  padding: 0
+
+html
+  ks-box-sizing-reset()
+  font-size: 1em
+
+html, body, #root, .main
+  width: 100%
+  height: 100%
+
+.main
+  position: relative

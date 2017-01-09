@@ -1,13 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import 'whatwg-fetch';
 
-import { DrawFieldContainer } from './containers';
-import './index.stylus';
+import { MapContainer } from './containers';
+import { ListsBlockContainer } from './containers';
+import './common-styles/index.styl';
 
 render(
-  <Provider>
-    <DrawFieldContainer />
-  </Provider>,
-  document.getElementById('root')
+    <Provider>
+      <main className="main">
+        <MapContainer/>
+        <ListsBlockContainer/>
+      </main>
+    </Provider>,
+    document.getElementById('root')
 );

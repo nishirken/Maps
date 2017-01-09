@@ -1,3 +1,4 @@
-import Main from './main/main';
+import Map from './map/map';
+import ListsBlock from './lists-block/lists-block';
 
-export { Main };
+export { Map, ListsBlock };

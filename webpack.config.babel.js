@@ -32,7 +32,7 @@ module.exports = {
         loader: 'json'
       },
       {
-        test: /\.stylus$/,
+        test: /\.styl$/,
         loader: ExtractTextPlugin.extract("style", "css!autoprefixer!stylus?paths[]=node_modules"),
         include: path.join(__dirname + '/src')
       },

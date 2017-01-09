@@ -1,4 +1,5 @@
-import DrawFieldContainer from './main-block/draw-field/draw-field';
+import MapContainer from './map';
+import ListsBlockContainer from './lists-block/lists-block';
 
-export { DrawFieldContainer };
+export { MapContainer, ListsBlockContainer };
 
