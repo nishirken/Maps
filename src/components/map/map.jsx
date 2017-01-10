@@ -1,26 +1,31 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import GoogleMap from 'google-map-react';
 
 import './map.styl';
 
-export default class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.defaultProps = {
-      center: {lat: 59.938043, lng: 30.337157},
-      zoom: 9,
-      greatPlaceCoords: {lat: 59.724465, lng: 30.080121}
-    };
-  }
+export default function Map(props) {
+  return (
+    <section className="map">
+      <GoogleMap
+        bootstrapURLKeys={props.apiSettings}
+        defaultCenter={props.defaultSettings.center}
+        defaultZoom={props.defaultSettings.zoom}
+        options={props.options}
+      />
+    </section>
+  );
+}
 
-  render() {
-    return (
-        <section className="map">
-          <GoogleMap
-              defaultCenter={this.props.center}
-              defaultZoom={this.props.zoom}>
-          </GoogleMap>
-        </section>
-    );
-  }
+Map.propTypes = {
+  apiSettings: PropTypes.shape({
+    apiKey: PropTypes.string.isRequired,
+    lang: PropTypes.string.isRequired
+  }),
+  defaultSettings: PropTypes.shape({
+    center: PropTypes.object.isRequired,
+    zoom: PropTypes.number.isRequired
+  }),
+  options: PropTypes.shape({
+    styles: PropTypes.arrayOf(PropTypes.object)
+  })
 }

@@ -8,11 +8,11 @@ import { ListsBlockContainer } from './containers';
 import './common-styles/index.styl';
 
 render(
-    <Provider>
-      <main className="main">
-        <MapContainer/>
-        <ListsBlockContainer/>
-      </main>
-    </Provider>,
-    document.getElementById('root')
+  <Provider>
+    <main className="main">
+      <MapContainer/>
+      <ListsBlockContainer/>
+    </main>
+  </Provider>,
+  document.getElementById('root')
 );
