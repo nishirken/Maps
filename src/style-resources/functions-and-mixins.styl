@@ -1,4 +1,4 @@
-:global(.list)
+lists()
   width: em(200)
   height: 100%
   overflow-x auto
@@ -10,3 +10,10 @@
   &:hover
     opacity: .9
     transition main-transition
+
+lists-item()
+  min-height em(50)
+  border-bottom: 1px solid second-color
+
+  &:not(:last-child)
+    border-bottom: none

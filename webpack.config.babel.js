@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import BellOnBundlerErrorPlugin from 'bell-on-bundler-error-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
@@ -33,12 +32,8 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: ExtractTextPlugin.extract("style", "css!autoprefixer!stylus?paths[]=node_modules"),
+        loader: 'style?sourceMap!css?modules&importLoaders=1&localIdentName=[local]-[hash:base64:10]!autoprefixer!stylus?sourceMap',
         include: path.join(__dirname + '/src')
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css")
       },
       {
         test: /\.(png|svg|jpg|ttf|eot|woff|woff2)$/,
@@ -50,10 +45,8 @@ module.exports = {
   cssLoader: {
     discardComments: {removeAll: true}
   },
-  stylelint: {
-    configFile: path.join(__dirname, './.stylelint.config.js')
-  },
   stylus: {
+    import: [path.join(__dirname, './src/common-styles/index.styl'), path.join(__dirname, '~kouto-swiss')],
     preferPathResolver: 'webpack',
   },
   node: {
@@ -86,10 +79,6 @@ module.exports = {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('style.css', {//for bundle all css from js in 1 file
-      allChunks: true,
-      disable: checkEnv()
-    }),
     new CleanWebpackPlugin('build', {//rm -rf before build
       exclude: 'index.html'
     })

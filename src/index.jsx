@@ -3,16 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import 'whatwg-fetch';
 
-import { MapContainer } from './containers';
-import { ListsBlockContainer } from './containers';
-import './common-styles/index.styl';
+import { Main } from './containers';
 
 render(
   <Provider>
-    <main className="main">
-      <MapContainer/>
-      <ListsBlockContainer/>
-    </main>
+    <Main/>
   </Provider>,
   document.getElementById('root')
 );

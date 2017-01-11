@@ -1,5 +1,4 @@
-import MapContainer from './map';
-import ListsBlockContainer from './lists-block/lists-block';
+import Main from './main/main';
 
-export { MapContainer, ListsBlockContainer };
+export { Main };
 
