@@ -2,9 +2,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import 'whatwg-fetch';
 
-import { Main } from 'Containers';
+import { MainContainer } from 'Containers';
 
 render(
-  <Main/>,
+  <MainContainer />,
   document.getElementById('root')
 );

@@ -1,5 +1,7 @@
+"use strict";
+
 const webpack = require("webpack"),
-  path = require("path"),
+  {resolve} = require("path"),
   BellOnBundlerErrorPlugin = require("bell-on-bundler-error-plugin"),
   CleanWebpackPlugin = require("clean-webpack-plugin");
 
@@ -10,13 +12,13 @@ function checkEnv(condition1 = true, condition2 = false) {
 }
 
 function pathResolve(yourPath) {
-  return path.resolve(__dirname, yourPath);
+  return resolve(__dirname, yourPath);
 }
 
 module.exports = {
   context: pathResolve("src/"),
   entry: {
-    main: "./index"
+    main: "./index",
   },
   output: {
     filename: "[name].js",
@@ -31,56 +33,10 @@ module.exports = {
         include: [
           pathResolve("src")
         ],
-        options: {
-          presets: ["es2016", ["es2015", {modules: false}], "react"],
-          plugins: [
-            "transform-decorators-legacy",
-            "transform-class-properties",
-            ["react-css-modules", {
-              webpackHotModuleReloading: true
-            }]
-          ]
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: "style",
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: "css",
-            options: {
-              modules: true,
-              importLoader: 1,
-              localIdentName: "[local]___[hash:base64:10]"
-            },
-          },
-          {
-            loader: "postcss",
-            options: {
-              plugins: () => [
-                require("postcss-nested"),
-                require("postcss-simple-vars"),
-                require("postcss-functions"),
-                require("postcss-font-magician"),
-                require("postcss-utilities"),
-                require("autoprefixer"),
-              ],
-              sourceMap: () => true,
-              vars: () => {
-                variables: require("./src/style-resources/variables.css")
-              },
-            },
-          },
-        ],
       },
       {
         test: /\.(png|svg|jpg|ttf|eot|woff|woff2)$/,
-        loader: "url-loader",// max size 4096 for file, or use file-loader
+        loader: "url-loader",
         options: {
           limit: 4096,
           name: "[path][name].[ext]?[hash]"
@@ -95,9 +51,11 @@ module.exports = {
       Constants: pathResolve("src/constants"),
       Containers: pathResolve("src/containers"),
       Reducers: pathResolve("src/reducers"),
+      StyleVars: pathResolve("src/style-resources/variables"),
+      StyleFunc: pathResolve("src/style-resources/functions"),
     },
     extensions: [".js", ".jsx", ".json"],
-    modules: ["node_modules", pathResolve("src/style-resources")]
+    modules: ["node_modules"],
   },
   resolveLoader: {
     moduleExtensions: ["-loader"]
@@ -120,12 +78,10 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
       React: "react",
-      render: "react-dom",
-      GoogleMap: "google-map-react",
-      CSSModules: "react-css-modules",
+      ReactDOM: "react-dom",
     }),
     new CleanWebpackPlugin([pathResolve("build")], {
-      exclude: ["index.html", "r-n-s.css"],
+      exclude: ["index.html", "global-styles.css"],
     }),
     new BellOnBundlerErrorPlugin(),
   ],
@@ -152,10 +108,6 @@ module.exports = {
   },
   stats: "errors-only",
 }
-
-/*
- add plugins for production
- */
 
 if (NODE_ENV === "production") {
   module.exports.plugins.push(

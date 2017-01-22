@@ -82,6 +82,7 @@ sub {
 sup {
   top: -0.5em;
 }
+
 audio,
 video {
   display: inline-block;
@@ -378,4 +379,20 @@ textarea,
 html, body, #root {
   width: 100%;
   height: 100%;
+}
+
+html {
+  font-size: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 0.875em;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  html {
+    font-size: 0.75em;
+  }
 }

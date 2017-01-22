@@ -1,15 +1,14 @@
-import { PropTypes } from 'react';
+import styled from "styled-components";
 
-import MarksList from './marks-list/marks-list';
-import MarkObjectList from './mark-object-list/mark-object-list';
+const ListsBlock = styled.aside`
+  position: absolute;
+  z-index: 9999999;
+  top: 10%;
+  right: 10%;
+  display: flex;
+  height: 80%;
+  font-size: 1rem;
+`;
 
-export default function ListsBlock(props) {
-  return (
-    <aside >
-      <MarkObjectList/>
-      <MarksList/>
-    </aside>
-  )
-}
+export default ListsBlock;
 
-ListsBlock.propTypes = {};

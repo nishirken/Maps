@@ -1,10 +1,17 @@
-import { Component, PropTypes } from 'react';
-import { ListsBlock } from 'Components';
+import { Component } from 'react';
+import { ListsBlock, MarksList, MarksListItem } from 'Components';
 
 export default class ListsBlockContainer extends Component {
   render() {
     return (
-      <ListsBlock/>
+      <ListsBlock>
+        <MarksList>
+          <MarksListItem />
+        </MarksList>
+        <MarksList>
+          <MarksListItem />
+        </MarksList>
+      </ListsBlock>
     );
   }
 }

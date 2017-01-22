@@ -1,5 +1,7 @@
+import styles from "StyleVars";
+
 const API = {
-    apiKey: 'AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU',
+    key: 'AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU',
     lang: 'ru'
   },
 
@@ -17,7 +19,7 @@ const API = {
         featureType: 'road',
         elementType: 'geometry',
         stylers: [
-          {color: '#795548'},
+          {color: styles.colors.secondary},
           {visibility: 'simplified'},
         ],
       },

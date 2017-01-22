@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-const Map = styled.section`
+const Main = styled.main`
   width: 100%;
   height: 100%;
+  position: relative;
 `;
 
-export default Map;
+export default Main;

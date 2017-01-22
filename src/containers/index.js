@@ -1,4 +1,4 @@
-import Main from './main';
+import MainContainer from './main/main';
 
-export { Main };
+export { MainContainer };
 
