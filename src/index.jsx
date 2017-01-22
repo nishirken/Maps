@@ -1,13 +1,10 @@
-import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import 'whatwg-fetch';
 
-import { Main } from './containers';
+import { Main } from 'Containers';
 
 render(
-  <Provider>
-    <Main/>
-  </Provider>,
+  <Main/>,
   document.getElementById('root')
 );

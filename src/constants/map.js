@@ -19,34 +19,35 @@ const API = {
         stylers: [
           {color: '#795548'},
           {visibility: 'simplified'},
-        ]
+        ],
       },
       {
         featureType: 'road',
         elementType: 'labels',
         stylers: [
           {visibility: 'off'}
-        ]
+        ],
       },
       {
         featureType: 'administrative',
         stylers: [
           {visibility: 'simplified'}
-        ]
-      }
-    ]
+        ],
+      },
+      {
+        featureType: "poi",
+        stylers: [
+          {visibility: 'off'}
+        ],
+      },
+      {
+        featureType: "transit",
+        stylers: [
+          {visibility: 'off'}
+        ],
+      },
+    ],
   };
-
-const SET_TO_OFF = ['poi', 'transit'];
-
-SET_TO_OFF.forEach(item => {
-  OPTIONS.styles.push({
-    featureType: item,
-    stylers: [
-      {visibility: 'off'}
-    ]
-  })
-});
 
 export { API, SETTINGS, OPTIONS };
 

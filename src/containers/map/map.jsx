@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import { Map } from '../../components';
-import { MAP_SETTINGS } from '../../constants';
+import { Component, PropTypes } from 'react';
+import { Map } from 'Components';
+import { MAP_SETTINGS } from 'Constants';
 
 export default class MapContainer extends Component {
   render() {
