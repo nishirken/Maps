@@ -1,7 +1,67 @@
 {
-  "presets": ["es2016", ["es2015", {"modules": false}], "react"],
-  "plugins": [
-    "transform-decorators-legacy",
-    "transform-class-properties"
-  ]
+  "env": {
+    "production": {
+      "presets": [
+        "es2016",
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-react-remove-prop-types"
+      ]
+    },
+    "development": {
+      "presets": [
+        "es2016",
+        [
+          "es2015",
+          {
+            "loose": true,
+            "modules": "commonjs"
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties"
+      ]
+    },
+    "test": {
+      "presets": [
+        "es2016",
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties",
+        "transform-react-remove-prop-types",
+        "transform-es2015-modules-commonjs",
+        ["module-resolver", {
+          "root": ["./src"],
+          "alias": {
+            "Containers": "./containers",
+            "Actions": "./actions",
+            "Components": "./components",
+            "Constants": "./constants",
+            "Reducers": "./reducers",
+            "Styles": "./style-resources"
+          }
+        }]
+      ]
+    }
+  }
 }

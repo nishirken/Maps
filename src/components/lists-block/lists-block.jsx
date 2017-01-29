@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const ListsBlock = styled.aside`
+export const ListsBlock = styled.aside`
   position: absolute;
   z-index: 9999999;
   top: 10%;
@@ -9,6 +9,3 @@ const ListsBlock = styled.aside`
   height: 80%;
   font-size: 1rem;
 `;
-
-export default ListsBlock;
-

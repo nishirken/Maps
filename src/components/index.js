@@ -1,7 +1,5 @@
-import Map from './map/map';
-import ListsBlock from './lists-block/lists-block';
-import MarksList from './lists-block/marks-list/marks-list';
-import MarksListItem from './lists-block/marks-list/marks-list-item';
-import Main from "./main/main";
-
-export { Map, ListsBlock, MarksList, MarksListItem, Main };
+export { Map } from './map/map';
+export { ListsBlock } from './lists-block/lists-block';
+export { MarksList } from './lists-block/marks-list/marks-list';
+export { MarksListItem } from './lists-block/marks-list/marks-list-item/marks-list-item';
+export { Main } from './main/main';
