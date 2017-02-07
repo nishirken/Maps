@@ -27,7 +27,10 @@
     "PureComponent": true,
     "PropTypes": true,
     "StyleConst": true,
-    "StyleFunc": true
+    "StyleFunc": true,
+    "mount": true,
+    "render": true,
+    "shallow": true,
   },
   "rules": {
     "no-await-in-loop": "error",
