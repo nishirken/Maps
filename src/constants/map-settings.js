@@ -5,10 +5,10 @@ const API = {
 
 const SETTINGS = {
     center: {
-        lat: 59.938043,
-        lng: 30.337157,
+        lat: 56.84,
+        lng: 60.57,
     },
-    zoom: 9,
+    zoom: 18,
 };
 
 const OPTIONS = {
@@ -25,7 +25,8 @@ const OPTIONS = {
             featureType: 'road',
             elementType: 'labels',
             stylers: [
-                { visibility: 'off' },
+                { color: StyleConst.colors.primary },
+                { visibility: 'simplified' },
             ],
         },
         {
@@ -37,13 +38,13 @@ const OPTIONS = {
         {
             featureType: 'poi',
             stylers: [
-                { visibility: 'off' },
+                { visibility: 'simplified' },
             ],
         },
         {
             featureType: 'transit',
             stylers: [
-                { visibility: 'off' },
+                { visibility: 'simplified' },
             ],
         },
     ],

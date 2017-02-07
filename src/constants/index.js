@@ -1,3 +1,2 @@
-import * as MAP_SETTINGS from './map';
-
-export { MAP_SETTINGS };
+export * as MAP_SETTINGS from './map-settings';
+export * from './action-types';

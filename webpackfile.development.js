@@ -49,6 +49,7 @@ module.exports = {
             Containers: pathResolve('src/containers'),
             Reducers: pathResolve('src/reducers'),
             Styles: pathResolve('src/style-resources'),
+            Store: pathResolve('src/create-store'),
         },
         extensions: ['.js', '.jsx', '.json'],
         modules: ['node_modules'],
@@ -78,9 +79,6 @@ module.exports = {
             PropTypes: 'react/lib/ReactPropTypes',
             StyleConst: pathResolve('src/style-resources/constants'),
             StyleFunc: pathResolve('src/style-resources/functions'),
-        }),
-        new CleanWebpackPlugin([pathResolve('build')], {
-            exclude: ['index.html', 'global-styles.css'],
         }),
         new BellOnBundlerErrorPlugin(),
     ],

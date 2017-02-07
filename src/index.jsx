@@ -1,8 +1,17 @@
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import 'whatwg-fetch';
-import { MainContainer } from 'Containers';
+
+import store from 'Store';
+import { StyledMain } from 'Components';
+import { MarksListContainer, MapContainer } from 'Containers';
 
 render(
-    <MainContainer />,
+    <Provider store={store}>
+        <StyledMain>
+            <MapContainer />
+            <MarksListContainer />
+        </StyledMain>
+    </Provider>,
     document.getElementById('root')
 );

@@ -13,7 +13,10 @@
       ],
       "plugins": [
         "transform-decorators-legacy",
+        "transform-object-rest-spread",
         "transform-class-properties",
+        "transform-function-bind",
+        "transform-export-extensions",
         "transform-react-remove-prop-types"
       ]
     },
@@ -31,7 +34,10 @@
       ],
       "plugins": [
         "transform-decorators-legacy",
-        "transform-class-properties"
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "transform-export-extensions",
+        "transform-function-bind"
       ]
     },
     "test": {
@@ -48,17 +54,20 @@
       "plugins": [
         "transform-decorators-legacy",
         "transform-class-properties",
-        "transform-react-remove-prop-types",
+        "transform-object-rest-spread",
+        "transform-function-bind",
+        "transform-export-extensions",
         "transform-es2015-modules-commonjs",
         ["module-resolver", {
-          "root": ["./src"],
+          "root": ["./"],
           "alias": {
-            "Containers": "./containers",
-            "Actions": "./actions",
-            "Components": "./components",
-            "Constants": "./constants",
-            "Reducers": "./reducers",
-            "Styles": "./style-resources"
+            "Containers": "./src/containers",
+            "Actions": "./src/actions",
+            "Components": "./src/components",
+            "Constants": "./src/constants",
+            "Reducers": "./src/reducers",
+            "Styles": "./src/style-resources",
+            "Store": "./src/create-store"
           }
         }]
       ]
