@@ -1,1 +1,2 @@
 export const CREATE_MARKER = 'CREATE_MARKER';
+export const MARKER_CHOICE = 'MARKER_CHOICE';

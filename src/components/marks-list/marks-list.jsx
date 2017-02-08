@@ -15,22 +15,35 @@ export default class MarksList extends PureComponent {
                 }).isRequired,
                 name: PropTypes.string,
             }),
-        })),
+        })).isRequired,
+        currentMarkerIndex: PropTypes.number,
+        markerChoice: PropTypes.func,
     }
 
-    static defaultProps = {
-        marksListItems: [],
+    markerChoice(markerIndex) {
+        this.props.markerChoice(markerIndex);
     }
 
     marksListItemsRender() {
-        return map(this.props.markers, (marker, key) =>
-            <MarksListItem
-                key={key}
-                markerCoords={{ lat: marker.coords.lat, lng: marker.coords.lng }}
-                markerName={marker.name}
-                markerOrdinal={key + 1}
-            />
-        );
+        return map(this.props.markers, (marker, key) => {
+            let current = false;
+
+            if (this.props.currentMarkerIndex === key) current = true;
+
+            return (
+                <MarksListItem
+                    current={current}
+                    key={key}
+                    markerChoice={::this.markerChoice}
+                    markerCoords={{
+                        lat: marker.coords.lat,
+                        lng: marker.coords.lng,
+                    }}
+                    markerIndex={key}
+                    markerName={marker.name}
+                />
+            );
+        });
     }
 
     render() {

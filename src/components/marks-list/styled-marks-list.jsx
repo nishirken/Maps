@@ -10,11 +10,11 @@ const StyledMarksList = styled.ul`
     overflow-x: auto;
     background: ${StyleConst.colors.windowsBackground};
     font-size: 1rem;
-    opacity: .5;
+    opacity: 0.5;
     transition: ${StyleConst.transition};
     
     &:hover {
-        opacity: .95;
+        opacity: 0.9;
         transition: ${StyleConst.transition};
     }
 `;

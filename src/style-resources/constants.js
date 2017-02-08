@@ -3,8 +3,9 @@ export const colors = {
     secondary: '#795548',
     third: '#E53935',
     thirdHover: '#8C2321',
-    notImportantText: '#A1887F',
+    notImportantText: '#8D6E63',
     windowsBackground: '#CFD8DC',
+    currentMarksListItem: '#B0BEC5',
 };
 
 export const fontFamily = {

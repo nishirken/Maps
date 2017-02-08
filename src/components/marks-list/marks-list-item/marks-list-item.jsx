@@ -9,16 +9,25 @@ export default class MarksListItem extends PureComponent {
             lat: PropTypes.number,
             lng: PropTypes.number,
         }),
-        markerOrdinal: PropTypes.number,
+        markerIndex: PropTypes.number,
+        current: PropTypes.bool,
+        markerChoice: PropTypes.func,
+    }
+
+    markerChoice(markerIndex) {
+        this.props.markerChoice(markerIndex);
     }
 
     render() {
         return (
-            <StyledMarksListItem >
+            <StyledMarksListItem
+                current={this.props.current}
+                onClick={this.markerChoice.bind(this, this.props.markerIndex)}
+            >
                 <Text
                     markerCoords={this.props.markerCoords}
+                    markerIndex={this.props.markerIndex}
                     markerName={this.props.markerName}
-                    markerOrdinal={this.props.markerOrdinal}
                 />
                 <Buttons />
             </StyledMarksListItem>

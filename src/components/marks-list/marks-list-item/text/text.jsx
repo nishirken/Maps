@@ -8,7 +8,7 @@ export default class Text extends PureComponent {
             lat: PropTypes.number,
             lng: PropTypes.number,
         }),
-        markerOrdinal: PropTypes.number,
+        markerIndex: PropTypes.number,
     }
 
     render() {
@@ -20,7 +20,7 @@ export default class Text extends PureComponent {
                 <StyledMarkerCoords>
                     coords: {this.props.markerCoords.lat.toFixed(2)},
                     &nbsp;{this.props.markerCoords.lng.toFixed(2)} <br />
-                    №: {this.props.markerOrdinal}
+                    №: {this.props.markerIndex + 1}
                 </StyledMarkerCoords>
             </div>
         );

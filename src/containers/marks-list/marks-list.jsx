@@ -1,11 +1,17 @@
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { MarksList, MarkerNameField } from 'Components';
+import { markerChoice } from 'Actions';
+import { MarksList } from 'Components';
 
 @connect(
     state => ({
         markers: state.getMarkers,
+        currentMarkerIndex: state.getCurrentMarker,
     }),
+    dispatch => ({
+        _markerChoice: bindActionCreators(markerChoice, dispatch),
+    })
 )
 export default class MarksListContainer extends PureComponent {
     static propTypes = {
@@ -20,11 +26,21 @@ export default class MarksListContainer extends PureComponent {
                 name: PropTypes.string,
             }),
         })).isRequired,
+        currentMarkerIndex: PropTypes.number,
+        _markerChoice: PropTypes.func,
+    }
+
+    markerChoice(markerIndex) {
+        this.props._markerChoice(markerIndex);
     }
 
     render() {
         return (
-            <MarksList markers={this.props.markers} />
+            <MarksList
+                currentMarkerIndex={this.props.currentMarkerIndex}
+                markerChoice={::this.markerChoice}
+                markers={this.props.markers}
+            />
         );
     }
 }

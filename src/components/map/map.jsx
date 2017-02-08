@@ -23,6 +23,8 @@ export default class Map extends PureComponent {
             styles: PropTypes.arrayOf(PropTypes.object),
         }),
         createMarker: PropTypes.func,
+        markerChoice: PropTypes.func,
+        currentMarkerIndex: PropTypes.number,
         markers: PropTypes.arrayOf(PropTypes.object),
     };
 
@@ -53,6 +55,7 @@ export default class Map extends PureComponent {
             x: coords.x,
             y: coords.y,
         });
+        this.props.markerChoice(null);
     }
 
     getMarkerName(name) {
@@ -62,6 +65,10 @@ export default class Map extends PureComponent {
         });
 
         this.props.createMarker(this.state.coords, name);
+    }
+
+    markerChoice(markerIndex) {
+        this.props.markerChoice(Number(markerIndex));
     }
 
     markerNameFieldRender() {
@@ -78,13 +85,20 @@ export default class Map extends PureComponent {
     }
 
     markersRender() {
-        return map(this.props.markers, (markerPayload, key) =>
-            <Marker
-                key={key}
-                lat={markerPayload.coords.lat}
-                lng={markerPayload.coords.lng}
-            />
-        );
+        return map(this.props.markers, (markerPayload, key) => {
+            let center = false;
+
+            if (this.props.currentMarkerIndex === key) center = true;
+
+            return (
+                <Marker
+                    center={center}
+                    key={key}
+                    lat={markerPayload.coords.lat}
+                    lng={markerPayload.coords.lng}
+                />
+            );
+        });
     }
 
     render() {
@@ -99,6 +113,7 @@ export default class Map extends PureComponent {
                     defaultCenter={this.props.defaultSettings.center}
                     defaultZoom={this.props.defaultSettings.zoom}
                     options={this.props.options}
+                    onChildClick={::this.markerChoice}
                     onClick={::this.getMarkerCoords}
                 >
                     {this.markersRender()}
