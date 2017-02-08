@@ -1,6 +1,6 @@
 import { CREATE_MARKER } from 'Constants';
 
-export default function (coords, name) {
+export default (coords, name) => {
     return {
         type: CREATE_MARKER,
         payload: {
@@ -8,4 +8,4 @@ export default function (coords, name) {
             coords,
         },
     };
-}
+};

@@ -6,7 +6,7 @@ const StyledMarksListItem = styled.li`
     justify-content: space-between;
     align-items: center;
     min-height: ${StyleFunc.em(50)};
-    padding: ${StyleFunc.em(5)} ${StyleFunc.em(10)};
+    padding: ${StyleFunc.em(5)} ${StyleFunc.em(35)} ${StyleFunc.em(5)} ${StyleFunc.em(10)};
     border-bottom: 1px solid ${StyleConst.colors.secondary};
     color: ${StyleConst.colors.secondary};
 `;

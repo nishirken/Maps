@@ -59,7 +59,6 @@ export default class Map extends PureComponent {
         this.setState({
             ...this.state,
             markerInit: false,
-            markerName: name,
         });
 
         this.props.createMarker(this.state.coords, name);
@@ -76,10 +75,6 @@ export default class Map extends PureComponent {
             );
 
         return null;
-    }
-
-    markerCreationComplete(condition) {
-        this.setState({ markerInit: condition });
     }
 
     markersRender() {

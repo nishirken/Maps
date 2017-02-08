@@ -9,26 +9,13 @@ export default class MarkerNameField extends PureComponent {
         y: PropTypes.number.isRequired,
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: '',
-        };
-    }
-
     componentDidMount() {
         this.textInput.focus();
     }
 
     getMarkerName(element) {
-        this.setState({ inputValue: element.target.value });
-    }
-
-    markerCreationComplete(key) {
-        const value = this.state.inputValue;
-
-        if (key.keyCode === 13 || key.keyCode === 27)
-            this.props.getMarkerName(value);
+        if (element.keyCode === 13 || element.keyCode === 27)
+            this.props.getMarkerName(element.target.value);
     }
 
     render() {
@@ -45,8 +32,7 @@ export default class MarkerNameField extends PureComponent {
                         this.textInput = input;
                     }}
                     type="text"
-                    onChange={::this.getMarkerName}
-                    onKeyDown={::this.markerCreationComplete}
+                    onKeyDown={::this.getMarkerName}
                 />
             </StyledMarkerNameField>
         );

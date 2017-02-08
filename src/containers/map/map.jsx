@@ -18,10 +18,6 @@ export default class MapContainer extends PureComponent {
         markers: PropTypes.arrayOf(PropTypes.object),
     }
 
-    constructor(props) {
-        super(props);
-    }
-
     createMarker(coords, name) {
         this.props._createMarker(coords, name);
     }
