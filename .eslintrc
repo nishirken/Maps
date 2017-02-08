@@ -234,7 +234,7 @@
       "callback"
     ],
     "id-length": [
-      "error",
+      "off",
       {
         "min": 3,
         "exceptions": [
@@ -411,7 +411,7 @@
       }
     ],
     "no-confusing-arrow": [
-      "error",
+      "off",
       {
         "allowParens": true
       }
