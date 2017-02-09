@@ -6,7 +6,7 @@ import { createMarker, markerChoice } from 'Actions';
 
 @connect(
     state => ({
-        currentMarkerIndex: state.getCurrentMarker,
+        currentMarkerPayload: state.getCurrentMarker,
         markers: state.getMarkers,
     }),
     dispatch => ({
@@ -18,7 +18,10 @@ export default class MapContainer extends PureComponent {
     static propTypes = {
         _createMarker: PropTypes.func,
         _markerChoice: PropTypes.func,
-        currentMarkerIndex: PropTypes.number,
+        currentMarkerPayload: PropTypes.shape({
+            markerIndex: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        }),
         markers: PropTypes.arrayOf(PropTypes.object),
     }
 
@@ -26,15 +29,15 @@ export default class MapContainer extends PureComponent {
         this.props._createMarker(coords, name);
     }
 
-    markerChoice(markerIndex) {
-        this.props._markerChoice(markerIndex);
+    markerChoice(markerIndex, coords) {
+        this.props._markerChoice(markerIndex, coords);
     }
 
     render() {
         return (
             <Map
                 createMarker={::this.createMarker}
-                currentMarkerIndex={this.props.currentMarkerIndex}
+                currentMarkerPayload={this.props.currentMarkerPayload}
                 markerChoice={::this.markerChoice}
                 markers={this.props.markers}
             />

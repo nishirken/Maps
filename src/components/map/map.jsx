@@ -24,7 +24,10 @@ export default class Map extends PureComponent {
         }),
         createMarker: PropTypes.func,
         markerChoice: PropTypes.func,
-        currentMarkerIndex: PropTypes.number,
+        currentMarkerPayload: PropTypes.shape({
+            markerIndex: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        }),
         markers: PropTypes.arrayOf(PropTypes.object),
     };
 
@@ -67,8 +70,10 @@ export default class Map extends PureComponent {
         this.props.createMarker(this.state.coords, name);
     }
 
-    markerChoice(markerIndex) {
-        this.props.markerChoice(Number(markerIndex));
+    markerChoice(markerIndex, coords) {
+        const { lat, lng } = coords;
+
+        this.props.markerChoice(Number(markerIndex), { lat, lng });
     }
 
     markerNameFieldRender() {
@@ -86,16 +91,17 @@ export default class Map extends PureComponent {
 
     markersRender() {
         return map(this.props.markers, (markerPayload, key) => {
+            const coords = markerPayload.coords;
             let center = false;
 
-            if (this.props.currentMarkerIndex === key) center = true;
+            if (this.props.currentMarkerPayload.markerIndex === key) center = true;
 
             return (
                 <Marker
                     center={center}
                     key={key}
-                    lat={markerPayload.coords.lat}
-                    lng={markerPayload.coords.lng}
+                    lat={coords.lat}
+                    lng={coords.lng}
                 />
             );
         });
@@ -110,6 +116,7 @@ export default class Map extends PureComponent {
                         key: this.props.apiSettings.key,
                         language: this.props.apiSettings.lang,
                     }}
+                    center={this.props.currentMarkerPayload.coords}
                     defaultCenter={this.props.defaultSettings.center}
                     defaultZoom={this.props.defaultSettings.zoom}
                     options={this.props.options}

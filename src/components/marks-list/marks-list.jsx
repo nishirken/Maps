@@ -16,19 +16,22 @@ export default class MarksList extends PureComponent {
                 name: PropTypes.string,
             }),
         })).isRequired,
-        currentMarkerIndex: PropTypes.number,
+        currentMarkerPayload: PropTypes.shape({
+            markerIndex: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        }),
         markerChoice: PropTypes.func,
     }
 
-    markerChoice(markerIndex) {
-        this.props.markerChoice(markerIndex);
+    markerChoice(markerIndex, coords) {
+        this.props.markerChoice(markerIndex, coords);
     }
 
     marksListItemsRender() {
         return map(this.props.markers, (marker, key) => {
             let current = false;
 
-            if (this.props.currentMarkerIndex === key) current = true;
+            if (this.props.currentMarkerPayload.markerIndex === key) current = true;
 
             return (
                 <MarksListItem

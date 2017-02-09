@@ -1,8 +1,11 @@
 import { MARKER_CHOICE } from 'Constants';
 
-export default (markerIndex) => {
+export default (markerIndex, coords) => {
     return {
         type: MARKER_CHOICE,
-        markerIndex,
+        payload: {
+            markerIndex,
+            coords,
+        },
     };
 };

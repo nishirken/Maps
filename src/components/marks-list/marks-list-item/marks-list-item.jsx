@@ -14,15 +14,15 @@ export default class MarksListItem extends PureComponent {
         markerChoice: PropTypes.func,
     }
 
-    markerChoice(markerIndex) {
-        this.props.markerChoice(markerIndex);
+    markerChoice(markerIndex, coords) {
+        this.props.markerChoice(markerIndex, coords);
     }
 
     render() {
         return (
             <StyledMarksListItem
                 current={this.props.current}
-                onClick={this.markerChoice.bind(this, this.props.markerIndex)}
+                onClick={this.markerChoice.bind(this, this.props.markerIndex, this.props.markerCoords)}
             >
                 <Text
                     markerCoords={this.props.markerCoords}

@@ -7,7 +7,7 @@ import { MarksList } from 'Components';
 @connect(
     state => ({
         markers: state.getMarkers,
-        currentMarkerIndex: state.getCurrentMarker,
+        currentMarkerPayload: state.getCurrentMarker,
     }),
     dispatch => ({
         _markerChoice: bindActionCreators(markerChoice, dispatch),
@@ -26,18 +26,21 @@ export default class MarksListContainer extends PureComponent {
                 name: PropTypes.string,
             }),
         })).isRequired,
-        currentMarkerIndex: PropTypes.number,
+        currentMarkerPayload: PropTypes.shape({
+            markerIndex: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        }),
         _markerChoice: PropTypes.func,
     }
 
-    markerChoice(markerIndex) {
-        this.props._markerChoice(markerIndex);
+    markerChoice(markerIndex, coords) {
+        this.props._markerChoice(markerIndex, coords);
     }
 
     render() {
         return (
             <MarksList
-                currentMarkerIndex={this.props.currentMarkerIndex}
+                currentMarkerPayload={this.props.currentMarkerPayload}
                 markerChoice={::this.markerChoice}
                 markers={this.props.markers}
             />
