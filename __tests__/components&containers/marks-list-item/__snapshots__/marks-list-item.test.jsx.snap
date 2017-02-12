@@ -6,19 +6,23 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.li>
+  "node": <styled.li
+    current={undefined}
+    onClick={[Function]}>
     <Text
         markerCoords={undefined}
-        markerName={undefined}
-        markerOrdinal={undefined} />
+        markerIndex={undefined}
+        markerName={undefined} />
     <Buttons />
 </styled.li>,
   "nodes": Array [
-    <styled.li>
+    <styled.li
+      current={undefined}
+      onClick={[Function]}>
       <Text
             markerCoords={undefined}
-            markerName={undefined}
-            markerOrdinal={undefined} />
+            markerIndex={undefined}
+            markerName={undefined} />
       <Buttons />
 </styled.li>,
   ],
@@ -73,19 +77,23 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.li>
+        "_currentElement": <styled.li
+          current={undefined}
+          onClick={[Function]}>
           <Text
                     markerCoords={undefined}
-                    markerName={undefined}
-                    markerOrdinal={undefined} />
+                    markerIndex={undefined}
+                    markerName={undefined} />
           <Buttons />
 </styled.li>,
         "_debugID": 2,
-        "_renderedOutput": <styled.li>
+        "_renderedOutput": <styled.li
+          current={undefined}
+          onClick={[Function]}>
           <Text
                     markerCoords={undefined}
-                    markerName={undefined}
-                    markerOrdinal={undefined} />
+                    markerIndex={undefined}
+                    markerName={undefined} />
           <Buttons />
 </styled.li>,
       },

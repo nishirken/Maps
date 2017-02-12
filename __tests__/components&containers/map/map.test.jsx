@@ -1,9 +1,17 @@
 import store from 'Store';
-import { MapContainer } from 'Containers';
+import { Map } from 'Components';
+
+const markerPayload = {
+    coords: {
+        lat: 299,
+        lng: 300,
+    },
+    markerIndex: 1,
+};
 
 describe('Map', () => {
-    const TestMapShallow = shallow(<MapContainer store={store} />),
-        TestMap = mount(<MapContainer store={store} />);
+    const TestMapShallow = shallow(<Map currentMarkerPayload={markerPayload} store={store} />),
+        TestMap = mount(<Map currentMarkerPayload={markerPayload} store={store} />);
 
     it('Rendered', () => {
         expect(TestMapShallow).toMatchSnapshot();

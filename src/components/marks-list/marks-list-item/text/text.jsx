@@ -20,7 +20,7 @@ export default class Text extends PureComponent {
                 <StyledMarkerCoords>
                     coords: {this.props.markerCoords.lat.toFixed(2)},
                     &nbsp;{this.props.markerCoords.lng.toFixed(2)} <br />
-                    №: {this.props.markerIndex + 1}
+                    №: {this.props.markerNumber}
                 </StyledMarkerCoords>
             </div>
         );

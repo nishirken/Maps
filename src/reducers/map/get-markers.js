@@ -1,12 +1,21 @@
 import { CREATE_MARKER } from 'Constants';
+import { setReducerToLocalStorage } from 'Store';
 
 export default (state = [], action) => {
+    let value = state;
+
     switch (action.type) {
         case CREATE_MARKER:
-            return [
+            value = [
                 ...state,
-                action.payload,
+                {
+                    ...action.payload,
+                    index: state.length,
+                },
             ];
+            setReducerToLocalStorage('getMarkers', value).then(result => console.log(result));
+
+            return value;
         default:
             return state;
     }

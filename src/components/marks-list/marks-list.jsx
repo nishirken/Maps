@@ -1,6 +1,7 @@
-import { map } from 'lodash';
+import { map, filter, forEach, includes } from 'lodash';
 
 import StyledMarksList from './styled-marks-list';
+import StyledSearchField from './search-field/styled-search-field';
 import MarksListItem from './marks-list-item/marks-list-item';
 
 export default class MarksList extends PureComponent {
@@ -21,14 +22,41 @@ export default class MarksList extends PureComponent {
             coords: PropTypes.objectOf(PropTypes.number),
         }),
         markerChoice: PropTypes.func,
+        getMarkerSearchIndexes: PropTypes.func,
+        filterMarkers: PropTypes.arrayOf(PropTypes.number),
+        deleteMarker: PropTypes.func,
+        getDeleteMarkerIndexes: PropTypes.arrayOf(PropTypes.number),
     }
 
-    markerChoice(markerIndex, coords) {
-        this.props.markerChoice(markerIndex, coords);
+    markerSearchIndex(e) {
+        const value = e.target.value;
+
+        const searchIndexes = [];
+
+        function search(searchValue, ...args) {
+            for (const argument in args)
+                return String(args[argument]).toLowerCase().indexOf(searchValue) !== -1;
+        }
+
+        if (value)
+            forEach(this.props.markers, (marker, key) => {
+                if (search(value, marker.name))
+                    searchIndexes.push(key);
+            });
+
+        this.props.getMarkerSearchIndexes(searchIndexes);
     }
 
     marksListItemsRender() {
-        return map(this.props.markers, (marker, key) => {
+        let markers = this.props.markers;
+
+        if (this.props.getDeleteMarkerIndexes)
+            markers = filter(markers, (marker, key) => !includes(this.props.getDeleteMarkerIndexes, key));
+
+        if (this.props.filterMarkers.length > 0)
+            markers = filter(markers, (marker, key) => includes(this.props.filterMarkers, key));
+
+        return map(markers, (marker, key) => {
             let current = false;
 
             if (this.props.currentMarkerPayload.markerIndex === key) current = true;
@@ -36,14 +64,16 @@ export default class MarksList extends PureComponent {
             return (
                 <MarksListItem
                     current={current}
+                    deleteMarker={this.props.deleteMarker}
                     key={key}
-                    markerChoice={::this.markerChoice}
+                    markerChoice={this.props.markerChoice}
                     markerCoords={{
                         lat: marker.coords.lat,
                         lng: marker.coords.lng,
                     }}
-                    markerIndex={key}
+                    markerIndex={marker.index}
                     markerName={marker.name}
+                    markerNumber={key + 1}
                 />
             );
         });
@@ -51,7 +81,12 @@ export default class MarksList extends PureComponent {
 
     render() {
         return (
-            <StyledMarksList >
+            <StyledMarksList>
+                <StyledSearchField
+                    placeholder="search"
+                    type="text"
+                    onChange={::this.markerSearchIndex}
+                />
                 {this.marksListItemsRender()}
             </StyledMarksList>
         );

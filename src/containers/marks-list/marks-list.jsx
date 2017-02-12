@@ -1,16 +1,20 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { markerChoice } from 'Actions';
+import { markerChoice, filterMarkers, deleteMarker } from 'Actions';
 import { MarksList } from 'Components';
 
 @connect(
     state => ({
         markers: state.getMarkers,
         currentMarkerPayload: state.getCurrentMarker,
+        filterMarkers: state.getMarkerSearchIndexes,
+        getDeleteMarkerIndexes: state.getDeleteMarkerIndexes,
     }),
     dispatch => ({
-        _markerChoice: bindActionCreators(markerChoice, dispatch),
+        markerChoice: bindActionCreators(markerChoice, dispatch),
+        getMarkerSearchIndexes: bindActionCreators(filterMarkers, dispatch),
+        deleteMarker: bindActionCreators(deleteMarker, dispatch),
     })
 )
 export default class MarksListContainer extends PureComponent {
@@ -30,18 +34,22 @@ export default class MarksListContainer extends PureComponent {
             markerIndex: PropTypes.number,
             coords: PropTypes.objectOf(PropTypes.number),
         }),
-        _markerChoice: PropTypes.func,
-    }
-
-    markerChoice(markerIndex, coords) {
-        this.props._markerChoice(markerIndex, coords);
+        markerChoice: PropTypes.func,
+        getMarkerSearchIndexes: PropTypes.func,
+        deleteMarker: PropTypes.func,
+        getDeleteMarkerIndexes: PropTypes.arrayOf(PropTypes.number),
+        filterMarkers: PropTypes.arrayOf(PropTypes.number),
     }
 
     render() {
         return (
             <MarksList
                 currentMarkerPayload={this.props.currentMarkerPayload}
-                markerChoice={::this.markerChoice}
+                deleteMarker={this.props.deleteMarker}
+                filterMarkers={this.props.filterMarkers}
+                getDeleteMarkerIndexes={this.props.getDeleteMarkerIndexes}
+                getMarkerSearchIndexes={this.props.getMarkerSearchIndexes}
+                markerChoice={this.props.markerChoice}
                 markers={this.props.markers}
             />
         );

@@ -14,7 +14,6 @@ ShallowWrapper {
     </styled.h3>
     <styled.input
         innerRef={[Function]}
-        onChange={[Function]}
         onKeyDown={[Function]}
         type="text" />
 </styled.div>,
@@ -27,7 +26,6 @@ ShallowWrapper {
       </styled.h3>
       <styled.input
             innerRef={[Function]}
-            onChange={[Function]}
             onKeyDown={[Function]}
             type="text" />
 </styled.div>,
@@ -68,9 +66,7 @@ ShallowWrapper {
           "y": 99,
         },
         "refs": Object {},
-        "state": Object {
-          "inputValue": "",
-        },
+        "state": null,
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -97,7 +93,6 @@ ShallowWrapper {
           </styled.h3>
           <styled.input
                     innerRef={[Function]}
-                    onChange={[Function]}
                     onKeyDown={[Function]}
                     type="text" />
 </styled.div>,
@@ -110,7 +105,6 @@ ShallowWrapper {
           </styled.h3>
           <styled.input
                     innerRef={[Function]}
-                    onChange={[Function]}
                     onKeyDown={[Function]}
                     type="text" />
 </styled.div>,

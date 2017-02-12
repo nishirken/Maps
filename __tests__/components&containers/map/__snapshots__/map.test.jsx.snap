@@ -6,39 +6,283 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <MapContainer
-    _setNewMarker={[Function]}
-    markers={Array []}
-    store={
-        Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          }
-    } />,
-  "nodes": Array [
-    <MapContainer
-      _setNewMarker={[Function]}
-      markers={Array []}
-      store={
+  "node": <styled.section>
+    <GoogleMap
+        bootstrapURLKeys={
             Object {
-                  "dispatch": [Function],
-                  "getState": [Function],
-                  "replaceReducer": [Function],
-                  "subscribe": [Function],
-                  Symbol(observable): [Function],
-                }
-      } />,
+                "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+                "language": "ru",
+              }
+        }
+        center={
+            Object {
+                "lat": 299,
+                "lng": 300,
+              }
+        }
+        debounced={true}
+        defaultCenter={
+            Object {
+                "lat": 56.84,
+                "lng": 60.57,
+              }
+        }
+        defaultZoom={18}
+        distanceToMouse={[Function]}
+        googleMapLoader={[Function]}
+        hoverDistance={30}
+        layerTypes={Array []}
+        onChildClick={[Function]}
+        onClick={[Function]}
+        options={
+            Object {
+                "styles": Array [
+                  Object {
+                    "elementType": "geometry",
+                    "featureType": "road",
+                    "stylers": Array [
+                      Object {
+                        "color": "#795548",
+                      },
+                      Object {
+                        "visibility": "simplified",
+                      },
+                    ],
+                  },
+                  Object {
+                    "elementType": "labels",
+                    "featureType": "road",
+                    "stylers": Array [
+                      Object {
+                        "color": "#ECEFF1",
+                      },
+                      Object {
+                        "visibility": "simplified",
+                      },
+                    ],
+                  },
+                  Object {
+                    "featureType": "administrative",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "simplified",
+                      },
+                    ],
+                  },
+                  Object {
+                    "featureType": "poi",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "simplified",
+                      },
+                    ],
+                  },
+                  Object {
+                    "featureType": "transit",
+                    "stylers": Array [
+                      Object {
+                        "visibility": "simplified",
+                      },
+                    ],
+                  },
+                ],
+              }
+        }
+        style={
+            Object {
+                "height": "100%",
+                "margin": 0,
+                "padding": 0,
+                "position": "relative",
+                "width": "100%",
+              }
+        }
+        yesIWantToUseGoogleMapApiInternals={false}>
+        
+    </GoogleMap>
+</styled.section>,
+  "nodes": Array [
+    <styled.section>
+      <GoogleMap
+            bootstrapURLKeys={
+                  Object {
+                        "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+                        "language": "ru",
+                      }
+            }
+            center={
+                  Object {
+                        "lat": 299,
+                        "lng": 300,
+                      }
+            }
+            debounced={true}
+            defaultCenter={
+                  Object {
+                        "lat": 56.84,
+                        "lng": 60.57,
+                      }
+            }
+            defaultZoom={18}
+            distanceToMouse={[Function]}
+            googleMapLoader={[Function]}
+            hoverDistance={30}
+            layerTypes={Array []}
+            onChildClick={[Function]}
+            onClick={[Function]}
+            options={
+                  Object {
+                        "styles": Array [
+                          Object {
+                            "elementType": "geometry",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#795548",
+                              },
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ECEFF1",
+                              },
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "featureType": "administrative",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "featureType": "poi",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "featureType": "transit",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                        ],
+                      }
+            }
+            style={
+                  Object {
+                        "height": "100%",
+                        "margin": 0,
+                        "padding": 0,
+                        "position": "relative",
+                        "width": "100%",
+                      }
+            }
+            yesIWantToUseGoogleMapApiInternals={false}>
+            
+      </GoogleMap>
+</styled.section>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
     "_instance": ShallowComponentWrapper {
       "_calledComponentWillUnmount": false,
-      "_compositeType": 0,
+      "_compositeType": 1,
       "_context": Object {},
-      "_currentElement": <Connect(MapContainer)
+      "_currentElement": <Map
+        apiSettings={
+                Object {
+                        "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+                        "lang": "ru",
+                      }
+        }
+        currentMarkerPayload={
+                Object {
+                        "coords": Object {
+                          "lat": 299,
+                          "lng": 300,
+                        },
+                        "markerIndex": 1,
+                      }
+        }
+        defaultSettings={
+                Object {
+                        "center": Object {
+                          "lat": 56.84,
+                          "lng": 60.57,
+                        },
+                        "zoom": 18,
+                      }
+        }
+        options={
+                Object {
+                        "styles": Array [
+                          Object {
+                            "elementType": "geometry",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#795548",
+                              },
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "elementType": "labels",
+                            "featureType": "road",
+                            "stylers": Array [
+                              Object {
+                                "color": "#ECEFF1",
+                              },
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "featureType": "administrative",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "featureType": "poi",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                          Object {
+                            "featureType": "transit",
+                            "stylers": Array [
+                              Object {
+                                "visibility": "simplified",
+                              },
+                            ],
+                          },
+                        ],
+                      }
+        }
         store={
                 Object {
                         "dispatch": [Function],
@@ -51,15 +295,80 @@ ShallowWrapper {
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": Connect {
+      "_instance": Map {
         "_reactInternalInstance": [Circular],
-        "context": Object {
-          "store": undefined,
-          "storeSubscription": undefined,
-        },
-        "getState": [Function],
-        "parentSub": undefined,
+        "context": Object {},
         "props": Object {
+          "apiSettings": Object {
+            "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+            "lang": "ru",
+          },
+          "currentMarkerPayload": Object {
+            "coords": Object {
+              "lat": 299,
+              "lng": 300,
+            },
+            "markerIndex": 1,
+          },
+          "defaultSettings": Object {
+            "center": Object {
+              "lat": 56.84,
+              "lng": 60.57,
+            },
+            "zoom": 18,
+          },
+          "options": Object {
+            "styles": Array [
+              Object {
+                "elementType": "geometry",
+                "featureType": "road",
+                "stylers": Array [
+                  Object {
+                    "color": "#795548",
+                  },
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "elementType": "labels",
+                "featureType": "road",
+                "stylers": Array [
+                  Object {
+                    "color": "#ECEFF1",
+                  },
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "featureType": "administrative",
+                "stylers": Array [
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "featureType": "poi",
+                "stylers": Array [
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "featureType": "transit",
+                "stylers": Array [
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+            ],
+          },
           "store": Object {
             "dispatch": [Function],
             "getState": [Function],
@@ -69,45 +378,8 @@ ShallowWrapper {
           },
         },
         "refs": Object {},
-        "renderCount": 0,
-        "selector": Object {
-          "props": Object {
-            "_setNewMarker": [Function],
-            "markers": Array [],
-            "store": Object {
-              "dispatch": [Function],
-              "getState": [Function],
-              "replaceReducer": [Function],
-              "subscribe": [Function],
-              Symbol(observable): [Function],
-            },
-          },
-          "run": [Function],
-          "shouldComponentUpdate": false,
-        },
-        "setWrappedInstance": [Function],
-        "state": Object {},
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(observable): [Function],
-        },
-        "subscription": Subscription {
-          "listeners": Object {
-            "notify": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(observable): [Function],
-          },
-          "unsubscribe": null,
+        "state": Object {
+          "markerInit": false,
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -119,7 +391,6 @@ ShallowWrapper {
           "isMounted": [Function],
           "validateCallback": [Function],
         },
-        "version": 0,
       },
       "_mountOrder": 1,
       "_pendingCallbacks": null,
@@ -128,31 +399,197 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <MapContainer
-          _setNewMarker={[Function]}
-          markers={Array []}
-          store={
-                    Object {
-                              "dispatch": [Function],
-                              "getState": [Function],
-                              "replaceReducer": [Function],
-                              "subscribe": [Function],
-                              Symbol(observable): [Function],
-                            }
-          } />,
+        "_currentElement": <styled.section>
+          <GoogleMap
+                    bootstrapURLKeys={
+                              Object {
+                                        "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+                                        "language": "ru",
+                                      }
+                    }
+                    center={
+                              Object {
+                                        "lat": 299,
+                                        "lng": 300,
+                                      }
+                    }
+                    debounced={true}
+                    defaultCenter={
+                              Object {
+                                        "lat": 56.84,
+                                        "lng": 60.57,
+                                      }
+                    }
+                    defaultZoom={18}
+                    distanceToMouse={[Function]}
+                    googleMapLoader={[Function]}
+                    hoverDistance={30}
+                    layerTypes={Array []}
+                    onChildClick={[Function]}
+                    onClick={[Function]}
+                    options={
+                              Object {
+                                        "styles": Array [
+                                          Object {
+                                            "elementType": "geometry",
+                                            "featureType": "road",
+                                            "stylers": Array [
+                                              Object {
+                                                "color": "#795548",
+                                              },
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "elementType": "labels",
+                                            "featureType": "road",
+                                            "stylers": Array [
+                                              Object {
+                                                "color": "#ECEFF1",
+                                              },
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "featureType": "administrative",
+                                            "stylers": Array [
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "featureType": "poi",
+                                            "stylers": Array [
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "featureType": "transit",
+                                            "stylers": Array [
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                        ],
+                                      }
+                    }
+                    style={
+                              Object {
+                                        "height": "100%",
+                                        "margin": 0,
+                                        "padding": 0,
+                                        "position": "relative",
+                                        "width": "100%",
+                                      }
+                    }
+                    yesIWantToUseGoogleMapApiInternals={false}>
+                    
+          </GoogleMap>
+</styled.section>,
         "_debugID": 2,
-        "_renderedOutput": <MapContainer
-          _setNewMarker={[Function]}
-          markers={Array []}
-          store={
-                    Object {
-                              "dispatch": [Function],
-                              "getState": [Function],
-                              "replaceReducer": [Function],
-                              "subscribe": [Function],
-                              Symbol(observable): [Function],
-                            }
-          } />,
+        "_renderedOutput": <styled.section>
+          <GoogleMap
+                    bootstrapURLKeys={
+                              Object {
+                                        "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+                                        "language": "ru",
+                                      }
+                    }
+                    center={
+                              Object {
+                                        "lat": 299,
+                                        "lng": 300,
+                                      }
+                    }
+                    debounced={true}
+                    defaultCenter={
+                              Object {
+                                        "lat": 56.84,
+                                        "lng": 60.57,
+                                      }
+                    }
+                    defaultZoom={18}
+                    distanceToMouse={[Function]}
+                    googleMapLoader={[Function]}
+                    hoverDistance={30}
+                    layerTypes={Array []}
+                    onChildClick={[Function]}
+                    onClick={[Function]}
+                    options={
+                              Object {
+                                        "styles": Array [
+                                          Object {
+                                            "elementType": "geometry",
+                                            "featureType": "road",
+                                            "stylers": Array [
+                                              Object {
+                                                "color": "#795548",
+                                              },
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "elementType": "labels",
+                                            "featureType": "road",
+                                            "stylers": Array [
+                                              Object {
+                                                "color": "#ECEFF1",
+                                              },
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "featureType": "administrative",
+                                            "stylers": Array [
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "featureType": "poi",
+                                            "stylers": Array [
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                          Object {
+                                            "featureType": "transit",
+                                            "stylers": Array [
+                                              Object {
+                                                "visibility": "simplified",
+                                              },
+                                            ],
+                                          },
+                                        ],
+                                      }
+                    }
+                    style={
+                              Object {
+                                        "height": "100%",
+                                        "margin": 0,
+                                        "padding": 0,
+                                        "position": "relative",
+                                        "width": "100%",
+                                      }
+                    }
+                    yesIWantToUseGoogleMapApiInternals={false}>
+                    
+          </GoogleMap>
+</styled.section>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -164,7 +601,85 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Connect(MapContainer)
+  "unrendered": <Map
+    apiSettings={
+        Object {
+            "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+            "lang": "ru",
+          }
+    }
+    currentMarkerPayload={
+        Object {
+            "coords": Object {
+              "lat": 299,
+              "lng": 300,
+            },
+            "markerIndex": 1,
+          }
+    }
+    defaultSettings={
+        Object {
+            "center": Object {
+              "lat": 56.84,
+              "lng": 60.57,
+            },
+            "zoom": 18,
+          }
+    }
+    options={
+        Object {
+            "styles": Array [
+              Object {
+                "elementType": "geometry",
+                "featureType": "road",
+                "stylers": Array [
+                  Object {
+                    "color": "#795548",
+                  },
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "elementType": "labels",
+                "featureType": "road",
+                "stylers": Array [
+                  Object {
+                    "color": "#ECEFF1",
+                  },
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "featureType": "administrative",
+                "stylers": Array [
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "featureType": "poi",
+                "stylers": Array [
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+              Object {
+                "featureType": "transit",
+                "stylers": Array [
+                  Object {
+                    "visibility": "simplified",
+                  },
+                ],
+              },
+            ],
+          }
+    }
     store={
         Object {
             "dispatch": [Function],

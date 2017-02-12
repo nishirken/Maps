@@ -1,4 +1,4 @@
-import { map } from 'lodash';
+import { map, filter, includes } from 'lodash';
 import GoogleMapReact from 'google-map-react';
 
 import StyledMap from './styled-map';
@@ -29,6 +29,8 @@ export default class Map extends PureComponent {
             coords: PropTypes.objectOf(PropTypes.number),
         }),
         markers: PropTypes.arrayOf(PropTypes.object),
+        filterMarkers: PropTypes.arrayOf(PropTypes.number),
+        getDeleteMarkerIndexes: PropTypes.arrayOf(PropTypes.number),
     };
 
     static defaultProps = {
@@ -67,7 +69,7 @@ export default class Map extends PureComponent {
             markerInit: false,
         });
 
-        this.props.createMarker(this.state.coords, name);
+        this.props.createMarker(this.state.coords, name, this.state.markerIndex);
     }
 
     markerChoice(markerIndex, coords) {
@@ -90,7 +92,17 @@ export default class Map extends PureComponent {
     }
 
     markersRender() {
-        return map(this.props.markers, (markerPayload, key) => {
+        let markers = this.props.markers;
+
+        if (this.props.getDeleteMarkerIndexes)
+            markers = filter(markers, (marker, key) => !includes(this.props.getDeleteMarkerIndexes, key));
+
+        if (this.props.filterMarkers.length > 0)
+            markers = filter(markers, (marker, key) => {
+                return includes(this.props.filterMarkers, key);
+            });
+
+        return map(markers, (markerPayload, key) => {
             const coords = markerPayload.coords;
             let center = false;
 
@@ -116,7 +128,7 @@ export default class Map extends PureComponent {
                         key: this.props.apiSettings.key,
                         language: this.props.apiSettings.lang,
                     }}
-                    center={this.props.currentMarkerPayload.coords}
+                    center={this.props.currentMarkerPayload && this.props.currentMarkerPayload.coords}
                     defaultCenter={this.props.defaultSettings.center}
                     defaultZoom={this.props.defaultSettings.zoom}
                     options={this.props.options}

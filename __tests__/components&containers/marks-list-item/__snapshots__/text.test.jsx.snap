@@ -18,6 +18,7 @@ ShallowWrapper {
          
         <br />
         №: 
+        NaN
     </styled.p>
 </div>,
   "nodes": Array [
@@ -33,6 +34,7 @@ ShallowWrapper {
              
             <br />
             №: 
+            NaN
       </styled.p>
 </div>,
   ],
@@ -109,6 +111,7 @@ ShallowWrapper {
                      
                     <br />
                     №: 
+                    NaN
           </styled.p>
 </div>,
         "_debugID": 2,
@@ -124,6 +127,7 @@ ShallowWrapper {
                      
                     <br />
                     №: 
+                    NaN
           </styled.p>
 </div>,
       },

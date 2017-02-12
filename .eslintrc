@@ -72,7 +72,7 @@
     "class-methods-use-this": "off",
     "complexity": [
       "error",
-      3
+      4
     ],
     "consistent-return": "warn",
     "curly": [
@@ -309,7 +309,7 @@
     "newline-per-chained-call": [
       "error",
       {
-        "ignoreChainWithDepth": 2
+        "ignoreChainWithDepth": 3
       }
     ],
     "no-array-constructor": "error",

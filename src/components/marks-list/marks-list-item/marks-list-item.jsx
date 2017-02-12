@@ -1,6 +1,6 @@
 import StyledMarksListItem from './styled-marks-list-item';
 import Text from './text/text';
-import Buttons from './buttons/buttons';
+import Buttons from '../buttons/buttons';
 
 export default class MarksListItem extends PureComponent {
     static propTypes = {
@@ -10,26 +10,27 @@ export default class MarksListItem extends PureComponent {
             lng: PropTypes.number,
         }),
         markerIndex: PropTypes.number,
+        markerNumber: PropTypes.number,
         current: PropTypes.bool,
         markerChoice: PropTypes.func,
-    }
-
-    markerChoice(markerIndex, coords) {
-        this.props.markerChoice(markerIndex, coords);
+        deleteMarker: PropTypes.func,
     }
 
     render() {
         return (
             <StyledMarksListItem
                 current={this.props.current}
-                onClick={this.markerChoice.bind(this, this.props.markerIndex, this.props.markerCoords)}
+                onClick={this.props.markerChoice.bind(this, this.props.markerIndex, this.props.markerCoords)}
             >
                 <Text
                     markerCoords={this.props.markerCoords}
-                    markerIndex={this.props.markerIndex}
                     markerName={this.props.markerName}
+                    markerNumber={this.props.markerNumber}
                 />
-                <Buttons />
+                <Buttons
+                    deleteMarker={this.props.deleteMarker}
+                    markerIndex={this.props.markerIndex}
+                />
             </StyledMarksListItem>
         );
     }
