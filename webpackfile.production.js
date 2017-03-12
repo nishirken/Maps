@@ -1,9 +1,6 @@
 const webpack = require('webpack'),
     { resolve } = require('path'),
-    BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin');
-
-process.env.NODE_ENV = 'production';
+    BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
 
 function pathResolve(yourPath) {
     return resolve(__dirname, yourPath);

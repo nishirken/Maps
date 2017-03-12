@@ -300,7 +300,7 @@
       6
     ],
     "multiline-ternary": [
-      "error",
+      "off",
       "never"
     ],
     "new-cap": "error",

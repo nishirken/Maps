@@ -1,9 +1,6 @@
 const webpack = require('webpack'),
     { resolve } = require('path'),
-    BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin');
-
-process.env.NODE_ENV = 'development';
+    BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
 
 function pathResolve(yourPath) {
     return resolve(__dirname, yourPath);
@@ -65,6 +62,7 @@ module.exports = {
             minChunks: 2,
         }),
         new webpack.LoaderOptionsPlugin({
+            test: /\.(js|jsx)$/,
             options: {
                 devTool: 'cheap-module-eval-source-map',
             },
@@ -87,6 +85,7 @@ module.exports = {
         compress: false,
         contentBase: 'build/',
         publicPath: '/',
+        port: 3000,
         hot: true,
         stats: 'normal',
         watchOptions: {

@@ -26,6 +26,11 @@ export default class MarksList extends PureComponent {
         filterMarkers: PropTypes.arrayOf(PropTypes.number),
         deleteMarker: PropTypes.func,
         getDeleteMarkerIndexes: PropTypes.arrayOf(PropTypes.number),
+        getNewMarkerName: PropTypes.arrayOf(PropTypes.shape({
+            markerIndex: PropTypes.number,
+            newMarkerName: PropTypes.string,
+        })),
+        setNewMarkerName: PropTypes.func,
     }
 
     markerSearchIndex(e) {
@@ -65,6 +70,7 @@ export default class MarksList extends PureComponent {
                 <MarksListItem
                     current={current}
                     deleteMarker={this.props.deleteMarker}
+                    getNewMarkerName={this.props.getNewMarkerName}
                     key={key}
                     markerChoice={this.props.markerChoice}
                     markerCoords={{
@@ -74,6 +80,7 @@ export default class MarksList extends PureComponent {
                     markerIndex={marker.index}
                     markerName={marker.name}
                     markerNumber={key + 1}
+                    setNewMarkerName={this.props.setNewMarkerName}
                 />
             );
         });

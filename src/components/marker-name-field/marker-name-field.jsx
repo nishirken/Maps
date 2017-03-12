@@ -4,9 +4,17 @@ import StyledInput from './styled-input';
 
 export default class MarkerNameField extends PureComponent {
     static propTypes = {
-        getMarkerName: PropTypes.func,
+        completeCreateMarker: PropTypes.func,
+        cancelCreateMarker: PropTypes.func,
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired,
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            completeCreateMarkerWithoutName: false,
+        };
     }
 
     componentDidMount() {
@@ -14,11 +22,17 @@ export default class MarkerNameField extends PureComponent {
     }
 
     getMarkerName(element) {
-        if (element.keyCode === 13 || element.keyCode === 27)
-            this.props.getMarkerName(element.target.value);
+        if (element.keyCode === 13)
+            this.props.completeCreateMarker(element.target.value);
+
+        if (element.keyCode === 27)
+            this.props.cancelCreateMarker();
     }
 
     render() {
+        if (this.state.completeCreateMarkerWithoutName)
+            return null;
+
         return (
             <StyledMarkerNameField
                 x={this.props.x}

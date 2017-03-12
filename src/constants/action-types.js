@@ -2,3 +2,4 @@ export const CREATE_MARKER = 'CREATE_MARKER';
 export const MARKER_CHOICE = 'MARKER_CHOICE';
 export const FILTER_MARKERS = 'FILTER_MARKERS';
 export const DELETE_MARKER = 'DELETE_MARKER';
+export const NEW_MARKER_NAME = 'NEW_MARKER_NAME';

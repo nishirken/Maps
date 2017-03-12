@@ -1,9 +1,21 @@
 import StyledButtonSvg from './styled-button-svg';
 
 export default class EditButton extends PureComponent {
+    static propTypes = {
+        switchEditMarkerName: PropTypes.func,
+    }
+
+    switchEditMarkerName(e) {
+        e.stopPropagation();
+        this.props.switchEditMarkerName();
+    }
+
     render() {
         return (
-            <StyledButtonSvg viewBox="0 0 32 32">
+            <StyledButtonSvg
+                viewBox="0 0 32 32"
+                onClick={::this.switchEditMarkerName}
+            >
                 <path
                     d="M12 20l4-2 14-14-2-2-14 14-2 4zM9.041
                     27.097c-0.989-2.085-2.052-3.149-4.137-4.137l3.097-8.525

@@ -63,13 +63,20 @@ export default class Map extends PureComponent {
         this.props.markerChoice(null);
     }
 
-    getMarkerName(name) {
+    completeCreateMarker(markerName) {
         this.setState({
             ...this.state,
             markerInit: false,
         });
 
-        this.props.createMarker(this.state.coords, name, this.state.markerIndex);
+        this.props.createMarker(this.state.coords, markerName, this.state.markerIndex);
+    }
+
+    cancelCreateMarker() {
+        this.setState({
+            ...this.state,
+            markerInit: false,
+        });
     }
 
     markerChoice(markerIndex, coords) {
@@ -82,7 +89,8 @@ export default class Map extends PureComponent {
         if (this.state.markerInit)
             return (
                 <MarkerNameField
-                    getMarkerName={::this.getMarkerName}
+                    cancelCreateMarker={::this.cancelCreateMarker}
+                    completeCreateMarker={::this.completeCreateMarker}
                     x={this.state.x}
                     y={this.state.y}
                 />

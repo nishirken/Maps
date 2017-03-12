@@ -3,7 +3,7 @@ import createLogger from 'redux-logger';
 
 import reducers from 'Reducers';
 
-const localStorageAppKey = 'Maps test task';
+const localStorageAppKey = 'MapsTestTask';
 
 export function setReducerToLocalStorage(reducerName, actionValue) {
     return new Promise(resolve => {

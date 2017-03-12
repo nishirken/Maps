@@ -6,12 +6,15 @@ export default class Buttons extends PureComponent {
     static propTypes = {
         deleteMarker: PropTypes.func,
         markerIndex: PropTypes.number,
+        switchEditMarkerName: PropTypes.func,
     }
 
     render() {
         return (
             <StyledButtons>
-                <EditButton />
+                <EditButton
+                    switchEditMarkerName={this.props.switchEditMarkerName}
+                />
                 <DeleteButton
                     deleteMarker={this.props.deleteMarker}
                     markerIndex={this.props.markerIndex}

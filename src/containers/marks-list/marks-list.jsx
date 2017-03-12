@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { markerChoice, filterMarkers, deleteMarker } from 'Actions';
+import { markerChoice, filterMarkers, deleteMarker, setNewMarkerName } from 'Actions';
 import { MarksList } from 'Components';
 
 @connect(
@@ -10,11 +10,13 @@ import { MarksList } from 'Components';
         currentMarkerPayload: state.getCurrentMarker,
         filterMarkers: state.getMarkerSearchIndexes,
         getDeleteMarkerIndexes: state.getDeleteMarkerIndexes,
+        getNewMarkerName: state.getNewMarkerName,
     }),
     dispatch => ({
         markerChoice: bindActionCreators(markerChoice, dispatch),
         getMarkerSearchIndexes: bindActionCreators(filterMarkers, dispatch),
         deleteMarker: bindActionCreators(deleteMarker, dispatch),
+        setNewMarkerName: bindActionCreators(setNewMarkerName, dispatch),
     })
 )
 export default class MarksListContainer extends PureComponent {
@@ -39,6 +41,11 @@ export default class MarksListContainer extends PureComponent {
         deleteMarker: PropTypes.func,
         getDeleteMarkerIndexes: PropTypes.arrayOf(PropTypes.number),
         filterMarkers: PropTypes.arrayOf(PropTypes.number),
+        getNewMarkerName: PropTypes.arrayOf(PropTypes.shape({
+            markerIndex: PropTypes.number,
+            newMarkerName: PropTypes.string,
+        })),
+        setNewMarkerName: PropTypes.func,
     }
 
     render() {
@@ -49,8 +56,10 @@ export default class MarksListContainer extends PureComponent {
                 filterMarkers={this.props.filterMarkers}
                 getDeleteMarkerIndexes={this.props.getDeleteMarkerIndexes}
                 getMarkerSearchIndexes={this.props.getMarkerSearchIndexes}
+                getNewMarkerName={this.props.getNewMarkerName}
                 markerChoice={this.props.markerChoice}
                 markers={this.props.markers}
+                setNewMarkerName={this.props.setNewMarkerName}
             />
         );
     }
