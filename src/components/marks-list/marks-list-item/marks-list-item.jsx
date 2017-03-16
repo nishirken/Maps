@@ -1,4 +1,3 @@
-import { findLast } from 'lodash';
 import StyledMarksListItem from './styled-marks-list-item';
 import Text from './text/text';
 import Buttons from '../buttons/buttons';
@@ -26,35 +25,12 @@ export default class MarksListItem extends PureComponent {
         super(props);
         this.state = {
             editMarkerName: false,
-            canSendMarkerName: false,
         };
-        this.newMarkerNameValue = '';
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        if (this.state.editMarkerName && !nextState.editMarkerName && nextState.canSendMarkerName)
-            this.props.setNewMarkerName(this.props.markerIndex, this.newMarkerNameValue);
-    }
-
-    getNewMarkerName() {
-        const lastNewMarkerName = findLast(
-            this.props.getNewMarkerName,
-            { markerIndex: this.props.markerIndex }
-            );
-
-        if (lastNewMarkerName)
-            return lastNewMarkerName.newMarkerName;
-    }
-
-    setNewMarkerName(newMarkerName) {
-        this.newMarkerNameValue = newMarkerName;
-    }
-
-    switchEditMarkerName(canSendMarkerName = true) {
+    switchEditMarkerName() {
         this.setState({
-            ...this.state,
             editMarkerName: !this.state.editMarkerName,
-            canSendMarkerName,
         });
     }
 
@@ -66,11 +42,12 @@ export default class MarksListItem extends PureComponent {
             >
                 <Text
                     editMarkerName={this.state.editMarkerName}
-                    lastNewMarkerName={::this.getNewMarkerName}
+                    getNewMarkerName={this.props.getNewMarkerName}
                     markerCoords={this.props.markerCoords}
+                    markerIndex={this.props.markerIndex}
                     markerName={this.props.markerName}
                     markerNumber={this.props.markerNumber}
-                    setNewMarkerName={::this.setNewMarkerName}
+                    setNewMarkerName={this.props.setNewMarkerName}
                     switchEditMarkerName={::this.switchEditMarkerName}
                 />
                 <Buttons

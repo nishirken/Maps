@@ -1,3 +1,4 @@
+import { find } from 'lodash';
 import StyledMarkerName from './styled-marker-name';
 import StyledMarkerNameEditField from './styled-marker-name-edit-field';
 import StyledMarkerCoords from './styled-marker-coords';
@@ -10,17 +11,32 @@ export default class Text extends PureComponent {
             lng: PropTypes.number,
         }),
         markerNumber: PropTypes.number,
+        markerIndex: PropTypes.number,
         switchEditMarkerName: PropTypes.func,
         editMarkerName: PropTypes.bool,
-        lastNewMarkerName: PropTypes.func,
+        getNewMarkerName: PropTypes.arrayOf(PropTypes.shape({
+            markerIndex: PropTypes.number,
+            newMarkerName: PropTypes.string,
+        })),
         setNewMarkerName: PropTypes.func,
     }
 
     constructor(props) {
         super(props);
         this.state = {
-            markerName: this.props.lastNewMarkerName() || this.props.markerName || 'Your marker',
+            markerName: this.props.markerName || 'Your marker',
         };
+    }
+
+    componentWillMount() {
+        this.updateMarkerName();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.editMarkerName) {
+            this.props.setNewMarkerName(this.props.markerIndex, this.state.newMarkerName);
+            this.updateMarkerName(nextProps);
+        }
     }
 
     componentDidUpdate() {
@@ -28,15 +44,30 @@ export default class Text extends PureComponent {
             this.input.focus();
     }
 
-    onChangeMarkerEditName(e) {
-        if (e.target.value !== this.props.markerName)
-            this.props.setNewMarkerName(e.target.value);
-
-        if (e.keyCode === 13)
+    onKeyDownMarkerName(e) {
+        if (e.keyCode === 27 || e.keyCode === 13)
             this.props.switchEditMarkerName();
+    }
 
-        if (e.keyCode === 27)
-            this.props.switchEditMarkerName(false);
+    onChangeMarkerName(e) {
+        if (e.target.value !== this.state.markerName)
+            this.setState({
+                ...this.state,
+                newMarkerName: e.target.value,
+            });
+    }
+
+    updateMarkerName(props = this.props) {
+        const newMarkerNameObject = find(
+            props.getNewMarkerName,
+            { markerIndex: props.markerIndex }
+        );
+
+        if (newMarkerNameObject)
+            this.setState({
+                ...this.state,
+                markerName: newMarkerNameObject.newMarkerName,
+            });
     }
 
     renderMarkerName() {
@@ -48,7 +79,8 @@ export default class Text extends PureComponent {
                         this.input = input;
                     }}
                     type="text"
-                    onKeyDown={::this.onChangeMarkerEditName}
+                    onChange={::this.onChangeMarkerName}
+                    onKeyDown={::this.onKeyDownMarkerName}
                 />
             );
 
