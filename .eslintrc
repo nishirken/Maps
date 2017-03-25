@@ -21,6 +21,7 @@
     "jest": true
   },
   "globals": {
+    "Promise": true,
     "NODE_ENV": true,
     "_": true,
     "React": true,
@@ -34,7 +35,7 @@
   },
   "rules": {
     "no-await-in-loop": "error",
-    "no-console": "warn",
+    "no-console": "off",
     "no-control-regex": "off",
     "no-extra-parens": [
       "error",
@@ -297,7 +298,10 @@
     "max-statements-per-line": "error",
     "max-statements": [
       "error",
-      6
+      6,
+      {
+        "ignoreTopLevelFunctions": true
+      }
     ],
     "multiline-ternary": [
       "off",

@@ -1,2 +1,2 @@
 export MapContainer from './map/map';
-export MarksListContainer from './marks-list/marks-list';
+export ListContainer from './list/list';

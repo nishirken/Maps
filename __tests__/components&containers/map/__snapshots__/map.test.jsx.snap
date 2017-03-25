@@ -14,12 +14,7 @@ ShallowWrapper {
                 "language": "ru",
               }
         }
-        center={
-            Object {
-                "lat": 299,
-                "lng": 300,
-              }
-        }
+        center={undefined}
         debounced={true}
         defaultCenter={
             Object {
@@ -98,7 +93,10 @@ ShallowWrapper {
               }
         }
         yesIWantToUseGoogleMapApiInternals={false}>
-        
+        <Marker
+            center={false}
+            lat={200}
+            lng={300} />
     </GoogleMap>
 </styled.section>,
   "nodes": Array [
@@ -110,12 +108,7 @@ ShallowWrapper {
                         "language": "ru",
                       }
             }
-            center={
-                  Object {
-                        "lat": 299,
-                        "lng": 300,
-                      }
-            }
+            center={undefined}
             debounced={true}
             defaultCenter={
                   Object {
@@ -194,7 +187,10 @@ ShallowWrapper {
                       }
             }
             yesIWantToUseGoogleMapApiInternals={false}>
-            
+            <Marker
+                  center={false}
+                  lat={200}
+                  lng={300} />
       </GoogleMap>
 </styled.section>,
   ],
@@ -217,7 +213,7 @@ ShallowWrapper {
                           "lat": 299,
                           "lng": 300,
                         },
-                        "markerIndex": 1,
+                        "index": 1,
                       }
         }
         defaultSettings={
@@ -229,6 +225,20 @@ ShallowWrapper {
                         "zoom": 18,
                       }
         }
+        getMarkerCoords={
+                Array [
+                        Object {
+                          "coords": Object {
+                            "lat": 200,
+                            "lng": 300,
+                            "x": 10,
+                            "y": 10,
+                          },
+                          "index": 2,
+                        },
+                      ]
+        }
+        getMarkerIndex={1}
         options={
                 Object {
                         "styles": Array [
@@ -308,7 +318,7 @@ ShallowWrapper {
               "lat": 299,
               "lng": 300,
             },
-            "markerIndex": 1,
+            "index": 1,
           },
           "defaultSettings": Object {
             "center": Object {
@@ -317,6 +327,18 @@ ShallowWrapper {
             },
             "zoom": 18,
           },
+          "getMarkerCoords": Array [
+            Object {
+              "coords": Object {
+                "lat": 200,
+                "lng": 300,
+                "x": 10,
+                "y": 10,
+              },
+              "index": 2,
+            },
+          ],
+          "getMarkerIndex": 1,
           "options": Object {
             "styles": Array [
               Object {
@@ -407,12 +429,7 @@ ShallowWrapper {
                                         "language": "ru",
                                       }
                     }
-                    center={
-                              Object {
-                                        "lat": 299,
-                                        "lng": 300,
-                                      }
-                    }
+                    center={undefined}
                     debounced={true}
                     defaultCenter={
                               Object {
@@ -491,7 +508,10 @@ ShallowWrapper {
                                       }
                     }
                     yesIWantToUseGoogleMapApiInternals={false}>
-                    
+                    <Marker
+                              center={false}
+                              lat={200}
+                              lng={300} />
           </GoogleMap>
 </styled.section>,
         "_debugID": 2,
@@ -503,12 +523,7 @@ ShallowWrapper {
                                         "language": "ru",
                                       }
                     }
-                    center={
-                              Object {
-                                        "lat": 299,
-                                        "lng": 300,
-                                      }
-                    }
+                    center={undefined}
                     debounced={true}
                     defaultCenter={
                               Object {
@@ -587,7 +602,10 @@ ShallowWrapper {
                                       }
                     }
                     yesIWantToUseGoogleMapApiInternals={false}>
-                    
+                    <Marker
+                              center={false}
+                              lat={200}
+                              lng={300} />
           </GoogleMap>
 </styled.section>,
       },
@@ -614,7 +632,7 @@ ShallowWrapper {
               "lat": 299,
               "lng": 300,
             },
-            "markerIndex": 1,
+            "index": 1,
           }
     }
     defaultSettings={
@@ -626,6 +644,20 @@ ShallowWrapper {
             "zoom": 18,
           }
     }
+    getMarkerCoords={
+        Array [
+            Object {
+              "coords": Object {
+                "lat": 200,
+                "lng": 300,
+                "x": 10,
+                "y": 10,
+              },
+              "index": 2,
+            },
+          ]
+    }
+    getMarkerIndex={1}
     options={
         Object {
             "styles": Array [

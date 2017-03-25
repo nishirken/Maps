@@ -1,23 +1,36 @@
 import store from 'Store';
 import { Map } from 'Components';
 
-const markerPayload = {
-    coords: {
-        lat: 299,
-        lng: 300,
-    },
-    markerIndex: 1,
-};
-
 describe('Map', () => {
-    const TestMapShallow = shallow(<Map currentMarkerPayload={markerPayload} store={store} />),
-        TestMap = mount(<Map currentMarkerPayload={markerPayload} store={store} />);
+    const currentMarkerPayload = {
+        index: 1,
+        coords: {
+            lat: 299,
+            lng: 300,
+        },
+    };
+    const markerIndex = 1;
+    const markerCoords = [
+        {
+            index: 2,
+            coords: {
+                lat: 200,
+                lng: 300,
+                x: 10,
+                y: 10,
+            },
+        },
+    ];
+    const TestMapShallow = shallow(
+        <Map
+            currentMarkerPayload={currentMarkerPayload}
+            getMarkerCoords={markerCoords}
+            getMarkerIndex={markerIndex}
+            store={store}
+        />
+        );
 
     it('Rendered', () => {
         expect(TestMapShallow).toMatchSnapshot();
-    });
-
-    it('Has an inner Google Maps', () => {
-        expect(TestMap.find('GoogleMap').length).toBe(1);
     });
 });

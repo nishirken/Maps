@@ -67,7 +67,7 @@
             "Constants": "./src/constants",
             "Reducers": "./src/reducers",
             "Styles": "./src/style-resources",
-            "Store": "./src/create-store"
+            "Store": "./src/create-test-store"
           }
         }]
       ]

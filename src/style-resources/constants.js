@@ -12,7 +12,7 @@ export const fontFamily = {
     primary: 'Sofia Pro Light, Helvetica, Arial, sans-serif',
 };
 
-export const transition = 'opacity .2s ease-in-out';
+export const transition = property => `${property} 0.4s ease-in-out`;
 
 export const breakPoints = {
     tablet: '@media screen and (max-width: 768px)',

@@ -21,11 +21,14 @@ export default class MarkerNameField extends PureComponent {
         this.textInput.focus();
     }
 
-    getMarkerName(element) {
-        if (element.keyCode === 13)
-            this.props.completeCreateMarker(element.target.value);
+    getMarkerName(e) {
+        if (e.keyCode === 13) {
+            const value = e.target.value || 'Your marker';
 
-        if (element.keyCode === 27)
+            this.props.completeCreateMarker(value);
+        }
+
+        if (e.keyCode === 27)
             this.props.cancelCreateMarker();
     }
 

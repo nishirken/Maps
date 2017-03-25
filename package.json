@@ -59,6 +59,7 @@
     "js-yaml": "^3.7.0",
     "react-addons-test-utils": "^15.4.2",
     "redux-devtools": "3.3.2",
+    "redux-devtools-extension": "^2.13.0",
     "strip-json-comments": "^2.0.1",
     "webpack-dev-server": "2.3.0"
   }

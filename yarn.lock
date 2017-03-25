@@ -3885,6 +3885,10 @@ redeyed@~1.0.0:
   dependencies:
     esprima "~3.0.0"
 
+redux-devtools-extension@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.0.tgz#c8300d72630c00999302526204d47c360cc0637f"
+
 redux-devtools-instrument@^1.0.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/redux-devtools-instrument/-/redux-devtools-instrument-1.6.0.tgz#a16678a6c3338db10cd5e0b8801e294c52466eb8"

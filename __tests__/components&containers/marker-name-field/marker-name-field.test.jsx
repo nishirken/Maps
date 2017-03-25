@@ -1,5 +1,5 @@
 import store from 'Store';
-import MarkerNameField from 'Components/marker-name-field/marker-name-field';
+import { MarkerNameField } from 'Components';
 
 describe('Marker name field', () => {
     const TestMarkerNameFieldShallow = shallow(
@@ -7,13 +7,15 @@ describe('Marker name field', () => {
             store={store}
             x={100}
             y={99}
-        />),
+        />
+        ),
         TestMarkerNameField = mount(
             <MarkerNameField
                 store={store}
                 x={100}
                 y={99}
-            />);
+            />
+        );
 
     it('Rendered', () => {
         expect(TestMarkerNameFieldShallow).toMatchSnapshot();

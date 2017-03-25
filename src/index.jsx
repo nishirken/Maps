@@ -4,14 +4,15 @@ import 'whatwg-fetch';
 
 import store from 'Store';
 import { StyledMain } from 'Components';
-import { MarksListContainer, MapContainer } from 'Containers';
+import { ListContainer, MapContainer } from 'Containers';
 
-render(
-    <Provider store={store}>
-        <StyledMain>
-            <MapContainer />
-            <MarksListContainer />
-        </StyledMain>
-    </Provider>,
-    document.getElementById('root')
-);
+if (NODE_ENV !== 'test')
+    render(
+        <Provider store={store}>
+            <StyledMain>
+                <MapContainer />
+                <ListContainer />
+            </StyledMain>
+        </Provider>,
+        document.getElementById('root')
+    );

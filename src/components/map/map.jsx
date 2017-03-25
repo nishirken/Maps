@@ -1,9 +1,8 @@
-import { map, filter, includes } from 'lodash';
+import { includes } from 'lodash';
 import GoogleMapReact from 'google-map-react';
 
 import StyledMap from './styled-map';
-import Marker from './marker/marker';
-import MarkerNameField from '../marker-name-field/marker-name-field';
+import { Marker, MarkerNameField } from 'Components';
 import { MAP_SETTINGS } from 'Constants';
 
 export default class Map extends PureComponent {
@@ -22,15 +21,21 @@ export default class Map extends PureComponent {
         options: PropTypes.shape({
             styles: PropTypes.arrayOf(PropTypes.object),
         }),
-        createMarker: PropTypes.func,
-        markerChoice: PropTypes.func,
-        currentMarkerPayload: PropTypes.shape({
-            markerIndex: PropTypes.number,
+        getMarkerIndex: PropTypes.number.isRequired,
+        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
+            index: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        })).isRequired,
+        getCurrentMarker: PropTypes.shape({
+            index: PropTypes.number,
             coords: PropTypes.objectOf(PropTypes.number),
         }),
-        markers: PropTypes.arrayOf(PropTypes.object),
-        filterMarkers: PropTypes.arrayOf(PropTypes.number),
-        getDeleteMarkerIndexes: PropTypes.arrayOf(PropTypes.number),
+        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
+        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
+        setMarkerIndex: PropTypes.func,
+        setMarkerCoords: PropTypes.func,
+        setMarkerName: PropTypes.func,
+        setCurrentMarker: PropTypes.func,
     };
 
     static defaultProps = {
@@ -53,6 +58,8 @@ export default class Map extends PureComponent {
     }
 
     getMarkerCoords(coords) {
+        delete coords.event;
+
         this.setState({
             ...this.state,
             coords,
@@ -60,16 +67,19 @@ export default class Map extends PureComponent {
             x: coords.x,
             y: coords.y,
         });
-        this.props.markerChoice(null);
     }
 
     completeCreateMarker(markerName) {
+        const currentMarkerIndex = this.props.getMarkerIndex + 1;
+
         this.setState({
             ...this.state,
             markerInit: false,
         });
 
-        this.props.createMarker(this.state.coords, markerName, this.state.markerIndex);
+        this.props.setMarkerIndex(currentMarkerIndex);
+        this.props.setMarkerCoords(currentMarkerIndex, this.state.coords);
+        this.props.setMarkerName(currentMarkerIndex, markerName);
     }
 
     cancelCreateMarker() {
@@ -79,10 +89,10 @@ export default class Map extends PureComponent {
         });
     }
 
-    markerChoice(markerIndex, coords) {
+    markerChoice(index, coords) {
         const { lat, lng } = coords;
 
-        this.props.markerChoice(Number(markerIndex), { lat, lng });
+        this.props.setCurrentMarker(Number(index), { lat, lng });
     }
 
     markerNameFieldRender() {
@@ -100,26 +110,27 @@ export default class Map extends PureComponent {
     }
 
     markersRender() {
-        let markers = this.props.markers;
+        let markersCoords = this.props.getMarkerCoords;
 
-        if (this.props.getDeleteMarkerIndexes)
-            markers = filter(markers, (marker, key) => !includes(this.props.getDeleteMarkerIndexes, key));
+        if (this.props.getMarkerDeleteIndexes && this.props.getMarkerDeleteIndexes.length > 0)
+            markersCoords = markersCoords.filter(marker =>
+                !includes(this.props.getMarkerDeleteIndexes, marker.index));
 
-        if (this.props.filterMarkers.length > 0)
-            markers = filter(markers, (marker, key) => {
-                return includes(this.props.filterMarkers, key);
-            });
+        if (this.props.getMarkerSearchIndexes && this.props.getMarkerSearchIndexes.length > 0)
+            markersCoords = markersCoords.filter(marker =>
+                includes(this.props.getMarkerSearchIndexes, marker.index));
 
-        return map(markers, (markerPayload, key) => {
-            const coords = markerPayload.coords;
+        return markersCoords.map(marker => {
+            const coords = marker.coords;
             let center = false;
 
-            if (this.props.currentMarkerPayload.markerIndex === key) center = true;
+            if (this.props.getCurrentMarker)
+                if (this.props.getCurrentMarker.index === marker.index) center = true;
 
             return (
                 <Marker
                     center={center}
-                    key={key}
+                    key={marker.index}
                     lat={coords.lat}
                     lng={coords.lng}
                 />
@@ -136,7 +147,7 @@ export default class Map extends PureComponent {
                         key: this.props.apiSettings.key,
                         language: this.props.apiSettings.lang,
                     }}
-                    center={this.props.currentMarkerPayload && this.props.currentMarkerPayload.coords}
+                    center={this.props.getCurrentMarker && this.props.getCurrentMarker.coords}
                     defaultCenter={this.props.defaultSettings.center}
                     defaultZoom={this.props.defaultSettings.zoom}
                     options={this.props.options}
