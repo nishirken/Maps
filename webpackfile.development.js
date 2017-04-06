@@ -41,6 +41,7 @@ module.exports = {
     resolve: {
         alias: {
             Actions: pathResolve('src/actions'),
+            Adapters: pathResolve('src/adapters'),
             Components: pathResolve('src/components'),
             Constants: pathResolve('src/constants'),
             Containers: pathResolve('src/containers'),
@@ -71,23 +72,21 @@ module.exports = {
             NODE_ENV: JSON.stringify('development'),
         }),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.ProvidePlugin({
-            React: 'react',
-            PureComponent: 'react/lib/ReactPureComponent',
-            PropTypes: 'react/lib/ReactPropTypes',
-            StyleConst: pathResolve('src/style-resources/constants'),
-            StyleFunc: pathResolve('src/style-resources/functions'),
-        }),
         new BellOnBundlerErrorPlugin(),
     ],
     devServer: {
         clientLogLevel: 'warning',
         compress: false,
-        contentBase: 'build/',
+        contentBase: 'build',
         publicPath: '/',
-        port: 3000,
+        port: 8000,
         hot: true,
         stats: 'normal',
+        proxy: {
+            '/': {
+                target: 'http://localhost',
+            },
+        },
         watchOptions: {
             aggregateTimeout: 100,
             ignored: /node_modules/,

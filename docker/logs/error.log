@@ -1,0 +1,568 @@
+2017/03/26 15:47:42 [notice] 1#1: using the "epoll" event method
+2017/03/26 15:47:42 [notice] 1#1: nginx/1.11.10
+2017/03/26 15:47:42 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/26 15:47:42 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/26 15:47:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/26 15:47:42 [notice] 1#1: start worker processes
+2017/03/26 15:47:42 [notice] 1#1: start worker process 6
+2017/03/26 15:47:42 [notice] 1#1: start worker process 7
+2017/03/26 15:52:07 [info] 6#6: *4 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/26 15:52:07 [info] 6#6: *2 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/26 15:52:07 [info] 6#6: *3 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/26 15:52:11 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/26 15:52:11 [notice] 6#6: exiting
+2017/03/26 15:52:11 [notice] 6#6: exit
+2017/03/26 15:52:11 [notice] 7#7: exiting
+2017/03/26 15:52:11 [notice] 7#7: exit
+2017/03/26 15:52:11 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/26 15:52:11 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/26 15:52:11 [notice] 1#1: worker process 6 exited with code 0
+2017/03/26 15:52:11 [notice] 1#1: worker process 7 exited with code 0
+2017/03/26 15:52:11 [notice] 1#1: exit
+2017/03/26 15:52:14 [notice] 1#1: using the "epoll" event method
+2017/03/26 15:52:14 [notice] 1#1: nginx/1.11.10
+2017/03/26 15:52:14 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/26 15:52:14 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/26 15:52:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/26 15:52:14 [notice] 1#1: start worker processes
+2017/03/26 15:52:14 [notice] 1#1: start worker process 7
+2017/03/26 15:52:14 [notice] 1#1: start worker process 8
+2017/03/26 15:54:26 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/26 15:54:41 [info] 8#8: *2 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/26 17:01:39 [error] 8#8: *19 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:01:40 [error] 7#7: *21 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:05:23 [error] 8#8: *33 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:05:23 [error] 8#8: *35 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:05:24 [error] 7#7: *37 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:05:24 [error] 8#8: *39 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:05:24 [error] 7#7: *41 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:07:59 [error] 7#7: *65 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:23:46 [error] 7#7: *69 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:23:47 [error] 8#8: *71 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:42:29 [error] 8#8: *81 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/26 17:42:30 [error] 8#8: *83 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:3000"
+2017/03/27 05:54:57 [info] 7#7: *203 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 05:55:56 [info] 8#8: *206 client timed out (110: Connection timed out) while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 05:57:21 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 05:57:21 [notice] 7#7: exiting
+2017/03/27 05:57:21 [notice] 8#8: exiting
+2017/03/27 05:57:21 [notice] 8#8: exit
+2017/03/27 05:57:21 [notice] 7#7: exit
+2017/03/27 05:57:21 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 05:57:21 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 05:57:21 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 05:57:21 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 05:57:21 [notice] 1#1: worker process 8 exited with code 0
+2017/03/27 05:57:21 [notice] 1#1: exit
+2017/03/27 13:37:54 [notice] 1#1: using the "epoll" event method
+2017/03/27 13:37:54 [notice] 1#1: nginx/1.11.10
+2017/03/27 13:37:54 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 13:37:54 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 13:37:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 13:37:54 [notice] 1#1: start worker processes
+2017/03/27 13:37:54 [notice] 1#1: start worker process 6
+2017/03/27 13:37:54 [notice] 1#1: start worker process 7
+2017/03/27 13:43:35 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 13:44:41 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 13:44:41 [notice] 6#6: exiting
+2017/03/27 13:44:41 [notice] 7#7: exiting
+2017/03/27 13:44:41 [notice] 6#6: exit
+2017/03/27 13:44:41 [notice] 7#7: exit
+2017/03/27 13:44:41 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 13:44:41 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 13:44:41 [notice] 1#1: worker process 6 exited with code 0
+2017/03/27 13:44:41 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 13:44:41 [notice] 1#1: exit
+2017/03/27 13:45:00 [notice] 1#1: using the "epoll" event method
+2017/03/27 13:45:00 [notice] 1#1: nginx/1.11.10
+2017/03/27 13:45:00 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 13:45:00 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 13:45:00 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 13:45:00 [notice] 1#1: start worker processes
+2017/03/27 13:45:00 [notice] 1#1: start worker process 7
+2017/03/27 13:45:00 [notice] 1#1: start worker process 8
+2017/03/27 13:50:00 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 14:00:43 [info] 7#7: *69 client 172.18.0.1 closed keepalive connection
+2017/03/27 14:00:49 [info] 8#8: *71 client 172.18.0.1 closed keepalive connection
+2017/03/27 14:00:54 [info] 7#7: *73 client 172.18.0.1 closed keepalive connection
+2017/03/27 15:13:07 [error] 8#8: *75 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 15:13:07 [error] 8#8: *77 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.3:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/03/27 15:13:08 [error] 7#7: *79 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 15:13:08 [error] 7#7: *81 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.3:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/03/27 15:19:46 [error] 7#7: *83 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 15:20:23 [error] 7#7: *83 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 15:35:53 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 15:35:53 [notice] 7#7: exiting
+2017/03/27 15:35:53 [notice] 8#8: exiting
+2017/03/27 15:35:53 [notice] 7#7: exit
+2017/03/27 15:35:53 [notice] 8#8: exit
+2017/03/27 15:35:53 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 15:35:53 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 15:35:53 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 15:35:53 [notice] 1#1: signal 29 (SIGIO) received
+2017/03/27 15:35:53 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 15:35:53 [notice] 1#1: worker process 8 exited with code 0
+2017/03/27 15:35:53 [notice] 1#1: exit
+2017/03/27 15:35:56 [notice] 1#1: using the "epoll" event method
+2017/03/27 15:35:56 [notice] 1#1: nginx/1.11.10
+2017/03/27 15:35:56 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 15:35:56 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 15:35:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 15:35:56 [notice] 1#1: start worker processes
+2017/03/27 15:35:56 [notice] 1#1: start worker process 7
+2017/03/27 15:35:56 [notice] 1#1: start worker process 8
+2017/03/27 15:39:22 [info] 8#8: *9 client 172.18.0.1 closed keepalive connection
+2017/03/27 16:03:43 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 16:03:43 [notice] 7#7: exiting
+2017/03/27 16:03:43 [notice] 7#7: exit
+2017/03/27 16:03:43 [notice] 8#8: exiting
+2017/03/27 16:03:43 [notice] 8#8: exit
+2017/03/27 16:03:43 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 16:03:43 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 16:03:43 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 16:03:43 [notice] 1#1: worker process 8 exited with code 0
+2017/03/27 16:03:43 [notice] 1#1: exit
+2017/03/27 16:04:09 [notice] 1#1: using the "epoll" event method
+2017/03/27 16:04:09 [notice] 1#1: nginx/1.11.10
+2017/03/27 16:04:09 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 16:04:09 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 16:04:09 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 16:04:09 [notice] 1#1: start worker processes
+2017/03/27 16:04:09 [notice] 1#1: start worker process 7
+2017/03/27 16:04:09 [notice] 1#1: start worker process 8
+2017/03/27 16:05:15 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 16:05:15 [notice] 7#7: exiting
+2017/03/27 16:05:15 [notice] 8#8: exiting
+2017/03/27 16:05:15 [notice] 7#7: exit
+2017/03/27 16:05:15 [notice] 8#8: exit
+2017/03/27 16:05:15 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 16:05:15 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 16:05:15 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 16:05:15 [notice] 1#1: worker process 8 exited with code 0
+2017/03/27 16:05:15 [notice] 1#1: exit
+2017/03/27 16:06:33 [notice] 1#1: using the "epoll" event method
+2017/03/27 16:06:33 [notice] 1#1: nginx/1.11.10
+2017/03/27 16:06:33 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 16:06:33 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 16:06:33 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 16:06:33 [notice] 1#1: start worker processes
+2017/03/27 16:06:33 [notice] 1#1: start worker process 7
+2017/03/27 16:06:33 [notice] 1#1: start worker process 8
+2017/03/27 16:07:43 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 16:07:43 [notice] 8#8: exiting
+2017/03/27 16:07:43 [notice] 7#7: exiting
+2017/03/27 16:07:43 [notice] 8#8: exit
+2017/03/27 16:07:43 [notice] 7#7: exit
+2017/03/27 16:07:43 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 16:07:43 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 16:07:43 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 16:07:43 [notice] 1#1: signal 29 (SIGIO) received
+2017/03/27 16:07:43 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 16:07:43 [notice] 1#1: worker process 8 exited with code 0
+2017/03/27 16:07:43 [notice] 1#1: exit
+2017/03/27 16:07:45 [notice] 1#1: using the "epoll" event method
+2017/03/27 16:07:45 [notice] 1#1: nginx/1.11.10
+2017/03/27 16:07:45 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 16:07:45 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 16:07:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 16:07:45 [notice] 1#1: start worker processes
+2017/03/27 16:07:45 [notice] 1#1: start worker process 7
+2017/03/27 16:07:45 [notice] 1#1: start worker process 8
+2017/03/27 16:07:52 [error] 8#8: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 16:08:18 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 16:08:18 [notice] 7#7: exiting
+2017/03/27 16:08:18 [notice] 8#8: exiting
+2017/03/27 16:08:18 [notice] 7#7: exit
+2017/03/27 16:08:18 [notice] 8#8: exit
+2017/03/27 16:08:18 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 16:08:18 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 16:08:18 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 16:08:18 [notice] 1#1: worker process 8 exited with code 0
+2017/03/27 16:08:18 [notice] 1#1: exit
+2017/03/27 16:10:18 [notice] 1#1: using the "epoll" event method
+2017/03/27 16:10:18 [notice] 1#1: nginx/1.11.10
+2017/03/27 16:10:18 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 16:10:18 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 16:10:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 16:10:18 [notice] 1#1: start worker processes
+2017/03/27 16:10:18 [notice] 1#1: start worker process 6
+2017/03/27 16:10:18 [notice] 1#1: start worker process 7
+2017/03/27 16:11:03 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 16:11:04 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 16:12:55 [error] 7#7: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/27 16:25:13 [warn] 7#7: *29 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 172.18.0.1, server: , request: "GET /main.js HTTP/1.1", upstream: "http://172.18.0.3:3000/main.js", host: "localhost", referrer: "http://localhost/"
+2017/03/27 16:28:21 [error] 6#6: *48 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 16:28:21 [error] 7#7: *50 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.18.0.3:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/03/27 16:29:24 [info] 6#6: *72 epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while sending request to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 16:39:58 [info] 7#7: *161 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 16:39:58 [info] 6#6: *162 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 16:39:58 [info] 7#7: *163 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 16:40:08 [info] 6#6: *170 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 16:40:08 [info] 6#6: *171 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 16:40:08 [info] 6#6: *172 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 16:40:34 [info] 7#7: *175 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 17:37:22 [info] 7#7: *198 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 17:37:22 [info] 7#7: *200 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/27 17:37:22 [error] 7#7: *207 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:37:23 [error] 7#7: *209 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:37:41 [error] 7#7: *215 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:37:42 [error] 7#7: *217 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:41:06 [error] 7#7: *253 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:41:07 [error] 6#6: *255 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:41:26 [error] 7#7: *261 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:41:27 [error] 7#7: *263 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:26 [error] 6#6: *285 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:26 [error] 6#6: *287 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:27 [error] 6#6: *289 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:40 [error] 7#7: *295 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:41 [error] 7#7: *297 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:42 [error] 6#6: *299 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 17:56:43 [error] 7#7: *301 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 19:10:36 [error] 7#7: *347 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 19:10:37 [error] 6#6: *349 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/27 19:14:34 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/27 19:14:34 [notice] 7#7: exiting
+2017/03/27 19:14:34 [notice] 7#7: exit
+2017/03/27 19:14:34 [notice] 6#6: exiting
+2017/03/27 19:14:34 [notice] 6#6: exit
+2017/03/27 19:14:34 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/27 19:14:34 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/27 19:14:34 [notice] 1#1: worker process 6 exited with code 0
+2017/03/27 19:14:34 [notice] 1#1: worker process 7 exited with code 0
+2017/03/27 19:14:34 [notice] 1#1: exit
+2017/03/27 19:33:43 [notice] 1#1: using the "epoll" event method
+2017/03/27 19:33:43 [notice] 1#1: nginx/1.11.10
+2017/03/27 19:33:43 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/27 19:33:43 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/27 19:33:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/27 19:33:43 [notice] 1#1: start worker processes
+2017/03/27 19:33:43 [notice] 1#1: start worker process 7
+2017/03/27 19:33:43 [notice] 1#1: start worker process 8
+2017/03/28 04:59:58 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/28 04:59:58 [notice] 7#7: exiting
+2017/03/28 04:59:58 [notice] 7#7: exit
+2017/03/28 04:59:58 [notice] 8#8: exiting
+2017/03/28 04:59:58 [notice] 8#8: exit
+2017/03/28 04:59:58 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/28 04:59:58 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 04:59:58 [notice] 1#1: worker process 7 exited with code 0
+2017/03/28 04:59:58 [notice] 1#1: worker process 8 exited with code 0
+2017/03/28 04:59:58 [notice] 1#1: exit
+2017/03/28 05:00:01 [notice] 1#1: using the "epoll" event method
+2017/03/28 05:00:01 [notice] 1#1: nginx/1.11.10
+2017/03/28 05:00:01 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/28 05:00:01 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/28 05:00:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/28 05:00:01 [notice] 1#1: start worker processes
+2017/03/28 05:00:01 [notice] 1#1: start worker process 7
+2017/03/28 05:00:01 [notice] 1#1: start worker process 8
+2017/03/28 05:00:26 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/28 05:00:26 [notice] 7#7: exiting
+2017/03/28 05:00:26 [notice] 8#8: exiting
+2017/03/28 05:00:26 [notice] 7#7: exit
+2017/03/28 05:00:26 [notice] 8#8: exit
+2017/03/28 05:00:26 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/28 05:00:26 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 05:00:26 [notice] 1#1: worker process 7 exited with code 0
+2017/03/28 05:00:26 [notice] 1#1: worker process 8 exited with code 0
+2017/03/28 05:00:26 [notice] 1#1: exit
+2017/03/28 05:00:27 [notice] 1#1: using the "epoll" event method
+2017/03/28 05:00:27 [notice] 1#1: nginx/1.11.10
+2017/03/28 05:00:27 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/28 05:00:27 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/28 05:00:27 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/28 05:00:27 [notice] 1#1: start worker processes
+2017/03/28 05:00:27 [notice] 1#1: start worker process 7
+2017/03/28 05:00:27 [notice] 1#1: start worker process 8
+2017/03/28 05:00:36 [error] 7#7: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:01:25 [info] 7#7: *3 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:01:25 [info] 7#7: *1 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:06:21 [error] 7#7: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:06:22 [error] 7#7: *8 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:09:54 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:13:26 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:13:26 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:13:27 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:13:43 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:13:44 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:14:09 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:14:10 [error] 8#8: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:29:50 [info] 8#8: *112 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:29:50 [info] 7#7: *114 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:30:20 [error] 8#8: *113 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:31:34 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/28 05:31:34 [notice] 7#7: exiting
+2017/03/28 05:31:34 [notice] 7#7: exit
+2017/03/28 05:31:34 [notice] 8#8: exiting
+2017/03/28 05:31:34 [notice] 8#8: exit
+2017/03/28 05:31:34 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/28 05:31:34 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 05:31:34 [notice] 1#1: worker process 7 exited with code 0
+2017/03/28 05:31:34 [notice] 1#1: worker process 8 exited with code 0
+2017/03/28 05:31:34 [notice] 1#1: exit
+2017/03/28 05:31:36 [notice] 1#1: using the "epoll" event method
+2017/03/28 05:31:36 [notice] 1#1: nginx/1.11.10
+2017/03/28 05:31:36 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/28 05:31:36 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/28 05:31:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/28 05:31:36 [notice] 1#1: start worker processes
+2017/03/28 05:31:36 [notice] 1#1: start worker process 7
+2017/03/28 05:31:36 [notice] 1#1: start worker process 8
+2017/03/28 05:34:10 [info] 7#7: *12 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:34:10 [info] 8#8: *13 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:34:10 [info] 7#7: *10 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:34:21 [info] 7#7: *11 client 172.18.0.1 closed keepalive connection
+2017/03/28 05:34:21 [info] 8#8: *18 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:34:21 [info] 8#8: *15 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:34:21 [info] 8#8: *17 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:34:21 [info] 8#8: *16 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:35:19 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/28 05:35:19 [notice] 8#8: exiting
+2017/03/28 05:35:19 [notice] 7#7: exiting
+2017/03/28 05:35:19 [notice] 8#8: exit
+2017/03/28 05:35:19 [notice] 7#7: exit
+2017/03/28 05:35:19 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/28 05:35:19 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 05:35:19 [notice] 1#1: worker process 8 exited with code 0
+2017/03/28 05:35:19 [notice] 1#1: signal 29 (SIGIO) received
+2017/03/28 05:35:19 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 05:35:19 [notice] 1#1: worker process 7 exited with code 0
+2017/03/28 05:35:19 [notice] 1#1: exit
+2017/03/28 05:35:21 [notice] 1#1: using the "epoll" event method
+2017/03/28 05:35:21 [notice] 1#1: nginx/1.11.10
+2017/03/28 05:35:21 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/28 05:35:21 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/28 05:35:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/28 05:35:21 [notice] 1#1: start worker processes
+2017/03/28 05:35:21 [notice] 1#1: start worker process 7
+2017/03/28 05:35:21 [notice] 1#1: start worker process 8
+2017/03/28 05:37:41 [info] 7#7: *11 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:37:41 [info] 7#7: *10 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/28 05:37:41 [error] 7#7: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:37:42 [error] 7#7: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/03/28 05:39:51 [error] 8#8: *27 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/28 05:53:18 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/28 05:53:18 [notice] 7#7: exiting
+2017/03/28 05:53:18 [notice] 8#8: exiting
+2017/03/28 05:53:18 [notice] 7#7: exit
+2017/03/28 05:53:18 [notice] 8#8: exit
+2017/03/28 05:53:18 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/28 05:53:18 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 05:53:18 [notice] 1#1: worker process 8 exited with code 0
+2017/03/28 05:53:18 [notice] 1#1: signal 29 (SIGIO) received
+2017/03/28 05:53:18 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 05:53:18 [notice] 1#1: worker process 7 exited with code 0
+2017/03/28 05:53:18 [notice] 1#1: exit
+2017/03/28 15:11:42 [notice] 1#1: using the "epoll" event method
+2017/03/28 15:11:42 [notice] 1#1: nginx/1.11.10
+2017/03/28 15:11:42 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/28 15:11:42 [notice] 1#1: OS: Linux 4.9.12-moby
+2017/03/28 15:11:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/28 15:11:42 [notice] 1#1: start worker processes
+2017/03/28 15:11:42 [notice] 1#1: start worker process 7
+2017/03/28 15:11:42 [notice] 1#1: start worker process 8
+2017/03/28 15:12:02 [error] 7#7: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost:8000"
+2017/03/28 19:05:45 [error] 8#8: *115 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "OPTIONS /save-state HTTP/1.1", upstream: "http://172.18.0.3:3000/save-state", host: "localhost", referrer: "http://localhost:8000/"
+2017/03/28 19:05:48 [error] 8#8: *115 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: , request: "OPTIONS /save-state HTTP/1.1", upstream: "http://172.18.0.3:3000/save-state", host: "localhost", referrer: "http://localhost:8000/"
+2017/03/28 19:07:40 [info] 8#8: *115 client 172.18.0.1 closed keepalive connection
+2017/03/28 19:19:39 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/03/28 19:19:39 [notice] 8#8: exiting
+2017/03/28 19:19:39 [notice] 7#7: exiting
+2017/03/28 19:19:39 [notice] 8#8: exit
+2017/03/28 19:19:39 [notice] 7#7: exit
+2017/03/28 19:19:39 [notice] 1#1: signal 14 (SIGALRM) received
+2017/03/28 19:19:39 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/03/28 19:19:39 [notice] 1#1: worker process 7 exited with code 0
+2017/03/28 19:19:39 [notice] 1#1: worker process 8 exited with code 0
+2017/03/28 19:19:39 [notice] 1#1: exit
+2017/03/31 13:20:50 [notice] 1#1: using the "epoll" event method
+2017/03/31 13:20:50 [notice] 1#1: nginx/1.11.10
+2017/03/31 13:20:50 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/03/31 13:20:50 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/03/31 13:20:50 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/03/31 13:20:50 [notice] 1#1: start worker processes
+2017/03/31 13:20:50 [notice] 1#1: start worker process 6
+2017/03/31 13:20:50 [notice] 1#1: start worker process 7
+2017/03/31 13:24:21 [info] 6#6: *1 client timed out (110: Connection timed out) while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/03/31 13:26:04 [info] 6#6: *2 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/04/01 04:55:02 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/01 04:55:02 [notice] 6#6: exiting
+2017/04/01 04:55:02 [notice] 7#7: exiting
+2017/04/01 04:55:02 [notice] 6#6: exit
+2017/04/01 04:55:02 [notice] 7#7: exit
+2017/04/01 04:55:02 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/01 04:55:02 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/01 04:55:02 [notice] 1#1: worker process 6 exited with code 0
+2017/04/01 04:55:02 [notice] 1#1: worker process 7 exited with code 0
+2017/04/01 04:55:02 [notice] 1#1: exit
+2017/04/01 09:50:46 [notice] 1#1: using the "epoll" event method
+2017/04/01 09:50:46 [notice] 1#1: nginx/1.11.10
+2017/04/01 09:50:46 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/01 09:50:46 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/01 09:50:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/01 09:50:46 [notice] 1#1: start worker processes
+2017/04/01 09:50:46 [notice] 1#1: start worker process 7
+2017/04/01 09:50:46 [notice] 1#1: start worker process 8
+2017/04/01 10:06:07 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/01 10:06:07 [notice] 7#7: exiting
+2017/04/01 10:06:07 [notice] 7#7: exit
+2017/04/01 10:06:07 [notice] 8#8: exiting
+2017/04/01 10:06:07 [notice] 8#8: exit
+2017/04/01 10:06:07 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/01 10:06:07 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/01 10:06:07 [notice] 1#1: worker process 7 exited with code 0
+2017/04/01 10:06:07 [notice] 1#1: worker process 8 exited with code 0
+2017/04/01 10:06:07 [notice] 1#1: exit
+2017/04/01 10:06:11 [notice] 1#1: using the "epoll" event method
+2017/04/01 10:06:11 [notice] 1#1: nginx/1.11.10
+2017/04/01 10:06:11 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/01 10:06:11 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/01 10:06:11 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/01 10:06:11 [notice] 1#1: start worker processes
+2017/04/01 10:06:11 [notice] 1#1: start worker process 7
+2017/04/01 10:06:11 [notice] 1#1: start worker process 8
+2017/04/01 10:15:45 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/01 10:15:45 [notice] 7#7: exiting
+2017/04/01 10:15:45 [notice] 7#7: exit
+2017/04/01 10:15:45 [notice] 8#8: exiting
+2017/04/01 10:15:45 [notice] 8#8: exit
+2017/04/01 10:15:45 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/01 10:15:45 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/01 10:15:45 [notice] 1#1: worker process 7 exited with code 0
+2017/04/01 10:15:45 [notice] 1#1: worker process 8 exited with code 0
+2017/04/01 10:15:45 [notice] 1#1: exit
+2017/04/01 10:15:48 [notice] 1#1: using the "epoll" event method
+2017/04/01 10:15:48 [notice] 1#1: nginx/1.11.10
+2017/04/01 10:15:48 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/01 10:15:48 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/01 10:15:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/01 10:15:48 [notice] 1#1: start worker processes
+2017/04/01 10:15:48 [notice] 1#1: start worker process 7
+2017/04/01 10:15:48 [notice] 1#1: start worker process 8
+2017/04/01 10:17:02 [error] 8#8: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: maps.api, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/04/01 10:18:02 [info] 8#8: *2 client timed out (110: Connection timed out) while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/04/01 10:41:20 [error] 8#8: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: maps.api, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/04/01 10:41:21 [error] 8#8: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: maps.api, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:3000/", host: "localhost"
+2017/04/04 13:17:39 [notice] 1#1: using the "epoll" event method
+2017/04/04 13:17:39 [notice] 1#1: nginx/1.11.10
+2017/04/04 13:17:39 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/04 13:17:39 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/04 13:17:39 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/04 13:17:39 [notice] 1#1: start worker processes
+2017/04/04 13:17:39 [notice] 1#1: start worker process 7
+2017/04/04 13:17:39 [notice] 1#1: start worker process 8
+2017/04/04 13:20:14 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/04 13:20:14 [notice] 7#7: exiting
+2017/04/04 13:20:14 [notice] 8#8: exiting
+2017/04/04 13:20:14 [notice] 7#7: exit
+2017/04/04 13:20:14 [notice] 8#8: exit
+2017/04/04 13:20:14 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/04 13:20:14 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/04 13:20:14 [notice] 1#1: worker process 7 exited with code 0
+2017/04/04 13:20:14 [notice] 1#1: worker process 8 exited with code 0
+2017/04/04 13:20:14 [notice] 1#1: exit
+2017/04/04 13:23:45 [notice] 1#1: using the "epoll" event method
+2017/04/04 13:23:45 [notice] 1#1: nginx/1.11.10
+2017/04/04 13:23:45 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/04 13:23:45 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/04 13:23:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/04 13:23:45 [notice] 1#1: start worker processes
+2017/04/04 13:23:45 [notice] 1#1: start worker process 7
+2017/04/04 13:23:45 [notice] 1#1: start worker process 8
+2017/04/04 13:45:41 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/04 13:45:41 [notice] 8#8: exiting
+2017/04/04 13:45:41 [notice] 7#7: exiting
+2017/04/04 13:45:41 [notice] 8#8: exit
+2017/04/04 13:45:41 [notice] 7#7: exit
+2017/04/04 13:45:41 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/04 13:45:41 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/04 13:45:41 [notice] 1#1: worker process 7 exited with code 0
+2017/04/04 13:45:41 [notice] 1#1: worker process 8 exited with code 0
+2017/04/04 13:45:41 [notice] 1#1: exit
+2017/04/04 13:45:59 [notice] 1#1: using the "epoll" event method
+2017/04/04 13:45:59 [notice] 1#1: nginx/1.11.10
+2017/04/04 13:45:59 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/04 13:45:59 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/04 13:45:59 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/04 13:45:59 [notice] 1#1: start worker processes
+2017/04/04 13:45:59 [notice] 1#1: start worker process 7
+2017/04/04 13:45:59 [notice] 1#1: start worker process 8
+2017/04/04 13:47:55 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/04 13:47:55 [notice] 7#7: exiting
+2017/04/04 13:47:55 [notice] 7#7: exit
+2017/04/04 13:47:55 [notice] 8#8: exiting
+2017/04/04 13:47:55 [notice] 8#8: exit
+2017/04/04 13:47:55 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/04 13:47:55 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/04 13:47:55 [notice] 1#1: worker process 7 exited with code 0
+2017/04/04 13:47:55 [notice] 1#1: worker process 8 exited with code 0
+2017/04/04 13:47:55 [notice] 1#1: exit
+2017/04/04 13:47:57 [notice] 1#1: using the "epoll" event method
+2017/04/04 13:47:57 [notice] 1#1: nginx/1.11.10
+2017/04/04 13:47:57 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/04 13:47:57 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/04 13:47:57 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/04 13:47:57 [notice] 1#1: start worker processes
+2017/04/04 13:47:57 [notice] 1#1: start worker process 7
+2017/04/04 13:47:57 [notice] 1#1: start worker process 8
+2017/04/04 19:10:38 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/04 19:10:38 [notice] 8#8: exiting
+2017/04/04 19:10:38 [notice] 8#8: exit
+2017/04/04 19:10:38 [notice] 7#7: exiting
+2017/04/04 19:10:38 [notice] 7#7: exit
+2017/04/04 19:10:38 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/04 19:10:38 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/04 19:10:38 [notice] 1#1: worker process 7 exited with code 0
+2017/04/04 19:10:38 [notice] 1#1: worker process 8 exited with code 0
+2017/04/04 19:10:38 [notice] 1#1: exit
+2017/04/04 19:10:40 [notice] 1#1: using the "epoll" event method
+2017/04/04 19:10:40 [notice] 1#1: nginx/1.11.10
+2017/04/04 19:10:40 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/04 19:10:40 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/04 19:10:40 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/04 19:10:40 [notice] 1#1: start worker processes
+2017/04/04 19:10:40 [notice] 1#1: start worker process 6
+2017/04/04 19:10:40 [notice] 1#1: start worker process 7
+2017/04/04 19:11:18 [info] 7#7: *12 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/04/04 19:11:18 [info] 6#6: *11 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/04/04 19:11:18 [error] 6#6: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.0.1, server: maps.api, request: "GET / HTTP/1.1", upstream: "http://172.18.0.2:3000/", host: "localhost"
+2017/04/04 19:12:04 [info] 7#7: *17 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/04/04 19:12:04 [info] 6#6: *18 client closed connection while waiting for request, client: 172.18.0.1, server: 0.0.0.0:80
+2017/04/05 04:56:16 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/05 04:56:16 [notice] 6#6: exiting
+2017/04/05 04:56:16 [notice] 7#7: exiting
+2017/04/05 04:56:16 [notice] 7#7: exit
+2017/04/05 04:56:16 [notice] 6#6: exit
+2017/04/05 04:56:16 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/05 04:56:16 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/05 04:56:16 [notice] 1#1: worker process 6 exited with code 0
+2017/04/05 04:56:16 [notice] 1#1: worker process 7 exited with code 0
+2017/04/05 04:56:16 [notice] 1#1: exit
+2017/04/05 18:01:39 [notice] 1#1: using the "epoll" event method
+2017/04/05 18:01:39 [notice] 1#1: nginx/1.11.10
+2017/04/05 18:01:39 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/05 18:01:39 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/05 18:01:39 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/05 18:01:39 [notice] 1#1: start worker processes
+2017/04/05 18:01:39 [notice] 1#1: start worker process 7
+2017/04/05 18:01:39 [notice] 1#1: start worker process 8
+2017/04/06 04:51:44 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/06 04:51:44 [notice] 8#8: exiting
+2017/04/06 04:51:44 [notice] 7#7: exiting
+2017/04/06 04:51:44 [notice] 8#8: exit
+2017/04/06 04:51:44 [notice] 7#7: exit
+2017/04/06 04:51:44 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/06 04:51:44 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/06 04:51:44 [notice] 1#1: worker process 8 exited with code 0
+2017/04/06 04:51:44 [notice] 1#1: signal 29 (SIGIO) received
+2017/04/06 04:51:45 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/06 04:51:45 [notice] 1#1: worker process 7 exited with code 0
+2017/04/06 04:51:45 [notice] 1#1: exit
+2017/04/06 12:33:42 [notice] 1#1: using the "epoll" event method
+2017/04/06 12:33:42 [notice] 1#1: nginx/1.11.10
+2017/04/06 12:33:42 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/06 12:33:42 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/06 12:33:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/06 12:33:42 [notice] 1#1: start worker processes
+2017/04/06 12:33:42 [notice] 1#1: start worker process 6
+2017/04/06 12:33:42 [notice] 1#1: start worker process 7

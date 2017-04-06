@@ -1,3 +1,5 @@
+import styles from 'Styles';
+
 const API = {
     key: 'AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU',
     lang: 'ru',
@@ -17,7 +19,7 @@ const OPTIONS = {
             featureType: 'road',
             elementType: 'geometry',
             stylers: [
-                { color: StyleConst.colors.secondary },
+                { color: styles.colors.secondary },
                 { visibility: 'simplified' },
             ],
         },
@@ -25,7 +27,7 @@ const OPTIONS = {
             featureType: 'road',
             elementType: 'labels',
             stylers: [
-                { color: StyleConst.colors.primary },
+                { color: styles.colors.primary },
                 { visibility: 'simplified' },
             ],
         },

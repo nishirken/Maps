@@ -17,7 +17,8 @@
         "transform-class-properties",
         "transform-function-bind",
         "transform-export-extensions",
-        "transform-react-remove-prop-types"
+        "transform-react-remove-prop-types",
+        "transform-async-to-generator"
       ]
     },
     "development": {
@@ -37,18 +38,27 @@
         "transform-object-rest-spread",
         "transform-class-properties",
         "transform-export-extensions",
-        "transform-function-bind"
+        "transform-function-bind",
+        "transform-async-to-generator",
+        ["module-resolver", {
+          "root": ["./"],
+          "alias": {
+            "Containers": "./src/containers",
+            "Actions": "./src/actions",
+            "Adapters": "./src/adapters",
+            "Components": "./src/components",
+            "Constants": "./src/constants",
+            "Reducers": "./src/reducers",
+            "Styles": "./src/style-resources",
+            "Store": "./src/create-test-store"
+          }
+        }]
       ]
     },
     "test": {
       "presets": [
         "es2016",
-        [
-          "es2015",
-          {
-            "modules": false
-          }
-        ],
+        "es2015",
         "react"
       ],
       "plugins": [
@@ -57,7 +67,7 @@
         "transform-object-rest-spread",
         "transform-function-bind",
         "transform-export-extensions",
-        "transform-es2015-modules-commonjs",
+        "transform-async-to-generator",
         ["module-resolver", {
           "root": ["./"],
           "alias": {

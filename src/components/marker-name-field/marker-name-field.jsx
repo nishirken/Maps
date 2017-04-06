@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledMarkerNameField from './styled-name-field';
 import StyledTitle from './styled-title';
 import StyledInput from './styled-input';

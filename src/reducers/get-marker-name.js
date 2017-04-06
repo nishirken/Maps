@@ -1,5 +1,5 @@
 import { MARKER_NAME } from 'Constants';
-import { saveReducerValue } from 'Store';
+import { saveReducerValue } from 'Adapters';
 
 export default (state = [], action) => {
     let value = state;
@@ -12,7 +12,7 @@ export default (state = [], action) => {
             ];
 
             if (NODE_ENV !== 'test')
-                saveReducerValue('storage', { reducerName: 'getMarkerName', actionValue: value })
+                saveReducerValue('database', { reducerName: 'getMarkerName', actionValue: value })
                     .then(result => console.log(result));
 
             return value;

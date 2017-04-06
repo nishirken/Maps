@@ -1,4 +1,6 @@
+import React, { PureComponent, PropTypes } from 'react';
 import { includes } from 'lodash';
+
 import { ObjectsItem } from 'Components';
 import StyledObjects from './styled-objects';
 import StyledCreateObjectButton from './styled-create-object-button';

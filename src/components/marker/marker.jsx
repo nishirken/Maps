@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledMarkerSvg from './styled-marker-svg';
 
 export default class Marker extends PureComponent {

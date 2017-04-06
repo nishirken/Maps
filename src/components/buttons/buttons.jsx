@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledButtons from './styled-buttons';
 import DeleteButton from './delete-button';
 import EditButton from './edit-button';

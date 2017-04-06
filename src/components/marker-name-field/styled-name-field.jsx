@@ -1,3 +1,4 @@
+import styles from 'Styles';
 import styled from 'styled-components';
 
 const StyledNameField = styled.div`
@@ -7,13 +8,13 @@ const StyledNameField = styled.div`
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    width: ${StyleFunc.em(300)};
-    height: ${StyleFunc.em(120)};
-    top: calc(${props => props.y}px - ${StyleFunc.em(130)});
-    left: calc(${props => props.x + 7.5}px - ${StyleFunc.em(150)});
-    padding: ${StyleFunc.em(10)};
-    background: ${StyleConst.colors.windowsBackground};
-    color: ${StyleConst.colors.secondary};
+    width: ${styles.em(300)};
+    height: ${styles.em(120)};
+    top: calc(${props => props.y}px - ${styles.em(130)});
+    left: calc(${props => props.x + 7.5}px - ${styles.em(150)});
+    padding: ${styles.em(10)};
+    background: ${styles.colors.windowsBackground};
+    color: ${styles.colors.secondary};
 `;
 
 export default StyledNameField;

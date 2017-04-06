@@ -1,3 +1,4 @@
+import React, { PureComponent, PropTypes } from 'react';
 import { includes } from 'lodash';
 import GoogleMapReact from 'google-map-react';
 

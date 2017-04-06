@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledMarkerName from './styled-marker-name';
 import StyledMarkerNameEditField from './styled-marker-name-edit-field';
 import StyledMarkerCoords from './styled-marker-coords';

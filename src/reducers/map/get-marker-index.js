@@ -1,5 +1,5 @@
 import { MARKER_INDEX } from 'Constants';
-import { saveReducerValue } from 'Store';
+import { saveReducerValue } from 'Adapters';
 
 export default (state = -1, action) => {
     let value = state;
@@ -9,7 +9,7 @@ export default (state = -1, action) => {
             value = action.payload;
 
             if (NODE_ENV !== 'test')
-                saveReducerValue('storage', { reducerName: 'getMarkerIndex', actionValue: value })
+                saveReducerValue('database', { reducerName: 'getMarkerIndex', actionValue: value })
                     .then(result => console.log(result));
 
             return value;

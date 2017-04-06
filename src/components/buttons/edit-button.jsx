@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledButtonSvg from './styled-button-svg';
 
 export default class EditButton extends PureComponent {

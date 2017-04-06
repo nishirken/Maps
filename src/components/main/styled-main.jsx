@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import styles from 'Styles';
 
 const StyledMain = styled.main`
   width: 100%;
   height: 100%;
   position: relative;
-  font-family: ${StyleConst.fontFamily.primary};
+  font-family: ${styles.fontFamily.primary};
 `;
 
 export default StyledMain;

@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledObjectsItem from './styled-objects-item';
 import StyledObejectDeleteButton from './styled-object-delete-button';
 

@@ -1,3 +1,4 @@
+import React, { PureComponent, PropTypes } from 'react';
 import { findLast, includes } from 'lodash';
 
 import StyledList from './styled-list';

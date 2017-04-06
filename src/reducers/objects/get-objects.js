@@ -1,5 +1,5 @@
 import { OBJECTS } from 'Constants';
-import { saveReducerValue } from 'Store';
+import { saveReducerValue } from 'Adapters';
 
 export default (state = [], action) => {
     let value = [];
@@ -12,7 +12,7 @@ export default (state = [], action) => {
             ];
 
             if (NODE_ENV !== 'test')
-                saveReducerValue('storage', { reducerName: 'getObjects', actionValue: value })
+                saveReducerValue('database', { reducerName: 'getObjects', actionValue: value })
                     .then(result => console.log(result));
 
             return value;

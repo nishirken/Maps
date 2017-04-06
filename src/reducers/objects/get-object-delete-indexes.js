@@ -1,5 +1,5 @@
 import { DELETE_OBJECT } from 'Constants';
-import { saveReducerValue } from 'Store';
+import { saveReducerValue } from 'Adapters';
 
 export default (state = [], action) => {
     let value = state;
@@ -12,7 +12,7 @@ export default (state = [], action) => {
             ];
 
             if (NODE_ENV !== 'test')
-                saveReducerValue('storage', { reducerName: 'getObjectDeleteIndexes', actionValue: value })
+                saveReducerValue('database', { reducerName: 'getObjectDeleteIndexes', actionValue: value })
                     .then(result => console.log(result));
 
             return value;
