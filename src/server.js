@@ -15,6 +15,7 @@ const renderHTML = componentHTML => `
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Maps</title>
         <link rel="stylesheet" href="/global-styles.css">
+        <link rel="icon" href="/favicon.png" />
     </head>
     <body>
     <div id="root">${componentHTML}</div>

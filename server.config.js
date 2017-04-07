@@ -24,7 +24,7 @@ babelRegister({
                 Constants: './src/constants',
                 Reducers: './src/reducers',
                 Styles: './src/style-resources',
-                Store: './src/create-test-store',
+                Store: './src/create-store',
             },
         }],
     ],

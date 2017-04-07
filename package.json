@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --progress --config webpackfile.development.js",
-    "server": "NODE_ENV=development nodemon --watch src server.config.js",
+    "server": "NODE_ENV=development nodemon --watch src/server.js server.config.js",
     "prod": "NODE_ENV=production webpack --progress --config webpackfile.production.js",
     "test": "NODE_ENV=test jest --watch --config jest.config.json"
   },
