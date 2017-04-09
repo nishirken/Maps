@@ -1,8 +1,4 @@
+import { createAction } from 'redux-actions';
 import { MARKER_SEARCH } from 'Constants';
 
-export default markerSearchIndexes => {
-    return {
-        type: MARKER_SEARCH,
-        markerSearchIndexes,
-    };
-};
+export default createAction(MARKER_SEARCH);

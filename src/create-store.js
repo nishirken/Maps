@@ -1,20 +1,24 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { sendReducerPayload } from 'Middlewares';
 import createLogger from 'redux-logger';
 
 import reducers from 'Reducers';
 
 /*
-Get the initial state from local storage
+ Get the initial state from local storage
  */
 
-const store = (_reducers, _initialState) => {
+const configureStore = () => {
     if (NODE_ENV === 'development')
-        return createStore(_reducers, _initialState, composeWithDevTools(
-            applyMiddleware(createLogger())
+        return createStore(reducers, composeWithDevTools(
+            applyMiddleware(
+                createLogger(),
+                sendReducerPayload,
+            )
         ));
 
-    return createStore(_reducers, _initialState);
+    return createStore(reducers);
 };
 
-export default store(reducers);
+export default configureStore;

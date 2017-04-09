@@ -1,8 +1,9 @@
+import { createAction } from 'redux-actions';
 import { DELETE_MARKER } from 'Constants';
 
-export default deleteMarkerIndex => {
+export default createAction(DELETE_MARKER, deleteMarkerIndex => {
     return {
-        type: DELETE_MARKER,
         deleteMarkerIndex,
+        sendToApi: true,
     };
-};
+});

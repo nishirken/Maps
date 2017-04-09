@@ -1,5 +1,7 @@
 const babelRegister = require('babel-register');
 
+global.NODE_ENV = process.env.NODE_ENV;
+
 babelRegister({
     babelrc: false,
     presets: [
@@ -19,7 +21,7 @@ babelRegister({
             alias: {
                 Containers: './src/containers',
                 Actions: './src/actions',
-                Adapters: './src/adapters',
+                Middlewares: './src/middlewares',
                 Components: './src/components',
                 Constants: './src/constants',
                 Reducers: './src/reducers',

@@ -1,8 +1,9 @@
+import { createAction } from 'redux-actions';
 import { MARKER_INDEX } from 'Constants';
 
-export default newIndex => {
+export default createAction(MARKER_INDEX, index => {
     return {
-        type: MARKER_INDEX,
-        payload: newIndex,
+        index,
+        sendToApi: true,
     };
-};
+});

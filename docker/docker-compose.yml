@@ -3,6 +3,8 @@ services:
   node:
     container_name: maps_node
     image: node:7.7.4
+    networks:
+      - maps
     stdin_open: true
     tty: true
     volumes:
@@ -15,6 +17,8 @@ services:
   nginx:
     container_name: maps_nginx
     image: nginx:1.11
+    networks:
+      - maps
     ports:
       - 80:80
     volumes:
@@ -23,3 +27,7 @@ services:
       - ./logs:/etc/nginx/logs
     depends_on:
       - node
+
+networks:
+  maps:
+    driver: bridge

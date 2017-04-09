@@ -1,11 +1,10 @@
+import { createAction } from 'redux-actions';
 import { DELETE_OBJECT } from 'Constants';
 
-export default (markerIndex, index) => {
+export default createAction(DELETE_OBJECT, (markerIndex, index) => {
     return {
-        type: DELETE_OBJECT,
-        payload: {
-            markerIndex,
-            index,
-        },
+        markerIndex,
+        index,
+        sendToApi: true,
     };
-};
+});

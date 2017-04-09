@@ -1,8 +1,4 @@
+import { createAction } from 'redux-actions';
 import { EDIT_MARKER_NAME } from 'Constants';
 
-export default condition => {
-    return {
-        type: EDIT_MARKER_NAME,
-        payload: condition,
-    };
-};
+export default createAction(EDIT_MARKER_NAME);

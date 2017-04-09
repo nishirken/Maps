@@ -1,11 +1,10 @@
+import { createAction } from 'redux-actions';
 import { MARKER_COORDS } from 'Constants';
 
-export default (index, coords) => {
+export default createAction(MARKER_COORDS, (index, coords) => {
     return {
-        type: MARKER_COORDS,
-        payload: {
-            index,
-            coords,
-        },
+        index,
+        coords,
+        sendToApi: true,
     };
-};
+});

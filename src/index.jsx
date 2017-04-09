@@ -3,12 +3,12 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import 'whatwg-fetch';
 
-import store from 'Store';
+import configureStore from 'Store';
 import { StyledMain } from 'Components';
 import { ListContainer, MapContainer } from 'Containers';
 
 const App = () => (
-    <Provider store={store}>
+    <Provider store={configureStore()}>
         <StyledMain>
             <MapContainer />
             <ListContainer />

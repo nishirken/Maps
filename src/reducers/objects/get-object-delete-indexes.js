@@ -1,21 +1,12 @@
 import { DELETE_OBJECT } from 'Constants';
-import { saveReducerValue } from 'Adapters';
 
 export default (state = [], action) => {
-    let value = state;
-
     switch (action.type) {
         case DELETE_OBJECT:
-            value = [
+            return [
                 ...state,
                 action.payload,
             ];
-
-            if (NODE_ENV !== 'test')
-                saveReducerValue('database', { reducerName: 'getObjectDeleteIndexes', actionValue: value })
-                    .then(result => console.log(result));
-
-            return value;
         default:
             return state;
     }

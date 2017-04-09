@@ -1,14 +1,13 @@
+import { createAction } from 'redux-actions';
 import { OBJECTS } from 'Constants';
 
-export default (markerIndex, index, name) => {
+export default createAction(OBJECTS, (markerIndex, index, name) => {
     return {
-        type: OBJECTS,
-        payload: {
-            markerIndex,
-            object: {
-                index,
-                name,
-            },
+        markerIndex,
+        object: {
+            index,
+            name,
         },
+        sendToApi: true,
     };
-};
+});

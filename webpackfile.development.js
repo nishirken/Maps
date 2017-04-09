@@ -20,10 +20,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(jsx|js)$/,
-                use: [
-                    'react-hot',
-                    'babel',
-                ],
+                loader: 'babel',
                 include: [
                     pathResolve('src'),
                 ],
@@ -41,7 +38,7 @@ module.exports = {
     resolve: {
         alias: {
             Actions: pathResolve('src/actions'),
-            Adapters: pathResolve('src/adapters'),
+            Middlewares: pathResolve('src/middlewares'),
             Components: pathResolve('src/components'),
             Constants: pathResolve('src/constants'),
             Containers: pathResolve('src/containers'),

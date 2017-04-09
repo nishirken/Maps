@@ -23,7 +23,9 @@ import { setMarkerIndex, setMarkerCoords, setMarkerName, setCurrentMarker } from
 )
 export default class MapContainer extends PureComponent {
     static propTypes = {
-        getMarkerIndex: PropTypes.number.isRequired,
+        getMarkerIndex: PropTypes.shape({
+            index: PropTypes.number.isRequired,
+        }),
         getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
             index: PropTypes.number,
             coords: PropTypes.objectOf(PropTypes.number),
@@ -46,7 +48,7 @@ export default class MapContainer extends PureComponent {
                 getCurrentMarker={this.props.getCurrentMarker}
                 getMarkerCoords={this.props.getMarkerCoords}
                 getMarkerDeleteIndexes={this.props.getMarkerDeleteIndexes}
-                getMarkerIndex={this.props.getMarkerIndex}
+                getMarkerIndex={this.props.getMarkerIndex.index}
                 getMarkerSearchIndexes={this.props.getMarkerSearchIndexes}
                 setCurrentMarker={this.props.setCurrentMarker}
                 setMarkerCoords={this.props.setMarkerCoords}

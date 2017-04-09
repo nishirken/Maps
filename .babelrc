@@ -40,19 +40,7 @@
         "transform-export-extensions",
         "transform-function-bind",
         "transform-async-to-generator",
-        ["module-resolver", {
-          "root": ["./"],
-          "alias": {
-            "Containers": "./src/containers",
-            "Actions": "./src/actions",
-            "Adapters": "./src/adapters",
-            "Components": "./src/components",
-            "Constants": "./src/constants",
-            "Reducers": "./src/reducers",
-            "Styles": "./src/style-resources",
-            "Store": "./src/create-test-store"
-          }
-        }]
+        "react-hot-loader/babel"
       ]
     },
     "test": {
@@ -73,11 +61,12 @@
           "alias": {
             "Containers": "./src/containers",
             "Actions": "./src/actions",
+            "Middlewares": "./src/middlewares",
             "Components": "./src/components",
             "Constants": "./src/constants",
             "Reducers": "./src/reducers",
             "Styles": "./src/style-resources",
-            "Store": "./src/create-test-store"
+            "Store": "./src/create-store"
           }
         }]
       ]
