@@ -132,8 +132,11 @@ export default class List extends PureComponent {
         return markersCoords.map((marker, key) => {
             let current = false;
 
-            if (this.props.getCurrentMarker)
-                if (this.props.getCurrentMarker.index === marker.index) current = true;
+            if (this.props.getCurrentMarker) {
+                const currentMarker = this.props.getCurrentMarker;
+
+                if (currentMarker.get('index') === marker.index) current = true;
+            }
 
             return (
                 <ListItem
@@ -149,7 +152,12 @@ export default class List extends PureComponent {
                     markerNumber={key + 1}
                     markerObjects={this.processingObjects(marker.index, this.props.getObjects)}
                     mouseEnter={this.state.mouseEnter}
-                    objectDeleteIndexes={this.processingObjectDeleteIndexes(marker.index, this.props.getObjectDeleteIndexes)}
+                    objectDeleteIndexes={
+                        this.processingObjectDeleteIndexes(
+                            marker.index,
+                            this.props.getObjectDeleteIndexes
+                        )
+                    }
                     setCurrentMarker={this.props.setCurrentMarker}
                     setDeleteMarkerIndex={this.props.setMarkerDeleteIndex}
                     setEditMarkerNameCondition={this.props.setEditMarkerNameCondition}

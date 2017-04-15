@@ -1,10 +1,8 @@
+import { handleAction } from 'redux-actions';
 import { MARKER_INDEX } from 'Constants';
 
-export default (state = { index: -1 }, action) => {
-    switch (action.type) {
-        case MARKER_INDEX:
-            return action.payload;
-        default:
-            return state;
-    }
-};
+export default handleAction(
+    MARKER_INDEX,
+    (state, action) => action.payload,
+    { index: -1 }
+);

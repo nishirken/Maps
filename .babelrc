@@ -39,8 +39,7 @@
         "transform-class-properties",
         "transform-export-extensions",
         "transform-function-bind",
-        "transform-async-to-generator",
-        "react-hot-loader/babel"
+        "transform-async-to-generator"
       ]
     },
     "test": {

@@ -41,14 +41,14 @@ export default class Map extends PureComponent {
 
     static defaultProps = {
         apiSettings: {
-            key: MAP_SETTINGS.API.key,
-            lang: MAP_SETTINGS.API.lang,
+            key: MAP_SETTINGS.API.get('key'),
+            lang: MAP_SETTINGS.API.get('lang'),
         },
         defaultSettings: {
-            center: MAP_SETTINGS.SETTINGS.center,
-            zoom: MAP_SETTINGS.SETTINGS.zoom,
+            center: MAP_SETTINGS.SETTINGS.get('center'),
+            zoom: MAP_SETTINGS.SETTINGS.get('zoom'),
         },
-        options: MAP_SETTINGS.OPTIONS,
+        options: MAP_SETTINGS.OPTIONS.first(),
     };
 
     constructor(props) {
@@ -125,8 +125,12 @@ export default class Map extends PureComponent {
             const coords = marker.coords;
             let center = false;
 
-            if (this.props.getCurrentMarker)
-                if (this.props.getCurrentMarker.index === marker.index) center = true;
+            if (this.props.getCurrentMarker) {
+                const currentMarker = this.props.getCurrentMarker;
+
+                if (currentMarker.get('index') === marker.index) center = true;
+            }
+
 
             return (
                 <Marker

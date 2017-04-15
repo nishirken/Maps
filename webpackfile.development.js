@@ -20,7 +20,10 @@ module.exports = {
         rules: [
             {
                 test: /\.(jsx|js)$/,
-                loader: 'babel',
+                use: [
+                    'react-hot-loader/webpack',
+                    'babel',
+                ],
                 include: [
                     pathResolve('src'),
                 ],

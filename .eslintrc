@@ -248,7 +248,9 @@
     "indent": [
       "error",
       4,
-      { "SwitchCase": 1 }
+      {
+        "SwitchCase": 1
+      }
     ],
     "jsx-quotes": "error",
     "key-spacing": "error",
@@ -307,7 +309,13 @@
       "off",
       "never"
     ],
-    "new-cap": "error",
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": true,
+        "capIsNew": false
+      }
+    ],
     "newline-after-var": "error",
     "newline-before-return": "error",
     "newline-per-chained-call": [

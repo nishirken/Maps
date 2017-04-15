@@ -1,13 +1,11 @@
+import { handleAction } from 'redux-actions';
 import { DELETE_MARKER } from 'Constants';
 
-export default (state = [], action) => {
-    switch (action.type) {
-        case DELETE_MARKER:
-            return [
-                ...state,
-                action.payload.deleteMarkerIndex,
-            ];
-        default:
-            return state;
-    }
-};
+export default handleAction(
+    DELETE_MARKER,
+    (state, action) => [
+        ...state,
+        action.payload.deleteMarkerIndex,
+    ],
+    []
+);

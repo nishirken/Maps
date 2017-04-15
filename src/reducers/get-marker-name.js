@@ -1,13 +1,11 @@
+import { handleAction } from 'redux-actions';
 import { MARKER_NAME } from 'Constants';
 
-export default (state = [], action) => {
-    switch (action.type) {
-        case MARKER_NAME:
-            return [
-                ...state,
-                action.payload,
-            ];
-        default:
-            return state;
-    }
-};
+export default handleAction(
+    MARKER_NAME,
+    (state, action) => [
+        ...state,
+        action.payload,
+    ],
+    []
+);

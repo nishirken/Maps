@@ -1,13 +1,11 @@
+import { handleAction } from 'redux-actions';
 import { OBJECTS } from 'Constants';
 
-export default (state = [], action) => {
-    switch (action.type) {
-        case OBJECTS:
-            return [
-                ...state,
-                action.payload,
-            ];
-        default:
-            return state;
-    }
-};
+export default handleAction(
+    OBJECTS,
+    (state, action) => [
+        ...state,
+        action.payload,
+    ],
+    []
+);
