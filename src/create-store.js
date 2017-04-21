@@ -10,19 +10,15 @@ if (typeof window !== 'undefined') {
     const preloadedState = window.__PRELOADED_STATE__;
     const stateScript = document.getElementById('state');
     const body = document.getElementsByTagName('body');
-    const initialState = {
-        ...preloadedState,
-        fetchMarkers: fromJS(preloadedState.fetchMarkers),
-    };
 
     body[0].removeChild(stateScript);
     delete window.__PRELOADED_STATE__;
 
     const configureStore = () => {
         if (NODE_ENV === 'development')
-            return createStore(reducers, initialState, composeWithDevTools());
+            return createStore(reducers, preloadedState, composeWithDevTools());
 
-        return createStore(reducers, initialState);
+        return createStore(reducers, preloadedState);
     };
 
     store = configureStore();

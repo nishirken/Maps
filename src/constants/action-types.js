@@ -7,4 +7,3 @@ export const DELETE_MARKER = 'DELETE_MARKER';
 export const EDIT_MARKER_NAME = 'EDIT_MARKER_NAME';
 export const OBJECTS = 'OBJECTS';
 export const DELETE_OBJECT = 'DELETE_OBJECT';
-export const FETCH_MARKERS = 'FETCH_MARKERS';

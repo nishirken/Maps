@@ -29,9 +29,8 @@ export default class MapContainer extends PureComponent {
                 getCurrentMarker={this.props.getCurrentMarker}
                 getMarkerCoords={this.props.getMarkerCoords}
                 getMarkerDeleteIndexes={this.props.getMarkerDeleteIndexes}
-                getMarkerIndex={this.props.getMarkerIndex.index}
+                getMarkerIndex={this.props.getMarkerIndex}
                 getMarkerSearchIndexes={this.props.getMarkerSearchIndexes}
-                markers={this.props.markers}
                 setCurrentMarker={this.props.setCurrentMarker}
                 setMarkerCoords={this.props.setMarkerCoords}
                 setMarkerIndex={this.props.setMarkerIndex}
@@ -41,31 +40,19 @@ export default class MapContainer extends PureComponent {
     }
 
     static propTypes = {
-        getCurrentMarker: PropTypes.shape({
+        getCurrentMarker: ImmutablePropTypes.mapContains({
             index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
+            coords: PropTypes.mapOf(PropTypes.number),
         }),
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
+        getMarkerCoords: ImmutablePropTypes.mapContains(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerIndex: PropTypes.shape({
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerIndex: ImmutablePropTypes.mapContains({
             index: PropTypes.number.isRequired,
         }),
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        markers: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-            index: PropTypes.number,
-            name: PropTypes.string,
-            coords: ImmutablePropTypes.mapContains({
-                lat: PropTypes.number,
-                lng: PropTypes.number,
-            }),
-            objects: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-                index: PropTypes.number,
-                name: PropTypes.string,
-            })),
-        })),
+        getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         setCurrentMarker: PropTypes.func,
         setMarkerCoords: PropTypes.func,
         setMarkerIndex: PropTypes.func,

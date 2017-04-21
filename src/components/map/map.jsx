@@ -40,7 +40,7 @@ export default class Map extends PureComponent {
     }
 
     markersRender() {
-        const markers = this.props.markers;
+        const markers = this.props.getMarkerCoords;
 
 //        If (this.props.getMarkerDeleteIndexes && this.props.getMarkerDeleteIndexes.length > 0)
 //            markersCoords = markersCoords.filter(marker =>

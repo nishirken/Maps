@@ -1,6 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { findLast, includes } from 'lodash';
 import { Map } from 'immutable';
 
 import StyledList from './styled-list';
@@ -28,7 +27,7 @@ export default class List extends PureComponent {
     }
 
     marksListItemsRender() {
-        const markers = this.props.markers;
+        const markers = this.props.getMarkerCoords;
 
 //        if (this.props.getMarkerDeleteIndexes.length > 0)
 //            markersCoords = this.processingMarkerDeleteIndexes(markersCoords);

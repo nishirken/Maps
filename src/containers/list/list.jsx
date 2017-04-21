@@ -82,18 +82,6 @@ export default class ListContainer extends PureComponent {
                 }),
             })
         ),
-        markers: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-            index: PropTypes.number,
-            name: PropTypes.string,
-            coords: ImmutablePropTypes.mapContains({
-                lat: PropTypes.number,
-                lng: PropTypes.number,
-            }),
-            objects: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-                index: PropTypes.number,
-                name: PropTypes.string,
-            })),
-        })),
         setCurrentMarker: PropTypes.func,
         setMarkerDeleteIndex: PropTypes.func,
         setMarkerName: PropTypes.func,

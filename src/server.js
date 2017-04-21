@@ -4,10 +4,15 @@ import { renderToString } from 'react-dom/server';
 import App from './index';
 import { createStore } from 'redux';
 import request from 'request-promise-native';
-import { Map, List, fromJS } from 'immutable';
+import { List, fromJS } from 'immutable';
 
 import reducers from 'Reducers';
-import { fetchMarkers } from 'Actions';
+import {
+    setMarkerIndex,
+    setMarkerCoords,
+    setMarkerName,
+    setObject,
+} from 'Actions';
 
 const app = new Koa();
 
@@ -41,34 +46,32 @@ const fetchFromApi = async () => {
             method: 'POST',
         });
 
-        return Map({
-            status: 'success',
-            json: fromJS(JSON.parse(result)),
-            error: null,
-        });
+        return fromJS(JSON.parse(result));
     } catch (error) {
         console.error('There are some error with fetching from api: ', error.message);
 
-        return Map({
-            status: 'error',
-            json: List([]),
-            error,
-        });
+        return List([]);
     }
 };
 
 app.use(async ctx => {
     const serverStore = createStore(reducers);
-    const result = await fetchFromApi();
+    const markers = await fetchFromApi();
 
-    serverStore.dispatch(fetchMarkers(result));
+    markers.forEach(marker => {
+        const index = marker.get('index');
+        const objects = marker.get('objects');
+
+        serverStore.dispatch(setMarkerIndex(index));
+        serverStore.dispatch(setMarkerName(index, marker.get('name')));
+        serverStore.dispatch(setMarkerCoords(index, marker.get('coords')));
+        objects.forEach(object =>
+            serverStore.dispatch(setObject(index, object.get('index'), object.get('name'))));
+    });
 
     const preloadedState = serverStore.getState();
 
-    ctx.body = renderHTML(
-        renderToString(<App store={serverStore} />),
-        { fetchMarkers: preloadedState.fetchMarkers }
-    );
+    ctx.body = renderHTML(renderToString(<App store={serverStore} />), preloadedState);
 });
 
 const PORT = 3000;

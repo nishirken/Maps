@@ -5,6 +5,5 @@ export default createAction(DELETE_OBJECT, (markerIndex, index) => {
     return {
         markerIndex,
         index,
-        sendToApi: true,
     };
 });

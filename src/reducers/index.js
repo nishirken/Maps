@@ -7,7 +7,6 @@ import getMarkerSearchIndexes from './list/get-marker-search-indexes';
 import getMarkerDeleteIndexes from './list/get-marker-delete-indexes';
 import getObjects from './objects/get-objects';
 import getObjectDeleteIndexes from './objects/get-object-delete-indexes';
-import fetchMarkers from './fetch-markers';
 
 export {
     getMarkerIndex,
@@ -18,7 +17,6 @@ export {
     getMarkerDeleteIndexes,
     getObjects,
     getObjectDeleteIndexes,
-    fetchMarkers,
 };
 
 export default combineReducers({
@@ -30,5 +28,4 @@ export default combineReducers({
     getMarkerDeleteIndexes,
     getObjects,
     getObjectDeleteIndexes,
-    fetchMarkers,
 });

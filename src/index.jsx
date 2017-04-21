@@ -5,12 +5,13 @@ import 'isomorphic-fetch';
 
 import store from 'Store';
 import { StyledMain } from 'Components';
-import { AppContainer } from 'Containers';
+import { MapContainer, ListContainer } from 'Containers';
 
 const App = props => (
     <Provider store={props.store}>
         <StyledMain>
-            <AppContainer />
+            <MapContainer />
+            <ListContainer />
         </StyledMain>
     </Provider>
 );
