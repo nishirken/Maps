@@ -42,7 +42,7 @@ export default class MapContainer extends PureComponent {
     static propTypes = {
         getCurrentMarker: ImmutablePropTypes.mapContains({
             index: PropTypes.number,
-            coords: PropTypes.mapOf(PropTypes.number),
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
         }),
         getMarkerCoords: ImmutablePropTypes.mapContains(ImmutablePropTypes.mapContains({
             index: PropTypes.number,

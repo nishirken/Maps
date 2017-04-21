@@ -21,7 +21,6 @@ export default class Map extends PureComponent {
                         language: this.props.apiSettings.lang,
                     }}
                     center={
-                        this.props.getCurrentMarker.get('index') &&
                             {
                                 lat: this.props.getMarkerCoords.get('lat'),
                                 lng: this.props.getMarkerCoords.get('lng'),
@@ -54,7 +53,7 @@ export default class Map extends PureComponent {
             const coords = marker.get('coords');
             const index = marker.get('index');
             let center = false;
-
+            console.log(this.props.getCurrentMarker);
             if (this.props.getCurrentMarker.get('index') === index) center = true;
 
             return (
@@ -155,25 +154,15 @@ export default class Map extends PureComponent {
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         }),
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
+        getMarkerCoords: ImmutablePropTypes.mapContains(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerIndex: PropTypes.number.isRequired,
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        markers: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-            index: PropTypes.number,
-            name: PropTypes.string,
-            coords: ImmutablePropTypes.mapContains({
-                lat: PropTypes.number,
-                lng: PropTypes.number,
-            }),
-            objects: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-                index: PropTypes.number,
-                name: PropTypes.string,
-            })),
-        })),
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerIndex: ImmutablePropTypes.mapContains({
+            index: PropTypes.number.isRequired,
+        }),
+        getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         options: PropTypes.shape({
             styles: PropTypes.arrayOf(PropTypes.object),
         }),
