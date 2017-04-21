@@ -473,10 +473,15 @@
     "react/no-danger-with-children": "error",
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-find-dom-node": "error",
+    "react/no-is-mounted": "error",
     "react/no-multi-comp": "error",
     "react/no-string-refs": "error",
     "react/no-unescaped-entities": "error",
     "react/no-unused-prop-types": "error",
+    "react/sort-prop-types": "error",
+    "react/no-unknown-property": "error",
     "react/prefer-es6-class": "error",
     "react/prefer-stateless-function": "off",
     "react/self-closing-comp": [
@@ -486,7 +491,40 @@
         "html": true
       }
     ],
-    "react/sort-comp": "error",
+    "react/sort-comp": [
+      "error",
+      {
+        "order": [
+          "render",
+          "everything-else",
+          "lifecycle",
+          "static-methods"
+        ],
+        "groups": {
+          "lifecycle": [
+            "constructor",
+            "getDefaultProps",
+            "getInitialState",
+            "componentWillMount",
+            "componentDidMount",
+            "componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "componentDidUpdate",
+            "componentWillUnmount",
+            "state",
+            "displayName",
+            "mixins",
+            "defaultProps",
+            "propTypes",
+            "statics",
+            "getChildContext",
+            "contextTypes",
+            "childContextTypes"
+          ]
+        }
+      }
+    ],
     "react/style-prop-object": "error",
     "react/jsx-boolean-value": [
       "error",
@@ -529,6 +567,7 @@
       }
     ],
     "react/jsx-space-before-closing": "error",
-    "react/jsx-wrap-multilines": "error"
+    "react/jsx-wrap-multilines": "error",
+    "react/no-deprecated": "error"
   }
 }

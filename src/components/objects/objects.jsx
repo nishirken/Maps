@@ -7,31 +7,57 @@ import StyledCreateObjectButton from './styled-create-object-button';
 import StyledObjectNameField from './styled-object-name-field';
 
 export default class Objects extends PureComponent {
-    static propTypes = {
-        markerIndex: PropTypes.number,
-        markerObjects: PropTypes.arrayOf(
-            PropTypes.shape({
-                index: PropTypes.number,
-                name: PropTypes.string,
-            }),
-        ),
-        mouseEnter: PropTypes.bool,
-        objectDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        setObject: PropTypes.func,
-        setObjectDeleteIndex: PropTypes.func,
-    };
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            createObject: false,
-        };
-        this.objectName = '';
+    render() {
+        return (
+            <StyledObjects open={this.props.mouseEnter}>
+                {this.renderCreateObject()}
+                {this.renderObjectsItem()}
+            </StyledObjects>
+        );
     }
 
-    componentDidUpdate() {
-        if (this.state.createObject && this.input)
-            this.input.focus();
+    renderCreateObject() {
+        if (this.state.createObject)
+            return (
+                <StyledObjectNameField
+                    innerRef={input => {
+                        this.input = input;
+                    }}
+                    onChange={::this.onChangeHandler}
+                    onKeyDown={::this.onKeyDownHandler}
+                />
+            );
+
+        return (
+            <StyledCreateObjectButton onClick={::this.toggleCreateObject}>
+                create new object
+            </StyledCreateObjectButton>
+        );
+    }
+
+    renderObjectsItem() {
+        if (this.props.markerObjects && this.props.markerObjects.length > 0) {
+            let objects = this.props.markerObjects;
+
+            if (this.props.objectDeleteIndexes.length > 0)
+                objects = objects.filter(object =>
+                    !includes(this.props.objectDeleteIndexes, object.index));
+
+            return objects.map((object, key) => {
+                return (
+                    <ObjectsItem
+                        index={object.index}
+                        key={key}
+                        markerIndex={this.props.markerIndex}
+                        name={object.name}
+                        number={key + 1}
+                        setObjectDeleteIndex={this.props.setObjectDeleteIndex}
+                    />
+                );
+            });
+        }
+
+        return null;
     }
 
     toggleCreateObject() {
@@ -69,56 +95,30 @@ export default class Objects extends PureComponent {
         }
     }
 
-    renderObjectsItem() {
-        if (this.props.markerObjects && this.props.markerObjects.length > 0) {
-            let objects = this.props.markerObjects;
-
-            if (this.props.objectDeleteIndexes.length > 0)
-                objects = objects.filter(object =>
-                    !includes(this.props.objectDeleteIndexes, object.index));
-
-            return objects.map((object, key) => {
-                return (
-                    <ObjectsItem
-                        index={object.index}
-                        key={key}
-                        markerIndex={this.props.markerIndex}
-                        name={object.name}
-                        number={key + 1}
-                        setObjectDeleteIndex={this.props.setObjectDeleteIndex}
-                    />
-                );
-            });
-        }
-
-        return null;
+    constructor(props) {
+        super(props);
+        this.state = {
+            createObject: false,
+        };
+        this.objectName = '';
     }
 
-    renderCreateObject() {
-        if (this.state.createObject)
-            return (
-                <StyledObjectNameField
-                    innerRef={input => {
-                        this.input = input;
-                    }}
-                    onChange={::this.onChangeHandler}
-                    onKeyDown={::this.onKeyDownHandler}
-                />
-            );
-
-        return (
-            <StyledCreateObjectButton onClick={::this.toggleCreateObject}>
-                create new object
-            </StyledCreateObjectButton>
-        );
+    componentDidUpdate() {
+        if (this.state.createObject && this.input)
+            this.input.focus();
     }
 
-    render() {
-        return (
-            <StyledObjects open={this.props.mouseEnter}>
-                {this.renderCreateObject()}
-                {this.renderObjectsItem()}
-            </StyledObjects>
-        );
+    static propTypes = {
+        markerIndex: PropTypes.number,
+        markerObjects: PropTypes.arrayOf(
+            PropTypes.shape({
+                index: PropTypes.number,
+                name: PropTypes.string,
+            }),
+        ),
+        mouseEnter: PropTypes.bool,
+        objectDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
+        setObject: PropTypes.func,
+        setObjectDeleteIndex: PropTypes.func,
     }
 }

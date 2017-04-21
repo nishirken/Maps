@@ -1,61 +1,71 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { includes } from 'lodash';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import GoogleMapReact from 'google-map-react';
+import { List } from 'immutable';
 
 import StyledMap from './styled-map';
 import { Marker, MarkerNameField } from 'Components';
 import { MAP_SETTINGS } from 'Constants';
+import { sendToApi } from 'Api';
 
 export default class Map extends PureComponent {
-    static propTypes = {
-        apiSettings: PropTypes.shape({
-            key: PropTypes.string.isRequired,
-            lang: PropTypes.string.isRequired,
-        }).isRequired,
-        defaultSettings: PropTypes.shape({
-            center: PropTypes.shape({
-                lat: PropTypes.number.isRequired,
-                lng: PropTypes.number.isRequired,
-            }).isRequired,
-            zoom: PropTypes.number.isRequired,
-        }),
-        options: PropTypes.shape({
-            styles: PropTypes.arrayOf(PropTypes.object),
-        }),
-        getMarkerIndex: PropTypes.number.isRequired,
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        })).isRequired,
-        getCurrentMarker: PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        }),
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        setMarkerIndex: PropTypes.func,
-        setMarkerCoords: PropTypes.func,
-        setMarkerName: PropTypes.func,
-        setCurrentMarker: PropTypes.func,
-    };
+    render() {
+        const coords = this.props.getMarkerCoords;
 
-    static defaultProps = {
-        apiSettings: {
-            key: MAP_SETTINGS.API.get('key'),
-            lang: MAP_SETTINGS.API.get('lang'),
-        },
-        defaultSettings: {
-            center: MAP_SETTINGS.SETTINGS.get('center'),
-            zoom: MAP_SETTINGS.SETTINGS.get('zoom'),
-        },
-        options: MAP_SETTINGS.OPTIONS.first(),
-    };
+        return (
+            <StyledMap>
+                {this.markerNameFieldRender()}
+                <GoogleMapReact
+                    bootstrapURLKeys={{
+                        key: this.props.apiSettings.key,
+                        language: this.props.apiSettings.lang,
+                    }}
+                    center={
+                        this.props.getCurrentMarker.get('index') &&
+                            {
+                                lat: this.props.getMarkerCoords.get('lat'),
+                                lng: this.props.getMarkerCoords.get('lng'),
+                            }
+                    }
+                    defaultCenter={this.props.defaultSettings.center}
+                    defaultZoom={this.props.defaultSettings.zoom}
+                    options={this.props.options}
+                    onChildClick={::this.markerChoice}
+                    onClick={::this.getMarkerCoords}
+                >
+                    {this.markersRender()}
+                </GoogleMapReact>
+            </StyledMap>
+        );
+    }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            markerInit: false,
-        };
+    markersRender() {
+        const markers = this.props.markers;
+
+//        If (this.props.getMarkerDeleteIndexes && this.props.getMarkerDeleteIndexes.length > 0)
+//            markersCoords = markersCoords.filter(marker =>
+//                !includes(this.props.getMarkerDeleteIndexes, marker.index));
+//
+//        if (this.props.getMarkerSearchIndexes && this.props.getMarkerSearchIndexes.length > 0)
+//            markersCoords = markersCoords.filter(marker =>
+//                includes(this.props.getMarkerSearchIndexes, marker.index));
+
+        return markers.map(marker => {
+            const coords = marker.get('coords');
+            const index = marker.get('index');
+            let center = false;
+
+            if (this.props.getCurrentMarker.get('index') === index) center = true;
+
+            return (
+                <Marker
+                    center={center}
+                    key={index}
+                    lat={coords.get('lat')}
+                    lng={coords.get('lng')}
+                />
+            );
+        });
     }
 
     getMarkerCoords(coords) {
@@ -110,58 +120,66 @@ export default class Map extends PureComponent {
         return null;
     }
 
-    markersRender() {
-        let markersCoords = this.props.getMarkerCoords;
-
-        if (this.props.getMarkerDeleteIndexes && this.props.getMarkerDeleteIndexes.length > 0)
-            markersCoords = markersCoords.filter(marker =>
-                !includes(this.props.getMarkerDeleteIndexes, marker.index));
-
-        if (this.props.getMarkerSearchIndexes && this.props.getMarkerSearchIndexes.length > 0)
-            markersCoords = markersCoords.filter(marker =>
-                includes(this.props.getMarkerSearchIndexes, marker.index));
-
-        return markersCoords.map(marker => {
-            const coords = marker.coords;
-            let center = false;
-
-            if (this.props.getCurrentMarker) {
-                const currentMarker = this.props.getCurrentMarker;
-
-                if (currentMarker.get('index') === marker.index) center = true;
-            }
-
-
-            return (
-                <Marker
-                    center={center}
-                    key={marker.index}
-                    lat={coords.lat}
-                    lng={coords.lng}
-                />
-            );
-        });
+    constructor(props) {
+        super(props);
+        this.state = {
+            markerInit: false,
+        };
     }
 
-    render() {
-        return (
-            <StyledMap>
-                {this.markerNameFieldRender()}
-                <GoogleMapReact
-                    bootstrapURLKeys={{
-                        key: this.props.apiSettings.key,
-                        language: this.props.apiSettings.lang,
-                    }}
-                    center={this.props.getCurrentMarker && this.props.getCurrentMarker.coords}
-                    defaultCenter={this.props.defaultSettings.center}
-                    defaultZoom={this.props.defaultSettings.zoom}
-                    options={this.props.options}
-                    onChildClick={::this.markerChoice}
-                    onClick={::this.getMarkerCoords}
-                >
-                    {this.markersRender()}
-                </GoogleMapReact>
-            </StyledMap>
-        );
+    static defaultProps = {
+        apiSettings: {
+            key: MAP_SETTINGS.API.get('key'),
+            lang: MAP_SETTINGS.API.get('lang'),
+        },
+        defaultSettings: {
+            center: MAP_SETTINGS.SETTINGS.get('center'),
+            zoom: MAP_SETTINGS.SETTINGS.get('zoom'),
+        },
+        options: MAP_SETTINGS.OPTIONS.first(),
+    }
+
+    static propTypes = {
+        apiSettings: PropTypes.shape({
+            key: PropTypes.string.isRequired,
+            lang: PropTypes.string.isRequired,
+        }).isRequired,
+        defaultSettings: PropTypes.shape({
+            center: PropTypes.shape({
+                lat: PropTypes.number.isRequired,
+                lng: PropTypes.number.isRequired,
+            }).isRequired,
+            zoom: PropTypes.number.isRequired,
+        }),
+        getCurrentMarker: ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        }),
+        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
+            index: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        })).isRequired,
+        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
+        getMarkerIndex: PropTypes.number.isRequired,
+        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
+        markers: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            name: PropTypes.string,
+            coords: ImmutablePropTypes.mapContains({
+                lat: PropTypes.number,
+                lng: PropTypes.number,
+            }),
+            objects: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+                index: PropTypes.number,
+                name: PropTypes.string,
+            })),
+        })),
+        options: PropTypes.shape({
+            styles: PropTypes.arrayOf(PropTypes.object),
+        }),
+        setCurrentMarker: PropTypes.func,
+        setMarkerCoords: PropTypes.func,
+        setMarkerIndex: PropTypes.func,
+        setMarkerName: PropTypes.func,
     }
 }

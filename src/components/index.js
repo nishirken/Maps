@@ -9,3 +9,4 @@ export Buttons from './buttons/buttons';
 export StyledSearchField from './search-field/styled-search-field';
 export Objects from './objects/objects';
 export ObjectsItem from './objects-item/objects-item';
+export StyledApp from './app/app';

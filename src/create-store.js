@@ -1,24 +1,31 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { sendReducerPayload } from 'Middlewares';
-import createLogger from 'redux-logger';
+import { fromJS } from 'immutable';
 
 import reducers from 'Reducers';
 
-/*
- Get the initial state from local storage
- */
+let store = null;
 
-const configureStore = () => {
-    if (NODE_ENV === 'development')
-        return createStore(reducers, composeWithDevTools(
-            applyMiddleware(
-                createLogger(),
-                sendReducerPayload,
-            )
-        ));
+if (typeof window !== 'undefined') {
+    const preloadedState = window.__PRELOADED_STATE__;
+    const stateScript = document.getElementById('state');
+    const body = document.getElementsByTagName('body');
+    const initialState = {
+        ...preloadedState,
+        fetchMarkers: fromJS(preloadedState.fetchMarkers),
+    };
 
-    return createStore(reducers);
-};
+    body[0].removeChild(stateScript);
+    delete window.__PRELOADED_STATE__;
 
-export default configureStore;
+    const configureStore = () => {
+        if (NODE_ENV === 'development')
+            return createStore(reducers, initialState, composeWithDevTools());
+
+        return createStore(reducers, initialState);
+    };
+
+    store = configureStore();
+}
+
+export default store;

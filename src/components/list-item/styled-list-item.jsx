@@ -1,3 +1,4 @@
+import { PropTypes } from 'react';
 import styles from 'Styles';
 import styled from 'styled-components';
 
@@ -12,5 +13,9 @@ const StyledListItem = styled.div`
     border-bottom: 1px solid ${styles.colors.secondary};
     background: ${props => props.current ? styles.colors.currentMarksListItem : 'transparent'};
 `;
+
+StyledListItem.propTypes = {
+    current: PropTypes.bool,
+};
 
 export default StyledListItem;

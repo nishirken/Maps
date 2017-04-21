@@ -6,3 +6,4 @@ export setMarkerSearchIndexes from './list/set-marker-search-indexes';
 export setMarkerDeleteIndex from './list/set-marker-delete-index';
 export setObject from './objects/set-object';
 export setObjectDeleteIndex from './objects/set-object-delete-index';
+export fetchMarkers from './fetch-markers';

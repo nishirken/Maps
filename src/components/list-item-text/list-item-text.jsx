@@ -1,21 +1,12 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 
+import propTypes from './list-item-text-proptypes';
 import StyledMarkerName from './styled-marker-name';
 import StyledMarkerNameEditField from './styled-marker-name-edit-field';
 import StyledMarkerCoords from './styled-marker-coords';
 
 export default class ListItemText extends PureComponent {
-    static propTypes = {
-        markerName: PropTypes.string,
-        markerCoords: PropTypes.shape({
-            lat: PropTypes.number,
-            lng: PropTypes.number,
-        }),
-        markerNumber: PropTypes.number,
-        setNewMarkerName: PropTypes.func,
-        switchEditMarkerName: PropTypes.func,
-        editMarkerName: PropTypes.bool,
-    }
+    static propTypes = propTypes;
 
     componentDidUpdate() {
         if (this.props.editMarkerName && this.input)
@@ -62,8 +53,8 @@ export default class ListItemText extends PureComponent {
             <div>
                 {this.renderMarkerName()}
                 <StyledMarkerCoords>
-                    coords: {this.props.markerCoords.lat.toFixed(2)},
-                    &nbsp;{this.props.markerCoords.lng.toFixed(2)} <br />
+                    coords: {this.props.markerCoords.get('lat').toFixed(2)},
+                    &nbsp;{this.props.markerCoords.get('lng').toFixed(2)} <br />
                     №: {this.props.markerNumber}
                 </StyledMarkerCoords>
             </div>

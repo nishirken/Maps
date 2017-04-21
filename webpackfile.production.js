@@ -49,6 +49,7 @@ module.exports = {
     resolve: {
         alias: {
             Actions: pathResolve('src/actions'),
+            Api: pathResolve('src/api'),
             Middlewares: pathResolve('src/middlewares'),
             Components: pathResolve('src/components'),
             Constants: pathResolve('src/constants'),

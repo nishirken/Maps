@@ -21,6 +21,7 @@ babelRegister({
             alias: {
                 Containers: './src/containers',
                 Actions: './src/actions',
+                Api: './src/api',
                 Middlewares: './src/middlewares',
                 Components: './src/components',
                 Constants: './src/constants',

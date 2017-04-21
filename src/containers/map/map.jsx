@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -22,26 +23,6 @@ import { setMarkerIndex, setMarkerCoords, setMarkerName, setCurrentMarker } from
     })
 )
 export default class MapContainer extends PureComponent {
-    static propTypes = {
-        getMarkerIndex: PropTypes.shape({
-            index: PropTypes.number.isRequired,
-        }),
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        })).isRequired,
-        getCurrentMarker: PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        }),
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        setMarkerIndex: PropTypes.func,
-        setMarkerCoords: PropTypes.func,
-        setMarkerName: PropTypes.func,
-        setCurrentMarker: PropTypes.func,
-    }
-
     render() {
         return (
             <Map
@@ -50,11 +31,44 @@ export default class MapContainer extends PureComponent {
                 getMarkerDeleteIndexes={this.props.getMarkerDeleteIndexes}
                 getMarkerIndex={this.props.getMarkerIndex.index}
                 getMarkerSearchIndexes={this.props.getMarkerSearchIndexes}
+                markers={this.props.markers}
                 setCurrentMarker={this.props.setCurrentMarker}
                 setMarkerCoords={this.props.setMarkerCoords}
                 setMarkerIndex={this.props.setMarkerIndex}
                 setMarkerName={this.props.setMarkerName}
             />
         );
+    }
+
+    static propTypes = {
+        getCurrentMarker: PropTypes.shape({
+            index: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        }),
+        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
+            index: PropTypes.number,
+            coords: PropTypes.objectOf(PropTypes.number),
+        })).isRequired,
+        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
+        getMarkerIndex: PropTypes.shape({
+            index: PropTypes.number.isRequired,
+        }),
+        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
+        markers: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            name: PropTypes.string,
+            coords: ImmutablePropTypes.mapContains({
+                lat: PropTypes.number,
+                lng: PropTypes.number,
+            }),
+            objects: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+                index: PropTypes.number,
+                name: PropTypes.string,
+            })),
+        })),
+        setCurrentMarker: PropTypes.func,
+        setMarkerCoords: PropTypes.func,
+        setMarkerIndex: PropTypes.func,
+        setMarkerName: PropTypes.func,
     }
 }

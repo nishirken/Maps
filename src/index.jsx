@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import 'whatwg-fetch';
+import 'isomorphic-fetch';
 
-import configureStore from 'Store';
+import store from 'Store';
 import { StyledMain } from 'Components';
-import { ListContainer, MapContainer } from 'Containers';
+import { AppContainer } from 'Containers';
 
-const App = () => (
-    <Provider store={configureStore()}>
+const App = props => (
+    <Provider store={props.store}>
         <StyledMain>
-            <MapContainer />
-            <ListContainer />
+            <AppContainer />
         </StyledMain>
     </Provider>
 );
 
+App.propTypes = {
+    store: PropTypes.object,
+};
+
 if (typeof window !== 'undefined')
     render(
-        <App />,
+        <App store={store} />,
         document.getElementById('root')
     );
 

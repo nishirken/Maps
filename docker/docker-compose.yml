@@ -1,6 +1,6 @@
 version: '3'
 services:
-  node:
+  client_node:
     container_name: maps_node
     image: node:7.7.4
     networks:
@@ -14,7 +14,7 @@ services:
       - ../server.config.js:/server.config.js
       - ../src:/src
 
-  nginx:
+  client_nginx:
     container_name: maps_nginx
     image: nginx:1.11
     networks:
@@ -26,8 +26,9 @@ services:
       - ./nginx:/etc/nginx
       - ./logs:/etc/nginx/logs
     depends_on:
-      - node
+      - client_node
 
 networks:
   maps:
-    driver: bridge
+    external:
+      name: mapsapi_default
