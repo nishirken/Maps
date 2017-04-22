@@ -4,9 +4,6 @@ import { MARKER_COORDS } from 'Constants';
 
 export default handleAction(
     MARKER_COORDS,
-    (state, action) => List([
-        ...state,
-        action.payload,
-    ]),
-    []
+    (state, action) => state.push(action.payload),
+    List([])
 );

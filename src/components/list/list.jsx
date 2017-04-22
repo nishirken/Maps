@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { Map } from 'immutable';
+import { Map, List as ImmutableList } from 'immutable';
 
 import StyledList from './styled-list';
 import StyledListWrapper from './styled-list-wrapper';
@@ -29,11 +29,11 @@ export default class List extends PureComponent {
     marksListItemsRender() {
         let markers = this.props.getMarkerCoords;
 
-        markers = this.processingMarkerDeleteIndexes(markers);
-//
-//        if (this.props.getMarkerSearchIndexes.length > 0)
-//            markersCoords = this.processingMarkerSearchIndexes(markersCoords);
-        console.log(markers);
+        if (this.props.getMarkerDeleteIndexes.size)
+            markers = this.processingMarkerDeleteIndexes(markers);
+        if (this.props.getMarkerSearchIndexes.size)
+            markers = this.processingMarkerSearchNames(markers);
+
         return markers.map(marker => {
             let current = false;
             const coords = marker.get('coords');
@@ -80,9 +80,9 @@ export default class List extends PureComponent {
             !this.props.getMarkerDeleteIndexes.includes(marker.get('index')));
     }
 
-    processingMarkerSearchIndexes(coordsArray) {
+    processingMarkerSearchNames(coordsArray) {
         return coordsArray.filter(marker =>
-            includes(this.props.getMarkerSearchIndexes, marker.index));
+            this.props.getMarkerSearchIndexes.includes(marker.get('index')));
     }
 
     processingObjects(markerIndex, objects) {
@@ -115,22 +115,23 @@ export default class List extends PureComponent {
     markerSearchIndex(e) {
         const value = e.target.value;
 
-        const searchIndexes = [];
-
         const search = (searchValue, ...args) => {
             for (const argument in args)
                 if (Object.prototype.hasOwnProperty.call(args, argument))
                     return String(args[argument]).toLowerCase().indexOf(searchValue) !== -1;
 
-            return -1;
+            return false;
         };
 
-        if (value)
-            this.props.getMarkerName.forEach(marker => {
-                if (search(value, marker.name)) searchIndexes.push(marker.index);
-            });
+        let markerSearchIndexes = [];
 
-        this.props.setMarkerSearchIndexes(searchIndexes);
+        if (value)
+            markerSearchIndexes =
+                this.props.getMarkerName.filter(marker =>
+                    search(value, marker.get('name')))
+                    .map(marker => marker.get('index'));
+
+        this.props.setMarkerSearchIndexes(markerSearchIndexes);
     }
 
     constructor(props) {
