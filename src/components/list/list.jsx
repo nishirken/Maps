@@ -27,14 +27,13 @@ export default class List extends PureComponent {
     }
 
     marksListItemsRender() {
-        const markers = this.props.getMarkerCoords;
+        let markers = this.props.getMarkerCoords;
 
-//        if (this.props.getMarkerDeleteIndexes.length > 0)
-//            markersCoords = this.processingMarkerDeleteIndexes(markersCoords);
+        markers = this.processingMarkerDeleteIndexes(markers);
 //
 //        if (this.props.getMarkerSearchIndexes.length > 0)
 //            markersCoords = this.processingMarkerSearchIndexes(markersCoords);
-
+        console.log(markers);
         return markers.map(marker => {
             let current = false;
             const coords = marker.get('coords');
@@ -78,7 +77,7 @@ export default class List extends PureComponent {
 
     processingMarkerDeleteIndexes(coordsArray) {
         return coordsArray.filter(marker =>
-            !includes(this.props.getMarkerDeleteIndexes, marker.index));
+            !this.props.getMarkerDeleteIndexes.includes(marker.get('index')));
     }
 
     processingMarkerSearchIndexes(coordsArray) {

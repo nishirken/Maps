@@ -32,11 +32,10 @@ export default class Map extends PureComponent {
     }
 
     markersRender() {
-        const markers = this.props.getMarkerCoords;
+        let markers = this.props.getMarkerCoords;
 
-//        If (this.props.getMarkerDeleteIndexes && this.props.getMarkerDeleteIndexes.length > 0)
-//            markersCoords = markersCoords.filter(marker =>
-//                !includes(this.props.getMarkerDeleteIndexes, marker.index));
+        markers = markers.filter(marker =>
+            !this.props.getMarkerDeleteIndexes.includes(marker.get('index')));
 //
 //        if (this.props.getMarkerSearchIndexes && this.props.getMarkerSearchIndexes.length > 0)
 //            markersCoords = markersCoords.filter(marker =>
