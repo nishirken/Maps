@@ -44,14 +44,12 @@ export default class MapContainer extends PureComponent {
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         }),
-        getMarkerCoords: ImmutablePropTypes.mapContains(ImmutablePropTypes.mapContains({
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,
         getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
-        getMarkerIndex: ImmutablePropTypes.mapContains({
-            index: PropTypes.number.isRequired,
-        }),
+        getMarkerIndex: PropTypes.number.isRequired,
         getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         setCurrentMarker: PropTypes.func,
         setMarkerCoords: PropTypes.func,

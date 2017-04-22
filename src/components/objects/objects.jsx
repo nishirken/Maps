@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { includes } from 'lodash';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { ObjectsItem } from 'Components';
 import StyledObjects from './styled-objects';
@@ -36,28 +36,25 @@ export default class Objects extends PureComponent {
     }
 
     renderObjectsItem() {
-        if (this.props.markerObjects && this.props.markerObjects.length > 0) {
-            let objects = this.props.markerObjects;
+        let objects = this.props.markerObjects;
 
-            if (this.props.objectDeleteIndexes.length > 0)
-                objects = objects.filter(object =>
-                    !includes(this.props.objectDeleteIndexes, object.index));
+//                objects = objects.filter(object =>
+//                    !includes(this.props.objectDeleteIndexes, object.index));
 
-            return objects.map((object, key) => {
-                return (
-                    <ObjectsItem
-                        index={object.index}
-                        key={key}
-                        markerIndex={this.props.markerIndex}
-                        name={object.name}
-                        number={key + 1}
-                        setObjectDeleteIndex={this.props.setObjectDeleteIndex}
-                    />
-                );
-            });
-        }
+        return objects.map(object => {
+            const index = object.get('index');
 
-        return null;
+            return (
+                <ObjectsItem
+                    index={index}
+                    key={index}
+                    markerIndex={this.props.markerIndex}
+                    name={object.get('name')}
+                    number={index + 1}
+                    setObjectDeleteIndex={this.props.setObjectDeleteIndex}
+                />
+            );
+        });
     }
 
     toggleCreateObject() {
@@ -78,7 +75,7 @@ export default class Objects extends PureComponent {
     }
 
     getCurrentObjectIndex() {
-        return this.props.markerObjects.length;
+        return this.props.markerObjects.size;
     }
 
     onKeyDownHandler(e) {
@@ -88,7 +85,7 @@ export default class Objects extends PureComponent {
         if (e.keyCode === 13) {
             this.props.setObject(
                 this.props.markerIndex,
-                this.getCurrentObjectIndex(),
+                this.getCurrentObjectIndex() + 1,
                 this.objectNameValidate(this.objectName)
             );
             this.objectName = '';
@@ -117,7 +114,7 @@ export default class Objects extends PureComponent {
             }),
         ),
         mouseEnter: PropTypes.bool,
-        objectDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
+        objectDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         setObject: PropTypes.func,
         setObjectDeleteIndex: PropTypes.func,
     }

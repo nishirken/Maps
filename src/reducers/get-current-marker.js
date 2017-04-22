@@ -5,5 +5,8 @@ import { CURRENT_MARKER } from 'Constants';
 export default handleAction(
     CURRENT_MARKER,
     (state, action) => action.payload,
-    Map({})
+    Map({
+        index: null,
+        coords: Map({}),
+    })
 );

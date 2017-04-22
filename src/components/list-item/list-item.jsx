@@ -106,14 +106,14 @@ export default class ListItem extends PureComponent {
         markerIndex: PropTypes.number,
         markerName: PropTypes.string,
         markerNumber: PropTypes.number,
-        markerObjects: PropTypes.arrayOf(
-            PropTypes.shape({
+        markerObjects: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.mapContains({
                 index: PropTypes.number,
                 name: PropTypes.string,
             }),
         ),
         mouseEnter: PropTypes.bool,
-        objectDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
+        objectDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         setCurrentMarker: PropTypes.func,
         setDeleteMarkerIndex: PropTypes.func,
         setMarkerName: PropTypes.func,

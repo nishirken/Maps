@@ -58,7 +58,7 @@ export default class ListContainer extends PureComponent {
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         }),
-        getMarkerCoords: ImmutablePropTypes.mapContains(ImmutablePropTypes.mapContains({
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,

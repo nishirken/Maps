@@ -10,8 +10,6 @@ import { sendToApi } from 'Api';
 
 export default class Map extends PureComponent {
     render() {
-        const coords = this.props.getMarkerCoords;
-
         return (
             <StyledMap>
                 {this.markerNameFieldRender()}
@@ -20,12 +18,7 @@ export default class Map extends PureComponent {
                         key: this.props.apiSettings.key,
                         language: this.props.apiSettings.lang,
                     }}
-                    center={
-                            {
-                                lat: this.props.getMarkerCoords.get('lat'),
-                                lng: this.props.getMarkerCoords.get('lng'),
-                            }
-                    }
+                    center={this.centerMap(this.props.getCurrentMarker)}
                     defaultCenter={this.props.defaultSettings.center}
                     defaultZoom={this.props.defaultSettings.zoom}
                     options={this.props.options}
@@ -53,7 +46,7 @@ export default class Map extends PureComponent {
             const coords = marker.get('coords');
             const index = marker.get('index');
             let center = false;
-            console.log(this.props.getCurrentMarker);
+
             if (this.props.getCurrentMarker.get('index') === index) center = true;
 
             return (
@@ -65,6 +58,16 @@ export default class Map extends PureComponent {
                 />
             );
         });
+    }
+
+    centerMap(currentMarker) {
+        if (currentMarker.get('index') !== null)
+            return {
+                lat: currentMarker.get('coords').get('lat'),
+                lng: currentMarker.get('coords').get('lng'),
+            };
+
+        return {};
     }
 
     getMarkerCoords(coords) {
@@ -102,7 +105,7 @@ export default class Map extends PureComponent {
     markerChoice(index, coords) {
         const { lat, lng } = coords;
 
-        this.props.setCurrentMarker(Number(index), { lat, lng });
+        this.props.setCurrentMarker(index, { lat, lng });
     }
 
     markerNameFieldRender() {
@@ -154,14 +157,12 @@ export default class Map extends PureComponent {
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         }),
-        getMarkerCoords: ImmutablePropTypes.mapContains(ImmutablePropTypes.mapContains({
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,
         getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
-        getMarkerIndex: ImmutablePropTypes.mapContains({
-            index: PropTypes.number.isRequired,
-        }),
+        getMarkerIndex: PropTypes.number.isRequired,
         getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         options: PropTypes.shape({
             styles: PropTypes.arrayOf(PropTypes.object),

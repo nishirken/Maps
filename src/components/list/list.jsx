@@ -35,26 +35,28 @@ export default class List extends PureComponent {
 //        if (this.props.getMarkerSearchIndexes.length > 0)
 //            markersCoords = this.processingMarkerSearchIndexes(markersCoords);
 
-        return markers.map((marker, key) => {
+        return markers.map(marker => {
             let current = false;
             const coords = marker.get('coords');
             const index = marker.get('index');
-            const currentMarker = this.props.getCurrentMarker;
 
-            if (currentMarker.get('index') === index) current = true;
+            if (this.props.getCurrentMarker.get('index') === index) current = true;
 
             return (
                 <ListItem
                     current={current}
                     getEditMarkerNameCondition={this.props.getEditMarkerNameCondition}
-                    key={marker.get('index')}
+                    key={index}
                     markerCoords={Map({
                         lat: coords.get('lat'),
                         lng: coords.get('lng'),
                     })}
                     markerIndex={index}
-                    markerName={marker.get('name')}
-                    markerNumber={key + 1}
+                    markerName={
+                        this.props.getMarkerName.findLast(value => value.get('index') === index)
+                            .get('name')
+                    }
+                    markerNumber={index + 1}
                     markerObjects={this.processingObjects(index, this.props.getObjects)}
                     mouseEnter={this.state.mouseEnter}
                     objectDeleteIndexes={
@@ -85,26 +87,15 @@ export default class List extends PureComponent {
     }
 
     processingObjects(markerIndex, objects) {
-        if (objects && objects.length > 0)
-            return objects
-                .filter(object => {
-                    if (object.markerIndex === markerIndex)
-                        return true;
-
-                    return false;
-                })
-                .map(object => object.object);
-
-        return objects;
+        return objects
+            .filter(object => object.get('markerIndex') === markerIndex)
+            .map(object => object.get('object'));
     }
 
     processingObjectDeleteIndexes(markerIndex, objectDeleteIndexes) {
-        if (objectDeleteIndexes && objectDeleteIndexes.length > 0)
-            return objectDeleteIndexes
-                .filter(object => object.markerIndex === markerIndex)
-                .map(object => object.index);
-
-        return objectDeleteIndexes;
+        return objectDeleteIndexes
+            .filter(object => object.get('markerIndex') === markerIndex)
+            .map(object => object.get('index'));
     }
 
     mouseEnterHandler() {
@@ -151,46 +142,34 @@ export default class List extends PureComponent {
     }
 
     static propTypes = {
-        getCurrentMarker: PropTypes.shape({
+        getCurrentMarker: ImmutablePropTypes.mapContains({
             index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
         }),
         getEditMarkerNameCondition: PropTypes.bool,
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerName: PropTypes.arrayOf(PropTypes.shape({
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerName: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             name: PropTypes.string,
         })).isRequired,
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        getObjectDeleteIndexes: PropTypes.arrayOf(PropTypes.shape({
+        getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getObjectDeleteIndexes: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             markerIndex: PropTypes.number,
             index: PropTypes.number,
         })),
-        getObjects: PropTypes.arrayOf(
-            PropTypes.shape({
+        getObjects: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.mapContains({
                 markerIndex: PropTypes.number,
-                object: PropTypes.shape({
+                object: ImmutablePropTypes.mapContains({
                     index: PropTypes.number,
                     name: PropTypes.string,
                 }),
             })
         ),
-        markers: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-            index: PropTypes.number,
-            name: PropTypes.string,
-            coords: ImmutablePropTypes.mapContains({
-                lat: PropTypes.number,
-                lng: PropTypes.number,
-            }),
-            objects: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
-                index: PropTypes.number,
-                name: PropTypes.string,
-            })),
-        })),
         setCurrentMarker: PropTypes.func,
         setEditMarkerNameCondition: PropTypes.func,
         setMarkerDeleteIndex: PropTypes.func,
