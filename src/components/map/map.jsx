@@ -105,7 +105,7 @@ export default class Map extends PureComponent {
     markerChoice(index, coords) {
         const { lat, lng } = coords;
 
-        this.props.setCurrentMarker(index, { lat, lng });
+        this.props.setCurrentMarker(Number(index), { lat, lng });
     }
 
     markerNameFieldRender() {
