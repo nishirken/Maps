@@ -4,9 +4,6 @@ import { DELETE_OBJECT } from 'Constants';
 
 export default handleAction(
     DELETE_OBJECT,
-    (state, action) => List([
-        ...state,
-        action.payload,
-    ]),
-    []
+    (state, action) => state.push(action.payload),
+    List([])
 );

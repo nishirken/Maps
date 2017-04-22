@@ -38,8 +38,8 @@ export default class Objects extends PureComponent {
     renderObjectsItem() {
         let objects = this.props.markerObjects;
 
-//                objects = objects.filter(object =>
-//                    !includes(this.props.objectDeleteIndexes, object.index));
+        objects = objects.filter(object =>
+            !this.props.objectDeleteIndexes.includes(object.get('index')));
 
         return objects.map((object, key) => {
             const index = object.get('index');
