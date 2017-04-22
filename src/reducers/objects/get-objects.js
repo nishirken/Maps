@@ -4,9 +4,6 @@ import { OBJECTS } from 'Constants';
 
 export default handleAction(
     OBJECTS,
-    (state, action) => List([
-        ...state,
-        action.payload,
-    ]),
-    []
+    (state, action) => state.push(action.payload),
+    List([])
 );

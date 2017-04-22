@@ -41,7 +41,7 @@ export default class Objects extends PureComponent {
 //                objects = objects.filter(object =>
 //                    !includes(this.props.objectDeleteIndexes, object.index));
 
-        return objects.map(object => {
+        return objects.map((object, key) => {
             const index = object.get('index');
 
             return (
@@ -50,7 +50,7 @@ export default class Objects extends PureComponent {
                     key={index}
                     markerIndex={this.props.markerIndex}
                     name={object.get('name')}
-                    number={index + 1}
+                    number={key + 1}
                     setObjectDeleteIndex={this.props.setObjectDeleteIndex}
                 />
             );
@@ -74,10 +74,6 @@ export default class Objects extends PureComponent {
         return objectName === '' ? 'object' : objectName;
     }
 
-    getCurrentObjectIndex() {
-        return this.props.markerObjects.size;
-    }
-
     onKeyDownHandler(e) {
         if (e.keyCode === 27 || e.keyCode === 13)
             this.toggleCreateObject();
@@ -85,7 +81,7 @@ export default class Objects extends PureComponent {
         if (e.keyCode === 13) {
             this.props.setObject(
                 this.props.markerIndex,
-                this.getCurrentObjectIndex() + 1,
+                this.props.markerObjects.size + 1,
                 this.objectNameValidate(this.objectName)
             );
             this.objectName = '';
