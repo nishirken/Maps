@@ -1,5 +1,5 @@
 import styles from 'Styles';
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 
 const API = Map({
     key: 'AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU',
@@ -8,51 +8,49 @@ const API = Map({
 
 const SETTINGS = Map({
     center: {
-        lat: 56.84,
-        lng: 60.57,
+        lat: 56.840368243241333,
+        lng: 60.5703111362452237,
     },
     zoom: 18,
 });
 
-const OPTIONS = List([
-    {
-        styles: [
-            {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [
-                    { color: styles.colors.secondary },
-                    { visibility: 'simplified' },
-                ],
-            },
-            {
-                featureType: 'road',
-                elementType: 'labels',
-                stylers: [
-                    { color: styles.colors.primary },
-                    { visibility: 'simplified' },
-                ],
-            },
-            {
-                featureType: 'administrative',
-                stylers: [
-                    { visibility: 'simplified' },
-                ],
-            },
-            {
-                featureType: 'poi',
-                stylers: [
-                    { visibility: 'simplified' },
-                ],
-            },
-            {
-                featureType: 'transit',
-                stylers: [
-                    { visibility: 'simplified' },
-                ],
-            },
-        ],
-    },
-]);
+const OPTIONS = Map({
+    styles: [
+        {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [
+                { color: styles.colors.get('secondary') },
+                { visibility: 'simplified' },
+            ],
+        },
+        {
+            featureType: 'road',
+            elementType: 'labels',
+            stylers: [
+                { color: styles.colors.get('primary') },
+                { visibility: 'simplified' },
+            ],
+        },
+        {
+            featureType: 'administrative',
+            stylers: [
+                { visibility: 'simplified' },
+            ],
+        },
+        {
+            featureType: 'poi',
+            stylers: [
+                { visibility: 'simplified' },
+            ],
+        },
+        {
+            featureType: 'transit',
+            stylers: [
+                { visibility: 'simplified' },
+            ],
+        },
+    ],
+});
 
 export { API, SETTINGS, OPTIONS };

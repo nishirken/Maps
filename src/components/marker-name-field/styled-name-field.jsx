@@ -13,8 +13,8 @@ const StyledNameField = styled.div`
     top: calc(${props => props.y}px - ${styles.em(130)});
     left: calc(${props => props.x + 7.5}px - ${styles.em(150)});
     padding: ${styles.em(10)};
-    background: ${styles.colors.windowsBackground};
-    color: ${styles.colors.secondary};
+    background: ${styles.colors.get('windowsBackground')};
+    color: ${styles.colors.get('secondary')};
 `;
 
 export default StyledNameField;

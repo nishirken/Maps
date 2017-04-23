@@ -2,10 +2,11 @@ import Koa from 'koa';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from './index';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import request from 'request-promise-native';
 import { List, fromJS } from 'immutable';
 
+import { sendReducerPayload } from 'Middlewares';
 import reducers from 'Reducers';
 import {
     setMarkerIndex,
@@ -55,23 +56,23 @@ const fetchFromApi = async () => {
 };
 
 app.use(async ctx => {
-    const serverStore = createStore(reducers);
+    const serverStore = createStore(reducers, {}, applyMiddleware(sendReducerPayload));
     const markers = await fetchFromApi();
 
-    markers.forEach(marker => {
-        const index = marker.get('index');
-        const objects = marker.get('objects');
+    if (markers.size)
+        markers.forEach(marker => {
+            const index = marker.get('index');
 
-        serverStore.dispatch(setMarkerIndex(index));
-        serverStore.dispatch(setMarkerName(index, marker.get('name')));
-        serverStore.dispatch(setMarkerCoords(index, marker.get('coords')));
-        objects.forEach(object =>
-            serverStore.dispatch(setObject(index, object.get('index'), object.get('name'))));
-    });
+            serverStore.dispatch(setMarkerIndex(index));
+            serverStore.dispatch(setMarkerName(index, marker.get('name')));
+            serverStore.dispatch(setMarkerCoords(index, marker.get('coords')));
+            marker.get('objects').forEach(object =>
+                serverStore.dispatch(setObject(index, object.get('index'), object.get('name'))));
+        });
 
     const preloadedState = serverStore.getState();
 
-    ctx.body = renderHTML(renderToString(<App store={serverStore} />), preloadedState);
+    ctx.body = renderHTML(renderToString(<App store={serverStore}/>), preloadedState);
 });
 
 const PORT = 3000;

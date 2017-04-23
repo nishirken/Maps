@@ -21,7 +21,7 @@ module.exports = {
             {
                 test: /\.(jsx|js)$/,
                 use: [
-                    'react-hot-loader/webpack',
+                    'react-hot',
                     'babel',
                 ],
                 include: [

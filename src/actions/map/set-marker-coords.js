@@ -6,4 +6,5 @@ export default createAction(MARKER_COORDS, (index, coords) =>
     fromJS({
         index,
         coords,
+        sendToApi: true,
     }));

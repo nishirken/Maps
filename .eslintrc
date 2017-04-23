@@ -85,7 +85,7 @@
       "property"
     ],
     "dot-notation": [
-      "error",
+      "off",
       {
         "allowKeywords": false
       }

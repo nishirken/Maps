@@ -103,8 +103,8 @@ export default class Objects extends PureComponent {
 
     static propTypes = {
         markerIndex: PropTypes.number,
-        markerObjects: PropTypes.arrayOf(
-            PropTypes.shape({
+        markerObjects: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.mapContains({
                 index: PropTypes.number,
                 name: PropTypes.string,
             }),

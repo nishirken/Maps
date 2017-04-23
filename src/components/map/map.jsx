@@ -1,12 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import GoogleMapReact from 'google-map-react';
-import { List } from 'immutable';
 
 import StyledMap from './styled-map';
 import { Marker, MarkerNameField } from 'Components';
 import { MAP_SETTINGS } from 'Constants';
-import { sendToApi } from 'Api';
 
 export default class Map extends PureComponent {
     render() {
@@ -65,8 +63,6 @@ export default class Map extends PureComponent {
                 lat: currentMarker.get('coords').get('lat'),
                 lng: currentMarker.get('coords').get('lng'),
             };
-
-        return {};
     }
 
     getMarkerCoords(coords) {
@@ -137,7 +133,9 @@ export default class Map extends PureComponent {
             center: MAP_SETTINGS.SETTINGS.get('center'),
             zoom: MAP_SETTINGS.SETTINGS.get('zoom'),
         },
-        options: MAP_SETTINGS.OPTIONS.first(),
+        options: {
+            styles: MAP_SETTINGS.OPTIONS.get('styles'),
+        },
     }
 
     static propTypes = {

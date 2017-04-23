@@ -42,6 +42,7 @@ export default class ListItem extends PureComponent {
                     markerObjects={this.props.markerObjects}
                     mouseEnter={this.props.mouseEnter}
                     objectDeleteIndexes={this.props.objectDeleteIndexes}
+                    sendToApi={this.props.sendToApi}
                     setObject={this.props.setObject}
                     setObjectDeleteIndex={this.props.setObjectDeleteIndex}
                 />
@@ -114,6 +115,7 @@ export default class ListItem extends PureComponent {
         ),
         mouseEnter: PropTypes.bool,
         objectDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        sendToApi: PropTypes.func,
         setCurrentMarker: PropTypes.func,
         setDeleteMarkerIndex: PropTypes.func,
         setMarkerName: PropTypes.func,

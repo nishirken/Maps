@@ -6,4 +6,5 @@ export default createAction(DELETE_OBJECT, (markerIndex, index) =>
     Map({
         markerIndex,
         index,
+        sendToApi: true,
     }));

@@ -9,4 +9,5 @@ export default createAction(OBJECTS, (markerIndex, index, name) =>
             index,
             name,
         }),
+        sendToApi: true,
     }));

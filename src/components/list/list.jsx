@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { Map, List as ImmutableList } from 'immutable';
+import { Map } from 'immutable';
 
 import StyledList from './styled-list';
 import StyledListWrapper from './styled-list-wrapper';
@@ -31,10 +31,11 @@ export default class List extends PureComponent {
 
         if (this.props.getMarkerDeleteIndexes.size)
             markers = this.processingMarkerDeleteIndexes(markers);
+
         if (this.props.getMarkerSearchIndexes.size)
             markers = this.processingMarkerSearchNames(markers);
 
-        return markers.map(marker => {
+        return markers.map((marker, key) => {
             let current = false;
             const coords = marker.get('coords');
             const index = marker.get('index');
@@ -51,11 +52,8 @@ export default class List extends PureComponent {
                         lng: coords.get('lng'),
                     })}
                     markerIndex={index}
-                    markerName={
-                        this.props.getMarkerName.findLast(value => value.get('index') === index)
-                            .get('name')
-                    }
-                    markerNumber={index + 1}
+                    markerName={this.proceessingMarkerName(this.props.getMarkerName, index)}
+                    markerNumber={key + 1}
                     markerObjects={this.processingObjects(index, this.props.getObjects)}
                     mouseEnter={this.state.mouseEnter}
                     objectDeleteIndexes={
@@ -73,6 +71,12 @@ export default class List extends PureComponent {
                 />
             );
         });
+    }
+
+    proceessingMarkerName(markerNames, markerIndex) {
+        const name = markerNames.findLast(value => value.get('index') === markerIndex);
+
+        return name.get('name');
     }
 
     processingMarkerDeleteIndexes(coordsArray) {

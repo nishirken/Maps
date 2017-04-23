@@ -10,8 +10,8 @@ const StyledListItem = styled.div`
     min-height: ${styles.em(50)};
     overflow: visible;
     padding: ${styles.em(5)} ${styles.em(35)} ${styles.em(5)} ${styles.em(10)};
-    border-bottom: 1px solid ${styles.colors.secondary};
-    background: ${props => props.current ? styles.colors.currentMarksListItem : 'transparent'};
+    border-bottom: 1px solid ${styles.colors.get('secondary')};
+    background: ${props => props.current ? styles.colors.get('currentMarksListItem') : 'transparent'};
 `;
 
 StyledListItem.propTypes = {
