@@ -9,9 +9,9 @@
   "author": "Dmitrii Skurikhin <dmitrii.sk@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress --config webpackfile.development.js",
+    "start": "NODE_ENV=development webpack-dev-server --progress",
     "server": "NODE_ENV=development nodemon server.config.js --watch src/server.js --watch server.config.js",
-    "prod": "NODE_ENV=production webpack --progress --config webpackfile.production.js",
+    "prod": "NODE_ENV=production webpack -p --progress",
     "test": "NODE_ENV=test jest --watch --config jest.config.json"
   },
   "dependencies": {

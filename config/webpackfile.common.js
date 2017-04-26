@@ -1,12 +1,10 @@
-const webpack = require('webpack'),
-    { resolve } = require('path'),
-    BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
+const webpack = require('webpack');
+const { resolve } = require('path');
+const BellOnBundlerErrorPlugin = require('bell-on-bundler-error-plugin');
 
-function pathResolve(yourPath) {
-    return resolve(__dirname, yourPath);
-}
+const pathResolve = yourPath => resolve(process.cwd(), yourPath);
 
-module.exports = {
+const commonConfig = {
     context: pathResolve('src'),
     entry: {
         main: './index',
@@ -20,10 +18,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(jsx|js)$/,
-                use: [
-                    'react-hot',
-                    'babel',
-                ],
+                loader: 'babel',
                 include: [
                     pathResolve('src'),
                 ],
@@ -57,46 +52,18 @@ module.exports = {
         moduleExtensions: ['-loader'],
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'common.js',
             minChunks: 2,
         }),
-        new webpack.LoaderOptionsPlugin({
-            test: /\.(js|jsx)$/,
-            options: {
-                devTool: 'cheap-module-eval-source-map',
-            },
-        }),
-        new webpack.DefinePlugin({
-            NODE_ENV: JSON.stringify('development'),
-        }),
         new webpack.NoEmitOnErrorsPlugin(),
         new BellOnBundlerErrorPlugin(),
     ],
-    devServer: {
-        clientLogLevel: 'warning',
-        compress: false,
-        contentBase: 'build',
-        publicPath: '/',
-        port: 8000,
-        hot: true,
-        stats: 'normal',
-        proxy: {
-            '/': {
-                target: 'http://localhost',
-            },
-        },
-        watchOptions: {
-            aggregateTimeout: 100,
-            ignored: /node_modules/,
-        },
-    },
-    watch: true,
-    watchOptions: {
-        aggregateTimeout: 100,
-        ignored: /node_modules/,
-    },
     stats: 'normal',
+};
+
+module.exports = {
+    commonConfig,
+    pathResolve,
 };
