@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const { commonConfig, pathResolve } = require('./webpackfile.common');
+const { commonConfig, pathResolve } = require('./webpack.common');
 const prodConfig = Object.assign({}, commonConfig);
 
 prodConfig.module.rules.push({

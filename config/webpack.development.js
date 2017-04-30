@@ -1,6 +1,7 @@
 const webpack = require('webpack');
-const { commonConfig } = require('./webpackfile.common');
+const { commonConfig } = require('./webpack.common');
 const devConfig = Object.assign({}, commonConfig);
+const NODE_ENV = 'development';
 
 devConfig.devServer = {
     clientLogLevel: 'warning',
@@ -26,6 +27,9 @@ devConfig.plugins.push(
         options: {
             devTool: 'cheap-module-eval-source-map',
         },
+    }),
+    new webpack.DefinePlugin({
+        NODE_ENV: JSON.stringify(NODE_ENV),
     })
 );
 

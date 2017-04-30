@@ -34,8 +34,8 @@ const renderHTML = (componentHTML, preloadedState) => `
     <script id="state">
     window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
     </script>
-    <script src="/common.js"></script>
-    <script src="/main.js"></script>
+    <script src="/build/common.js"></script>
+    <script src="/build/main.js"></script>
     </body>
     </html>
 `;
@@ -72,7 +72,7 @@ app.use(async ctx => {
 
     const preloadedState = serverStore.getState();
 
-    ctx.body = renderHTML(renderToString(<App store={serverStore}/>), preloadedState);
+    ctx.body = renderHTML(renderToString(<App store={serverStore} />), preloadedState);
 });
 
 const PORT = 3000;

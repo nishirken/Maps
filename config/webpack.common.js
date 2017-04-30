@@ -6,6 +6,7 @@ const pathResolve = yourPath => resolve(process.cwd(), yourPath);
 
 const commonConfig = {
     context: pathResolve('src'),
+    name: 'client',
     entry: {
         main: './index',
     },
