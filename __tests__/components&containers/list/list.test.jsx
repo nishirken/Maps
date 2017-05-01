@@ -43,29 +43,22 @@ describe('List', () => {
             markerIndex: 0,
             object: {
                 index: 0,
-                name: 'Object 1',
+                name: 'Object for 0',
             },
         },
         {
             markerIndex: 1,
             object: {
                 index: 0,
-                name: 'Object 1',
+                name: 'Object for 1',
             },
         },
         {
             markerIndex: 1,
             object: {
                 index: 1,
-                name: 'Object 2',
+                name: 'Object for 1',
             },
-        },
-    ]);
-
-    const objectDeleteIndexes = fromJS([
-        {
-            markerIndex: 1,
-            index: 0,
         },
     ]);
 
@@ -100,12 +93,35 @@ describe('List', () => {
     });
 
     it('Don\'t have to show deleted markers', () => {
-        ListMount.setProps({ getMarkerDeleteIndexes: ImmutableList([0]) });
-        expect(ListMount.find('ListItem').length).toBe(1);
+        const markerDeleteIndexes = ImmutableList([0]);
+        const expectedListItemLength = markerCoords.size - 1;
+
+        ListMount.setProps({ getMarkerDeleteIndexes: markerDeleteIndexes });
+        expect(ListMount.find('ListItem').length).toBe(expectedListItemLength);
+    });
+
+    it('Has a last in a list marker name', () => {
+        const expectedMarkerName = markerNames.get(2).get('name');
+
+        expect(ListMount.find('ListItem').prop('markerName')).toBe(expectedMarkerName);
     });
 
     it('Filtering an objects to the list-item', () => {
         ListMount.setProps({ getObjects: objects });
-        expect(ListMount.find('ListItem').get(1).prop('markerObjects').size).toBe(2);
+        expect(ListMount.find('ListItem').prop('markerObjects').size).toBe(2);
+    });
+
+    it('Filtering deleted object indexes', () => {
+        const objectDeleteIndexes = fromJS([
+            {
+                markerIndex: 1,
+                index: 0,
+                sendToApi: true,
+            },
+        ]);
+        const expectedListItemProp = ImmutableList([0]);
+
+        ListMount.setProps({ getObjectDeleteIndexes: objectDeleteIndexes });
+        expect(ListMount.find('ListItem').prop('objectDeleteIndexes')).toEqual(expectedListItemProp);
     });
 });

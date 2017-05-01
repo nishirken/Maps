@@ -2,7 +2,7 @@ import { PropTypes } from 'react';
 import styles from 'Styles';
 import styled from 'styled-components';
 
-const StyledMarksListWrapper = styled.div`
+const StyledListWrapper = styled.div`
     position: absolute;
     z-index: 2;
     top: 10%;
@@ -15,8 +15,8 @@ const StyledMarksListWrapper = styled.div`
     transition: ${styles.transition('all')};
 `;
 
-StyledMarksListWrapper.propTypes = {
+StyledListWrapper.propTypes = {
     mouseEnter: PropTypes.bool,
 };
 
-export default StyledMarksListWrapper;
+export default StyledListWrapper;
