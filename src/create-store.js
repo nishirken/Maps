@@ -13,12 +13,15 @@ if (typeof window !== 'undefined') {
     const body = document.getElementsByTagName('body');
     const initialState = {};
 
-    Object.keys(preloadedState).forEach(reducer => {
-        initialState[reducer] = fromJS(preloadedState[reducer]);
-    });
+    if (preloadedState) {
+        delete window.__PRELOADED_STATE__;
+        Object.keys(preloadedState).forEach(reducer => {
+            initialState[reducer] = fromJS(preloadedState[reducer]);
+        });
+    }
 
-    body[0].removeChild(stateScript);
-    delete window.__PRELOADED_STATE__;
+    if (stateScript)
+        body[0].removeChild(stateScript);
 
     const configureStore = () => {
         if (NODE_ENV === 'development')

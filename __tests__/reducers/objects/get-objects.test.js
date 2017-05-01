@@ -1,13 +1,14 @@
+import { List, fromJS } from 'immutable';
 import { getObjects } from 'Reducers';
 import { OBJECTS } from 'Constants';
 
 describe('Reducer get objects', () => {
     it('Should return the initial state', () => {
-        expect(getObjects([], {})).toEqual([]);
+        expect(getObjects(undefined, {})).toEqual(List([]));
     });
 
     it('Should return objects for list item', () => {
-        const state = [
+        const state = fromJS([
             {
                 markerIndex: 0,
                 object: {
@@ -15,19 +16,21 @@ describe('Reducer get objects', () => {
                     name: 'Object111',
                 },
             },
-        ];
+        ]);
+
+        const payload = fromJS({
+            markerIndex: 1,
+            object: {
+                index: 0,
+                name: 'Object',
+            },
+        });
 
         const action = {
             type: OBJECTS,
-            payload: {
-                markerIndex: 1,
-                object: {
-                    index: 0,
-                    name: 'Object',
-                },
-            },
+            payload,
         };
 
-        expect(getObjects(state, action)).toEqual([...state, action.payload]);
+        expect(getObjects(state, action)).toEqual(state.push(payload));
     });
 });

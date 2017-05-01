@@ -1,15 +1,16 @@
+import { List } from 'immutable';
 import { setMarkerSearchIndexes } from 'Actions';
 import { MARKER_SEARCH } from 'Constants';
 
 describe('Action search marker indexes', () => {
     it('Should create an array of indexes for search marker', () => {
-        const value = [0, 2];
+        const payload = List([0, 2]);
 
         const expectedValue = {
             type: MARKER_SEARCH,
-            markerSearchIndexes: value,
+            payload,
         };
 
-        expect(setMarkerSearchIndexes(value)).toEqual(expectedValue);
+        expect(setMarkerSearchIndexes(payload)).toEqual(expectedValue);
     });
 });

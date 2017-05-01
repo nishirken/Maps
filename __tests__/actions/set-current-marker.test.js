@@ -1,22 +1,23 @@
-import { markerChoice } from 'Actions';
-import { MARKER_CHOICE } from 'Constants';
+import { Map } from 'immutable';
+import { setCurrentMarker } from 'Actions';
+import { CURRENT_MARKER } from 'Constants';
 
 describe('Marker choice on onClick', () => {
     it('Should create an action with marker index and coords', () => {
-        const coords = {
+        const coords = Map({
                 lat: 299,
                 lng: 300,
-            },
-            markerIndex = 1;
+            }),
+            index = 1;
 
         const expectedValue = {
-            type: MARKER_CHOICE,
-            payload: {
-                markerIndex,
+            type: CURRENT_MARKER,
+            payload: Map({
+                index,
                 coords,
-            },
+            }),
         };
 
-        expect(markerChoice(markerIndex, coords)).toEqual(expectedValue);
+        expect(setCurrentMarker(index, coords)).toEqual(expectedValue);
     });
 });

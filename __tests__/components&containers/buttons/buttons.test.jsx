@@ -1,9 +1,8 @@
-import store from 'Store';
 import { Buttons } from 'Components';
 
 describe('Buttons in the marks list item', () => {
-    const TestButtonsShallow = shallow(<Buttons store={store} />),
-        TestButtons = mount(<Buttons store={store} />);
+    const TestButtonsShallow = shallow(<Buttons />),
+        TestButtons = mount(<Buttons />);
 
     it('Rendered', () => {
         expect(TestButtonsShallow).toMatchSnapshot();

@@ -34,8 +34,8 @@ const renderHTML = (componentHTML, preloadedState) => `
     <script id="state">
     window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
     </script>
-    <script src="/build/common.js"></script>
-    <script src="/build/main.js"></script>
+    <script src="/common.js"></script>
+    <script src="/main.js"></script>
     </body>
     </html>
 `;

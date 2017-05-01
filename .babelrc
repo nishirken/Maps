@@ -18,7 +18,8 @@
         "transform-function-bind",
         "transform-export-extensions",
         "transform-react-remove-prop-types",
-        "transform-async-to-generator"
+        "transform-async-to-generator",
+        "react-hot-loader/babel"
       ]
     },
     "development": {
@@ -52,7 +53,21 @@
         "transform-object-rest-spread",
         "transform-function-bind",
         "transform-export-extensions",
-        "transform-es2015-modules-commonjs"
+        "transform-es2015-modules-commonjs",
+        ["module-resolver", {
+          "root": ["./"],
+          "alias": {
+            "Actions": "./src/actions",
+            "Api": "./src/api",
+            "Middlewares": "./src/middlewares",
+            "Components": "./src/components",
+            "Constants": "./src/constants",
+            "Containers": "./src/containers",
+            "Reducers": "./src/reducers",
+            "Styles": "./src/style-resources",
+            "Store": "./src/create-store",
+          }
+        }]
       ]
     }
   }

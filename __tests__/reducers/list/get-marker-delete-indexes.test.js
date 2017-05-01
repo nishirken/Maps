@@ -1,23 +1,21 @@
+import { List } from 'immutable';
 import { getMarkerDeleteIndexes } from 'Reducers';
 import { DELETE_MARKER } from 'Constants';
 
 describe('Reducer get marker delete indexes', () => {
     it('Should return the initial state', () => {
-        expect(getMarkerDeleteIndexes([], {})).toEqual([]);
+        expect(getMarkerDeleteIndexes(undefined, {})).toEqual(List([]));
     });
 
     it('Should return the marker delete indexes array', () => {
-        const state = [0, 2];
-        const actionPayload = 1;
+        const state = List([0, 2]);
+        const payload = 1;
 
         expect(
             getMarkerDeleteIndexes(state, {
                 type: DELETE_MARKER,
-                deleteMarkerIndex: actionPayload,
+                payload,
             }))
-            .toEqual([
-                ...state,
-                actionPayload,
-            ]);
+            .toEqual(state.push(payload));
     });
 });

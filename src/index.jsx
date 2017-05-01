@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { AppContainer } from 'react-hot-loader';
 import 'isomorphic-fetch';
 
 import store from 'Store';
@@ -22,7 +23,9 @@ App.propTypes = {
 
 if (typeof window !== 'undefined')
     render(
-        <App store={store} />,
+        <AppContainer>
+            <App store={store} />
+        </AppContainer>,
         document.getElementById('root')
     );
 

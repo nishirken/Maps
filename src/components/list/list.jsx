@@ -154,12 +154,12 @@ export default class List extends PureComponent {
         getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
-        })).isRequired,
+        })),
         getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         getMarkerName: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             name: PropTypes.string,
-        })).isRequired,
+        })),
         getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         getObjectDeleteIndexes: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             markerIndex: PropTypes.number,

@@ -1,15 +1,19 @@
+import { Map } from 'immutable';
 import { setMarkerDeleteIndex } from 'Actions';
 import { DELETE_MARKER } from 'Constants';
 
 describe('Action delete marker index', () => {
     it('Should create an index for delete marker', () => {
-        const value = 1;
+        const payload = Map({
+            index: 1,
+            sendToApi: true,
+        });
 
         const expectedValue = {
             type: DELETE_MARKER,
-            deleteMarkerIndex: value,
+            payload,
         };
 
-        expect(setMarkerDeleteIndex(value)).toEqual(expectedValue);
+        expect(setMarkerDeleteIndex(payload.get('index'))).toEqual(expectedValue);
     });
 });

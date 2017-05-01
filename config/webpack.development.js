@@ -3,10 +3,14 @@ const { commonConfig } = require('./webpack.common');
 const devConfig = Object.assign({}, commonConfig);
 const NODE_ENV = 'development';
 
+devConfig.entry = [
+    'react-hot-loader/patch',
+    './index',
+];
 devConfig.devServer = {
     clientLogLevel: 'warning',
     compress: false,
-    publicPath: '/build/',
+    publicPath: '/',
     port: 8000,
     hot: true,
     stats: 'normal',
@@ -25,7 +29,7 @@ devConfig.plugins.push(
     new webpack.LoaderOptionsPlugin({
         test: /\.(js|jsx)$/,
         options: {
-            devTool: 'cheap-module-eval-source-map',
+            devTool: 'eval',
         },
     }),
     new webpack.DefinePlugin({

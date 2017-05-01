@@ -165,7 +165,7 @@
       }
     ],
     "no-undef": "error",
-    "no-undefined": "error",
+    "no-undefined": "warn",
     "no-use-before-define": "error",
     "array-bracket-spacing": [
       "error",

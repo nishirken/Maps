@@ -6,6 +6,8 @@ export ListItem from './list-item/list-item';
 export ListItemText from './list-item-text/list-item-text';
 export StyledMain from './main/styled-main';
 export Buttons from './buttons/buttons';
+export DeleteButton from './buttons/delete-button';
+export EditButton from './buttons/edit-button';
 export StyledSearchField from './search-field/styled-search-field';
 export Objects from './objects/objects';
 export ObjectsItem from './objects-item/objects-item';

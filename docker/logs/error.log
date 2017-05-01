@@ -1474,3 +1474,157 @@
 2017/04/22 05:16:58 [notice] 1#1: start worker process 7
 2017/04/22 05:16:58 [notice] 1#1: start worker process 8
 2017/04/22 05:19:29 [info] 7#7: *1 client timed out (110: Connection timed out) while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/25 17:39:18 [notice] 1#1: using the "epoll" event method
+2017/04/25 17:39:18 [notice] 1#1: nginx/1.11.10
+2017/04/25 17:39:18 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/25 17:39:18 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/25 17:39:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/25 17:39:18 [notice] 1#1: start worker processes
+2017/04/25 17:39:18 [notice] 1#1: start worker process 6
+2017/04/25 17:39:18 [notice] 1#1: start worker process 7
+2017/04/26 05:34:48 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/26 05:34:48 [notice] 6#6: exiting
+2017/04/26 05:34:48 [notice] 6#6: exit
+2017/04/26 05:34:48 [notice] 7#7: exiting
+2017/04/26 05:34:48 [notice] 7#7: exit
+2017/04/26 05:34:48 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/26 05:34:48 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/26 05:34:48 [notice] 1#1: worker process 6 exited with code 0
+2017/04/26 05:34:48 [notice] 1#1: worker process 7 exited with code 0
+2017/04/26 05:34:48 [notice] 1#1: exit
+2017/04/27 17:58:17 [notice] 1#1: using the "epoll" event method
+2017/04/27 17:58:17 [notice] 1#1: nginx/1.11.10
+2017/04/27 17:58:17 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/27 17:58:17 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/27 17:58:17 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/27 17:58:17 [notice] 1#1: start worker processes
+2017/04/27 17:58:17 [notice] 1#1: start worker process 7
+2017/04/27 17:58:17 [notice] 1#1: start worker process 8
+2017/04/27 18:15:55 [info] 7#7: *1 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/27 18:15:55 [info] 8#8: *4 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/27 18:15:55 [info] 7#7: *3 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/27 18:15:55 [info] 8#8: *2 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/27 18:15:55 [info] 7#7: *5 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/28 05:24:51 [error] 8#8: *14 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.2:3000/", host: "localhost:8000"
+2017/04/28 05:24:54 [error] 8#8: *16 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.2:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/04/28 05:25:15 [error] 7#7: *18 connect() failed (113: No route to host) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.2:3000/", host: "localhost"
+2017/04/28 05:25:15 [info] 7#7: *18 client 172.22.0.1 closed keepalive connection
+2017/04/28 05:28:27 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/28 05:28:27 [notice] 8#8: exiting
+2017/04/28 05:28:27 [notice] 7#7: exiting
+2017/04/28 05:28:27 [notice] 8#8: exit
+2017/04/28 05:28:27 [notice] 7#7: exit
+2017/04/28 05:28:27 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/28 05:28:27 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/28 05:28:27 [notice] 1#1: worker process 7 exited with code 0
+2017/04/28 05:28:27 [notice] 1#1: worker process 8 exited with code 0
+2017/04/28 05:28:27 [notice] 1#1: exit
+2017/04/28 16:52:18 [notice] 1#1: using the "epoll" event method
+2017/04/28 16:52:18 [notice] 1#1: nginx/1.11.10
+2017/04/28 16:52:18 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/28 16:52:18 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/28 16:52:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/28 16:52:18 [notice] 1#1: start worker processes
+2017/04/28 16:52:18 [notice] 1#1: start worker process 6
+2017/04/28 16:52:18 [notice] 1#1: start worker process 7
+2017/04/30 10:08:16 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/30 10:08:16 [notice] 6#6: exiting
+2017/04/30 10:08:16 [notice] 6#6: exit
+2017/04/30 10:08:16 [notice] 7#7: exiting
+2017/04/30 10:08:16 [notice] 7#7: exit
+2017/04/30 10:08:16 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/30 10:08:16 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/30 10:08:16 [notice] 1#1: worker process 6 exited with code 0
+2017/04/30 10:08:16 [notice] 1#1: worker process 7 exited with code 0
+2017/04/30 10:08:16 [notice] 1#1: exit
+2017/04/30 10:08:19 [notice] 1#1: using the "epoll" event method
+2017/04/30 10:08:19 [notice] 1#1: nginx/1.11.10
+2017/04/30 10:08:19 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/30 10:08:19 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/30 10:08:19 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/30 10:08:19 [notice] 1#1: start worker processes
+2017/04/30 10:08:19 [notice] 1#1: start worker process 7
+2017/04/30 10:08:19 [notice] 1#1: start worker process 8
+2017/04/30 14:25:16 [info] 7#7: *1 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:25:44 [info] 7#7: *2 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:26:38 [info] 7#7: *3 client 127.0.0.1 closed keepalive connection
+2017/04/30 14:27:02 [info] 7#7: *5 epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:27:40 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/30 14:27:40 [notice] 7#7: exiting
+2017/04/30 14:27:40 [notice] 8#8: exiting
+2017/04/30 14:27:40 [notice] 8#8: exit
+2017/04/30 14:27:40 [notice] 7#7: exit
+2017/04/30 14:27:40 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/30 14:27:40 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/30 14:27:40 [notice] 1#1: worker process 7 exited with code 0
+2017/04/30 14:27:40 [notice] 1#1: worker process 8 exited with code 0
+2017/04/30 14:27:40 [notice] 1#1: exit
+2017/04/30 14:27:43 [notice] 1#1: using the "epoll" event method
+2017/04/30 14:27:43 [notice] 1#1: nginx/1.11.10
+2017/04/30 14:27:43 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/30 14:27:43 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/30 14:27:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/30 14:27:43 [notice] 1#1: start worker processes
+2017/04/30 14:27:43 [notice] 1#1: start worker process 7
+2017/04/30 14:27:43 [notice] 1#1: start worker process 8
+2017/04/30 14:33:02 [info] 8#8: *1 client 172.22.0.1 closed keepalive connection
+2017/04/30 14:33:30 [info] 8#8: *3 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:36:01 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:36:01 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:36:50 [info] 8#8: *8 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:36:50 [info] 8#8: *9 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:36:50 [info] 8#8: *10 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:37:21 [info] 7#7: *13 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:37:21 [info] 7#7: *14 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:38:04 [info] 8#8: *17 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:38:04 [info] 8#8: *18 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:38:25 [info] 7#7: *22 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:38:25 [info] 7#7: *21 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:38:25 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:38:25 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:38:26 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:38:26 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:39:01 [info] 7#7: *25 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:39:01 [info] 8#8: *26 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:39:01 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:39:01 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:39:02 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:39:02 [error] 8#8: *7 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:40:01 [info] 8#8: *32 client timed out (110: Connection timed out) while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:40:01 [info] 7#7: *31 client timed out (110: Connection timed out) while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:40:49 [error] 8#8: *37 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:40:49 [error] 8#8: *37 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:41:49 [info] 7#7: *38 client timed out (110: Connection timed out) while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:41:49 [info] 8#8: *39 client timed out (110: Connection timed out) while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:47:06 [error] 8#8: *42 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost"
+2017/04/30 14:47:06 [error] 8#8: *42 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost", referrer: "http://localhost/"
+2017/04/30 14:47:27 [info] 7#7: *44 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:47:27 [info] 7#7: *43 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:49:26 [error] 7#7: *50 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost:8000"
+2017/04/30 14:49:26 [error] 7#7: *52 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/04/30 14:53:00 [info] 8#8: *93 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 14:53:00 [info] 8#8: *91 client closed connection while waiting for request, client: 172.22.0.1, server: 0.0.0.0:80
+2017/04/30 16:39:37 [error] 8#8: *177 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.5:3000/", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/04/30 16:39:38 [error] 7#7: *179 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.5:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/04/30 16:43:50 [error] 8#8: *185 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /4b33fdcbeb82f8f03188.hot-update.json HTTP/1.1", upstream: "http://172.22.0.5:3000/4b33fdcbeb82f8f03188.hot-update.json", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/04/30 16:50:52 [notice] 1#1: signal 15 (SIGTERM) received, exiting
+2017/04/30 16:50:52 [notice] 8#8: exiting
+2017/04/30 16:50:52 [notice] 8#8: exit
+2017/04/30 16:50:52 [notice] 7#7: exiting
+2017/04/30 16:50:52 [notice] 7#7: exit
+2017/04/30 16:50:52 [notice] 1#1: signal 14 (SIGALRM) received
+2017/04/30 16:50:52 [notice] 1#1: signal 17 (SIGCHLD) received
+2017/04/30 16:50:52 [notice] 1#1: worker process 7 exited with code 0
+2017/04/30 16:50:52 [notice] 1#1: worker process 8 exited with code 0
+2017/04/30 16:50:52 [notice] 1#1: exit
+2017/04/30 16:58:00 [notice] 1#1: using the "epoll" event method
+2017/04/30 16:58:00 [notice] 1#1: nginx/1.11.10
+2017/04/30 16:58:00 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/04/30 16:58:00 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/04/30 16:58:00 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/04/30 16:58:00 [notice] 1#1: start worker processes
+2017/04/30 16:58:00 [notice] 1#1: start worker process 7
+2017/04/30 16:58:00 [notice] 1#1: start worker process 8
+2017/05/01 04:07:21 [info] 7#7: *3 client 172.22.0.1 closed keepalive connection
+2017/05/01 13:15:59 [error] 7#7: *69 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.2:3000/", host: "localhost:8000", referrer: "http://localhost:8000/"
+2017/05/01 13:16:00 [error] 7#7: *71 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://172.22.0.2:3000/favicon.ico", host: "localhost:8000", referrer: "http://localhost:8000/"
