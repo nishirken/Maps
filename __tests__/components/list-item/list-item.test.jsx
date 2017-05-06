@@ -3,7 +3,7 @@ import { setCurrentMarker } from 'Actions';
 import { ListItem } from 'Components';
 
 describe('Marks list item', () => {
-    const TestMarksLIstItemShallow = shallow(
+    const TestMarksLIstItem = shallow(
         <ListItem
             setCurrentMarker={setCurrentMarker}
             store={store}
@@ -11,6 +11,6 @@ describe('Marks list item', () => {
     );
 
     it('Rendered', () => {
-        expect(TestMarksLIstItemShallow).toMatchSnapshot();
+        expect(TestMarksLIstItem).toMatchSnapshot();
     });
 });

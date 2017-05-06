@@ -1,11 +1,10 @@
 import { Buttons } from 'Components';
 
 describe('Buttons in the marks list item', () => {
-    const TestButtonsShallow = shallow(<Buttons />),
-        TestButtons = mount(<Buttons />);
+    const TestButtons = shallow(<Buttons />);
 
     it('Rendered', () => {
-        expect(TestButtonsShallow).toMatchSnapshot();
+        expect(TestButtons).toMatchSnapshot();
     });
 
     it('Has an edit button', () => {

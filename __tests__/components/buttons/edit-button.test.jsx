@@ -1,10 +1,9 @@
 import { EditButton } from 'Components';
 
 describe('Edit button', () => {
-    const TestEditButtonShallow = shallow(<EditButton />);
-    const TestEditButton = mount(<EditButton />);
+    const TestEditButton = shallow(<EditButton />);
 
     it('Rendered', () => {
-        expect(TestEditButtonShallow).toMatchSnapshot();
+        expect(TestEditButton).toMatchSnapshot();
     });
 });
