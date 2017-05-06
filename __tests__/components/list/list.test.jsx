@@ -59,6 +59,57 @@ describe('List', () => {
         expect(TestList.find('ListItem').at(1).prop('objectDeleteIndexes')).toEqual(expectedListItemProp);
     });
 
+    test('Search method', () => {
+        const value1 = 'Marker';
+        const value2 = '111';
+        const target = initialState.get('getMarkerName').get(2).get('name');
+
+        expect(TestList.instance().search(value1, target)).toBeTruthy();
+        expect(TestList.instance().search(value2, target)).toBeFalsy();
+    });
+
+    const setPropsOfMarkerSearchIndexes = () => {
+        TestList.setProps({
+            setMarkerSearchIndexes: jest.fn(),
+        });
+    };
+
+    it('Should search marker №1', () => {
+        const inputValue = {
+            target: {
+                value: '1',
+            },
+        };
+
+        setPropsOfMarkerSearchIndexes();
+        TestList.instance().markerSearchIndex(inputValue);
+        expect(TestList.instance().props.setMarkerSearchIndexes.mock.calls[0][0].get(0)).toBe(1);
+    });
+
+    it('Should search no markers', () => {
+        const inputValue = {
+            target: {
+                value: '2',
+            },
+        };
+
+        setPropsOfMarkerSearchIndexes();
+        TestList.instance().markerSearchIndex(inputValue);
+        expect(TestList.instance().props.setMarkerSearchIndexes.mock.calls[0][0].size).toBe(0);
+    });
+
+    it('Should search all markers', () => {
+        const inputValue = {
+            target: {
+                value: 'Marker',
+            },
+        };
+
+        setPropsOfMarkerSearchIndexes();
+        TestList.instance().markerSearchIndex(inputValue);
+        expect(TestList.instance().props.setMarkerSearchIndexes.mock.calls[0][0].size).toBe(3);
+    });
+
     it('Change state when called mouseEnterHandler method', () => {
         expect(TestList.state('mouseEnter')).toBe(false);
         TestList.instance().mouseEnterHandler();
@@ -67,7 +118,7 @@ describe('List', () => {
 
     it('Clear timeout when called mouseEnterHandler method', () => {
         const cb = jest.fn();
-        
+
         TestList.instance().mouseLeaveTimeOut = setTimeout(cb, 2000);
         TestList.instance().mouseEnterHandler();
         jest.runTimersToTime(2000);

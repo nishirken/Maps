@@ -26,6 +26,9 @@ export default class List extends PureComponent {
         );
     }
 
+    /**
+     * Renders marks list items
+     */
     marksListItemsRender() {
         let markers = this.props.getMarkerCoords;
 
@@ -73,34 +76,65 @@ export default class List extends PureComponent {
         });
     }
 
+    /**
+     * Get current marker name
+     * @param markerNames {immutable List}
+     * @param markerIndex {number}
+     * @return markerName {string}
+     */
     proceessingMarkerName(markerNames, markerIndex) {
         const name = markerNames.findLast(value => value.get('index') === markerIndex);
 
         return name.get('name');
     }
 
+    /**
+     * Filtering marker coords by delete indexes
+     * @param coordsArray {immutable List}
+     * @return coordsArray {immutable List}
+     */
     processingMarkerDeleteIndexes(coordsArray) {
         return coordsArray.filter(marker =>
             !this.props.getMarkerDeleteIndexes.includes(marker.get('index')));
     }
 
+    /**
+     * Filtering marker coords by search indexes
+     * @param coordsArray {immutable List}
+     * @return coordsArray {immutable List}
+     */
     processingMarkerSearchNames(coordsArray) {
         return coordsArray.filter(marker =>
             this.props.getMarkerSearchIndexes.includes(marker.get('index')));
     }
 
+    /**
+     * Filtering marker objects by marker index
+     * @param markerIndex {number}
+     * @param objects {immutable List}
+     * @return objects {immutable List}
+     */
     processingObjects(markerIndex, objects) {
         return objects
             .filter(object => object.get('markerIndex') === markerIndex)
             .map(object => object.get('object'));
     }
 
+    /**
+     * Filtering marker object delete indexes immutable list by marker index
+     * @param markerIndex {number}
+     * @param objectDeleteIndexes {immutable List}
+     * @return objectDeleteIndexes {immutable List}
+     */
     processingObjectDeleteIndexes(markerIndex, objectDeleteIndexes) {
         return objectDeleteIndexes
             .filter(object => object.get('markerIndex') === markerIndex)
             .map(object => object.get('index'));
     }
 
+    /**
+     * SetState and clear timeout
+     */
     mouseEnterHandler() {
         this.setState({
             mouseEnter: true,
@@ -108,6 +142,9 @@ export default class List extends PureComponent {
         clearTimeout(this.mouseLeaveTimeOut);
     }
 
+    /**
+     * Set timeout after mouse leave, for setState after 2s
+     */
     mouseLeaveHandler() {
         this.mouseLeaveTimeOut = setTimeout(() => {
             this.setState({
@@ -116,23 +153,28 @@ export default class List extends PureComponent {
         }, 2000);
     }
 
+    /**
+     * Searching values from string by search value
+     * @param searchValue {string}
+     * @param searchTarget {string}
+     * @return {bool}
+     */
+    search(searchValue, searchTarget) {
+        return String(searchTarget).toLowerCase().indexOf(String(searchValue).toLowerCase()) !== -1;
+    }
+
+    /**
+     * Search marker index by input value
+     * @param e {object} native js event object
+     */
     markerSearchIndex(e) {
         const value = e.target.value;
-
-        const search = (searchValue, ...args) => {
-            for (const argument in args)
-                if (Object.prototype.hasOwnProperty.call(args, argument))
-                    return String(args[argument]).toLowerCase().indexOf(searchValue) !== -1;
-
-            return false;
-        };
-
         let markerSearchIndexes = [];
 
         if (value)
             markerSearchIndexes =
                 this.props.getMarkerName.filter(marker =>
-                    search(value, marker.get('name')))
+                    this.search(value, marker.get('name')))
                     .map(marker => marker.get('index'));
 
         this.props.setMarkerSearchIndexes(markerSearchIndexes);

@@ -17,6 +17,8 @@ const StyledListWrapper = styled.div`
 
 StyledListWrapper.propTypes = {
     mouseEnter: PropTypes.bool,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
 };
 
 export default StyledListWrapper;

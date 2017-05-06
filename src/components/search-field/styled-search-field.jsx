@@ -1,3 +1,4 @@
+import { PropTypes } from 'react';
 import styled from 'styled-components';
 import styles from 'Styles';
 
@@ -13,5 +14,9 @@ const StyledSearchField = styled.input`
         font-family: ${styles.fontFamily.get('primary')};
     }
 `;
+
+StyledSearchField.propTypes = {
+    onChange: PropTypes.func,
+};
 
 export default StyledSearchField;
