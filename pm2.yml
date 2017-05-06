@@ -1,0 +1,4 @@
+apps:
+  - script: ./build/server.js
+    name: 'maps'
+    watch: true

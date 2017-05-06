@@ -65,7 +65,7 @@
             "Containers": "./src/containers",
             "Reducers": "./src/reducers",
             "Styles": "./src/style-resources",
-            "Store": "./src/create-store",
+            "InitialState": "./src/test-initial-state"
           }
         }]
       ]

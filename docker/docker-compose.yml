@@ -9,10 +9,12 @@ services:
     tty: true
     volumes:
       - ../config:/config
+      - ../.babelrc:/.babelrc
       - ../package.json:/package.json
       - ../node_modules:/node_modules
       - ../build/server.js:/build/server.js
       - ../src:/src
+    command: npm run server
 
   client_nginx:
     container_name: maps_nginx

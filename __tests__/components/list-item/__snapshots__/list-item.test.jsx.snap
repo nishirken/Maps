@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marks list item Rendered 1`] = `
+<styled.div
+  onClick={[Function]}
+>
+  <ListItemText
+    editMarkerName={false}
+    setNewMarkerName={[Function]}
+    switchEditMarkerName={[Function]}
+  />
+  <Buttons
+    editMarkerName={false}
+    switchEditMarkerName={[Function]}
+  />
+</styled.div>
+`;

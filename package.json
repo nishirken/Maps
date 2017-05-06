@@ -11,11 +11,12 @@
   "scripts": {
     "start": "BABEL_ENV=development webpack-dev-server --progress --config config/webpack.development.js",
     "build-server": "BABEL_ENV=node webpack --config config/webpack.server.development ",
-    "server": "nodemon build/server.js -L --watch src",
+    "server": "npm-run-all --parallel build-server && nodemon build/server.js --warch src",
     "prod": "NODE_ENV=production webpack --progress --config config/webpack.production.js",
     "test": "NODE_ENV=test BABEL_ENV=node jest --watch --config jest.config.json"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "6.4.1",
@@ -41,8 +42,10 @@
     "google-map-react": "^0.22.3",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
+    "jest-styled-components": "^2.0.0",
     "koa": "^2.2.0",
     "lodash": "^4.17.4",
+    "npm-run-all": "^4.0.2",
     "pm2": "^2.4.4",
     "react": "15.4.2",
     "react-dom": "15.4.2",
@@ -59,7 +62,8 @@
     "styled-components": "1.4.3",
     "url-loader": "^0.5.7",
     "webpack": "2.4.1",
-    "webpack-dev-middleware": "^1.10.2"
+    "webpack-dev-middleware": "^1.10.2",
+    "yarn": "^0.23.4"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

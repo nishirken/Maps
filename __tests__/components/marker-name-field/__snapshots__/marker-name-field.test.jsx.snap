@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marker name field Rendered 1`] = `
+<styled.div
+  x={100}
+  y={99}
+>
+  <styled.h3>
+    Please enter a name for your marker
+  </styled.h3>
+  <styled.input
+    innerRef={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+  />
+</styled.div>
+`;
