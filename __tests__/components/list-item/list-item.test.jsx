@@ -1,8 +1,11 @@
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 import { ListItem, Objects } from 'Components';
-import initialState from 'InitialState';
 
 describe('Marks list item', () => {
+    const coords = Map({
+        lat: 299,
+        lng: 300,
+    });
     const objects = fromJS([
         {
             object: {
@@ -24,7 +27,7 @@ describe('Marks list item', () => {
         TestMarksLIstItem = shallow(
             <ListItem
                 current={false}
-                markerCoords={initialState.get('getMarkerCoords').get(1)}
+                markerCoords={coords}
                 markerIndex={1}
                 markerObjects={objects}
                 setMarkerName={jest.fn()}
@@ -35,7 +38,7 @@ describe('Marks list item', () => {
     it('Rendered', () => {
         expect(TestMarksLIstItem).toMatchSnapshot();
     });
-    
+
     it('Should return objects for current marker in render objects, when selected', () => {
         TestMarksLIstItem.setProps({ current: true });
         expect(TestMarksLIstItem.instance().renderObjectsList().type).toBe(Objects);
@@ -71,7 +74,7 @@ describe('Marks list item', () => {
         expect(TestMarksLIstItem.instance().props.setCurrentMarker)
             .toHaveBeenCalledWith(
                 TestMarksLIstItem.instance().props.markerIndex,
-                TestMarksLIstItem.instance().props.markerCoords
+                coords
             );
     });
 

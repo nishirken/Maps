@@ -9,13 +9,8 @@ exports[`Marks list item Rendered 1`] = `
     editMarkerName={false}
     markerCoords={
       Object {
-        "coords": Object {
-          "lat": 300,
-          "lng": 301,
-          "x": 100,
-          "y": 101,
-        },
-        "index": 1,
+        "lat": 299,
+        "lng": 300,
       }
     }
     setNewMarkerName={[Function]}

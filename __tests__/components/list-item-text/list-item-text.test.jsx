@@ -1,23 +1,18 @@
-import store from 'Store';
+import { Map } from 'immutable';
 import { ListItemText } from 'Components';
 
 describe('Text in a marks list item', () => {
-    const markerName = 'Marker';
-    const markerCoords = {
+    const coords = Map({
         lat: 299,
         lng: 300,
-    };
-    const TestText = shallow(
+    });
+    const TestListItemText = shallow(
         <ListItemText
-            markerCoords={markerCoords}
-            markerIndex={1}
-            markerName={markerName}
-            markerNumber={2}
-            store={store}
+            markerCoords={coords}
         />
     );
 
     it('Rendered', () => {
-        expect(TestText).toMatchSnapshot();
+        expect(TestListItemText).toMatchSnapshot();
     });
 });
