@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Objects component Rendered 1`] = `
+<styled.div>
+  <styled.div
+    onClick={[Function]}
+  >
+    create new object
+  </styled.div>
+  <ObjectsItem
+    index={0}
+    markerIndex={1}
+    name="Object for 1"
+    number={1}
+  />
+  <ObjectsItem
+    index={1}
+    markerIndex={1}
+    name="Object for 1"
+    number={2}
+  />
+</styled.div>
+`;
