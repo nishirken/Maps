@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendered Rendered 1`] = `
+.bTBNBC {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  min-height: 3.125em;
+  overflow: visible;
+  padding: 0.3125em 2.1875em 0.3125em 0.625em;
+  border-bottom: 1px solid #795548;
+  background: transparent;
+}
+
+<div
+  className="bTBNBC"
+/>
+`;
+
+exports[`Rendered Should change background property, when selected 1`] = `
+.iUXrhK {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  min-height: 3.125em;
+  overflow: visible;
+  padding: 0.3125em 2.1875em 0.3125em 0.625em;
+  border-bottom: 1px solid #795548;
+  background: #B0BEC5;
+}
+
+<div
+  className="iUXrhK"
+/>
+`;

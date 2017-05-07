@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled list wrapper Rendered and change opacity and transform styles onMouseOver 1`] = `
+.jpjyla {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  right: 5%;
+  overflow-x: visible;
+  width: 12.5em;
+  height: 80%;
+  opacity: 0.5;
+  transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+
+<div
+  className="jpjyla"
+/>
+`;
+
+exports[`Styled list wrapper Rendered and change opacity and transform styles onMouseOver 2`] = `
+.kYsViv {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  right: 5%;
+  overflow-x: visible;
+  width: 12.5em;
+  height: 80%;
+  opacity: 1;
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+}
+
+<div
+  className="kYsViv"
+/>
+`;
