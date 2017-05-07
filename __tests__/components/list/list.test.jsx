@@ -27,15 +27,7 @@ describe('List', () => {
     });
 
     it('Render the list-items', () => {
-        expect(TestList.find('ListItem').length).toBe(2);
-    });
-
-    it('Don\'t have to show deleted markers', () => {
-        const expectedListItemLength =
-            initialState.get('getMarkerCoords').size - initialState.get('getMarkerDeleteIndexes').size;
-
-        TestList.setProps({ getMarkerDeleteIndexes: initialState.get('getMarkerDeleteIndexes') });
-        expect(TestList.find('ListItem').length).toBe(expectedListItemLength);
+        expect(TestList.find('ListItem').length).toBe(initialState.get('getMarkerCoords').size);
     });
 
     test('№1 marker has a last in a list marker name', () => {

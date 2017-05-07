@@ -68,5 +68,9 @@ export default fromJS({
     ],
     getCurrentMarker: {
         index: 0,
+        coords: {
+            lat: 299,
+            lng: 300,
+        },
     },
 });

@@ -29,7 +29,7 @@ export default class List extends Filter {
 
     /**
      * Renders marks list items
-     * @return {XML} react component
+     * @return {immutable List} of react components
      */
     marksListItemsRender() {
         let markers = this.props.getMarkerCoords;

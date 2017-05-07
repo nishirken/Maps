@@ -30,15 +30,18 @@ export default class Map extends Filter {
         );
     }
 
+    /**
+     * Render markers on the map
+     * @return {immutable List} of react components
+     */
     markersRender() {
         let markers = this.props.getMarkerCoords;
 
-        markers = markers.filter(marker =>
-            !this.props.getMarkerDeleteIndexes.includes(marker.get('index')));
+        if (this.props.getMarkerDeleteIndexes.size)
+            markers = this.processingMarkerDeleteIndexes(markers, this.props.getMarkerDeleteIndexes);
 
         if (this.props.getMarkerSearchIndexes.size)
-            markers = markers.filter(marker =>
-                this.props.getMarkerSearchIndexes.includes(marker.get('index')));
+            markers = this.processingMarkerSearchNames(markers, this.props.getMarkerSearchIndexes);
 
         return markers.map(marker => {
             const coords = marker.get('coords');
@@ -58,6 +61,11 @@ export default class Map extends Filter {
         });
     }
 
+    /**
+     * Gives coords object from current marker Map
+     * @param currentMarker {immutable Map}
+     * @return {object} of coords
+     */
     centerMap(currentMarker) {
         if (currentMarker.get('index') !== null)
             return {
@@ -66,6 +74,11 @@ export default class Map extends Filter {
             };
     }
 
+    /**
+     * Set state with coords object
+     * Executed when clicking on the map
+     * @param coords {object} arise when clicking on the map
+     */
     getMarkerCoords(coords) {
         delete coords.event;
 
@@ -78,6 +91,12 @@ export default class Map extends Filter {
         });
     }
 
+    /**
+     * Set state for hide MarkerNameField
+     * Send info of marker index, coords and name, when completed create it
+     * Executed on enter button from keyboard
+     * @param markerName {string} name of marker from MarkerNameField
+     */
     completeCreateMarker(markerName) {
         const currentMarkerIndex = this.props.getMarkerIndex + 1;
 
@@ -91,6 +110,10 @@ export default class Map extends Filter {
         this.props.setMarkerName(currentMarkerIndex, markerName);
     }
 
+    /**
+     * Set state for hide MarkerNameField, without saving an info of the marker
+     * Executed on esc button from keyboard
+     */
     cancelCreateMarker() {
         this.setState({
             ...this.state,
@@ -98,12 +121,22 @@ export default class Map extends Filter {
         });
     }
 
+    /**
+     * Select current marker, executed when clicking on the marker
+     * Get params from GoogleMapReact component
+     * @param index {number} marker index
+     * @param coords {object} object with info of the marker
+     */
     markerChoice(index, coords) {
         const { lat, lng } = coords;
 
         this.props.setCurrentMarker(Number(index), { lat, lng });
     }
 
+    /**
+     * Render name field for entering a marker name, executed with clicking on the map
+     * @return {XML} react component MarkerNameField or {null}
+     */
     markerNameFieldRender() {
         if (this.state.markerInit)
             return (
