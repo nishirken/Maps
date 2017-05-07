@@ -1,4 +1,4 @@
-import { StyledListItem } from 'Components';
+import StyledListItem from 'Components/list-item/styled-list-item';
 import 'jest-styled-components';
 
 describe('Rendered', () => {
