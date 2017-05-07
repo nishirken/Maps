@@ -16,6 +16,11 @@ export default class Objects extends PureComponent {
         );
     }
 
+    /**
+     * Render StyledObjectNameField for entering object name, when started to create an object
+     * Or render StyledCreateObjectButton
+     * @return {XML} react component
+     */
     renderCreateObject() {
         if (this.state.createObject)
             return (
@@ -35,6 +40,10 @@ export default class Objects extends PureComponent {
         );
     }
 
+    /**
+     * Render objects item
+     * @return {immutable List} of react components
+     */
     renderObjectsItem() {
         let objects = this.props.markerObjects;
 
@@ -57,6 +66,9 @@ export default class Objects extends PureComponent {
         });
     }
 
+    /**
+     * Set state with createObject property, used by renderCreateObject method
+     */
     toggleCreateObject() {
         this.setState(prevState => {
             return {
@@ -66,14 +78,27 @@ export default class Objects extends PureComponent {
         });
     }
 
+    /**
+     * OnChange method for handle entering an object name
+     * @param e {object} native js event object
+     */
     onChangeHandler(e) {
         this.objectName = e.target.value;
     }
 
+    /**
+     * Check entered object name is empty or not
+     * @param objectName {string}
+     * @return {string} same object name or default value
+     */
     objectNameValidate(objectName) {
         return objectName === '' ? 'object' : objectName;
     }
 
+    /**
+     * OnKeyDown method for handle complete or not entering object name
+     * @param e {object} native js event object
+     */
     onKeyDownHandler(e) {
         if (e.keyCode === 27 || e.keyCode === 13)
             this.toggleCreateObject();
@@ -96,6 +121,9 @@ export default class Objects extends PureComponent {
         this.objectName = '';
     }
 
+    /**
+     * Auto focus in input, when creating an object
+     */
     componentDidUpdate() {
         if (this.state.createObject && this.input)
             this.input.focus();
