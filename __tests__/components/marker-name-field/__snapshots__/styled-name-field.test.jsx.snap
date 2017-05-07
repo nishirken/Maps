@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled name field Rendered 1`] = `
+.bsXDRR {
+  position: absolute;
+  z-index: 300;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column;
+  -ms-flex-flow: column;
+  -webkit-flex-flow: column;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  width: 18.75em;
+  height: 7.5em;
+  top: -webkit-calc(11px - 8.125em);
+  top: -moz-calc(11px - 8.125em);
+  top: calc(11px - 8.125em);
+  left: -webkit-calc(17.5px - 9.375em);
+  left: -moz-calc(17.5px - 9.375em);
+  left: calc(17.5px - 9.375em);
+  padding: 0.625em;
+  background: #CFD8DC;
+  color: #795548;
+}
+
+<div
+  className="bsXDRR"
+  x={10}
+  y={11}
+/>
+`;
+
+exports[`Styled name field Rendered with another props 1`] = `
+.GIfLa {
+  position: absolute;
+  z-index: 300;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: column;
+  -ms-flex-flow: column;
+  -webkit-flex-flow: column;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  width: 18.75em;
+  height: 7.5em;
+  top: -webkit-calc(300px - 8.125em);
+  top: -moz-calc(300px - 8.125em);
+  top: calc(300px - 8.125em);
+  left: -webkit-calc(207.5px - 9.375em);
+  left: -moz-calc(207.5px - 9.375em);
+  left: calc(207.5px - 9.375em);
+  padding: 0.625em;
+  background: #CFD8DC;
+  color: #795548;
+}
+
+<div
+  className="GIfLa"
+  x={200}
+  y={300}
+/>
+`;

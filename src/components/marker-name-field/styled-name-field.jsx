@@ -1,5 +1,6 @@
 import styles from 'Styles';
 import styled from 'styled-components';
+import { PropTypes } from 'react';
 
 const StyledNameField = styled.div`
     position: absolute;
@@ -16,5 +17,10 @@ const StyledNameField = styled.div`
     background: ${styles.colors.get('windowsBackground')};
     color: ${styles.colors.get('secondary')};
 `;
+
+StyledNameField.propTypes = {
+    x: PropTypes.number,
+    y: PropTypes.number,
+};
 
 export default StyledNameField;

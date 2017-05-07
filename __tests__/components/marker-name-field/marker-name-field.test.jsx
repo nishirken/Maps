@@ -1,31 +1,60 @@
-import store from 'Store';
 import { MarkerNameField } from 'Components';
 
 describe('Marker name field', () => {
-    const TestMarkerNameFieldShallow = shallow(
+    const TestMarkerNameField = shallow(
         <MarkerNameField
-            store={store}
             x={100}
             y={99}
         />
-        ),
-        TestMarkerNameField = mount(
-            <MarkerNameField
-                store={store}
-                x={100}
-                y={99}
-            />
-        );
+    );
 
     it('Rendered', () => {
-        expect(TestMarkerNameFieldShallow).toMatchSnapshot();
+        expect(TestMarkerNameField).toMatchSnapshot();
     });
 
-    it('Has a title', () => {
-        expect(TestMarkerNameField.find('h3').length).toBe(1);
+    it('Not rendered, when has a completeCreateMarkerWithoutName state', () => {
+        TestMarkerNameField.setState({ completeCreateMarkerWithoutName: true });
+        expect(TestMarkerNameField).toMatchSnapshot();
     });
 
-    it('Has an input', () => {
-        expect(TestMarkerNameField.find('input').length).toBe(1);
+    const event = (keyCode, value) => {
+        return {
+            keyCode,
+            target: {
+                value,
+            },
+        };
+    };
+
+    it('Should complete create a marker with saving it name', () => {
+        TestMarkerNameField.setProps({ completeCreateMarker: jest.fn() });
+        TestMarkerNameField.instance().getMarkerName(event(13, 'marker'));
+        expect(TestMarkerNameField.instance().props.completeCreateMarker)
+            .toHaveBeenCalledWith('marker');
+    });
+
+    it('Should complete create without entering a name', () => {
+        TestMarkerNameField.setProps({ completeCreateMarker: jest.fn() });
+        TestMarkerNameField.instance().getMarkerName(event(13));
+        expect(TestMarkerNameField.instance().props.completeCreateMarker)
+            .toHaveBeenCalledWith('Your marker');
+    });
+
+    it('Should cancel marker creation', () => {
+        TestMarkerNameField.setProps({ cancelCreateMarker: jest.fn() });
+        TestMarkerNameField.instance().getMarkerName(event(27));
+        expect(TestMarkerNameField.instance().props.cancelCreateMarker).toHaveBeenCalled();
+    });
+
+    test('getMarkerName method with keyCode not 13, and not 27', () => {
+        TestMarkerNameField.setProps({
+            cancelCreateMarker: jest.fn(),
+            completeCreateMarker: jest.fn(),
+        });
+        TestMarkerNameField.instance().getMarkerName(event(20));
+        expect(TestMarkerNameField.instance().props.completeCreateMarker)
+            .not.toHaveBeenCalled();
+        expect(TestMarkerNameField.instance().props.cancelCreateMarker)
+            .not.toHaveBeenCalled();
     });
 });

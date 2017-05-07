@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map Rendered 1`] = `
+<styled.section>
+  <GoogleMap
+    bootstrapURLKeys={
+      Object {
+        "key": "AIzaSyAlz0vyHR7mYhlgdyylOcpFXi_nwsPaZCU",
+        "language": "ru",
+      }
+    }
+    debounced={true}
+    defaultCenter={
+      Object {
+        "lat": 56.840368243241336,
+        "lng": 60.57031113624522,
+      }
+    }
+    defaultZoom={18}
+    distanceToMouse={[Function]}
+    googleMapLoader={[Function]}
+    hoverDistance={30}
+    layerTypes={Array []}
+    onChildClick={[Function]}
+    onClick={[Function]}
+    options={
+      Object {
+        "styles": Array [
+          Object {
+            "elementType": "geometry",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#795548",
+              },
+              Object {
+                "visibility": "simplified",
+              },
+            ],
+          },
+          Object {
+            "elementType": "labels",
+            "featureType": "road",
+            "stylers": Array [
+              Object {
+                "color": "#ECEFF1",
+              },
+              Object {
+                "visibility": "simplified",
+              },
+            ],
+          },
+          Object {
+            "featureType": "administrative",
+            "stylers": Array [
+              Object {
+                "visibility": "simplified",
+              },
+            ],
+          },
+          Object {
+            "featureType": "poi",
+            "stylers": Array [
+              Object {
+                "visibility": "simplified",
+              },
+            ],
+          },
+          Object {
+            "featureType": "transit",
+            "stylers": Array [
+              Object {
+                "visibility": "simplified",
+              },
+            ],
+          },
+        ],
+      }
+    }
+    style={
+      Object {
+        "height": "100%",
+        "margin": 0,
+        "padding": 0,
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+    yesIWantToUseGoogleMapApiInternals={false}
+  >
+    <Marker
+      center={false}
+      lat={299}
+      lng={300}
+    />
+    <Marker
+      center={false}
+      lat={300}
+      lng={301}
+    />
+  </GoogleMap>
+</styled.section>
+`;
