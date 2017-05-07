@@ -1,12 +1,13 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { Map } from 'immutable';
 
 import StyledList from './styled-list';
 import StyledListWrapper from './styled-list-wrapper';
 import { ListItem, StyledSearchField } from 'Components';
+import Filter from 'Components/filter/filter';
 
-export default class List extends PureComponent {
+export default class List extends Filter {
     render() {
         return (
             <StyledListWrapper
@@ -34,10 +35,10 @@ export default class List extends PureComponent {
         let markers = this.props.getMarkerCoords;
 
         if (this.props.getMarkerDeleteIndexes.size)
-            markers = this.processingMarkerDeleteIndexes(markers);
+            markers = this.processingMarkerDeleteIndexes(markers, this.props.getMarkerDeleteIndexes);
 
         if (this.props.getMarkerSearchIndexes.size)
-            markers = this.processingMarkerSearchNames(markers);
+            markers = this.processingMarkerSearchNames(markers, this.props.getMarkerSearchIndexes);
 
         return markers.map((marker, key) => {
             const coords = marker.get('coords');
@@ -96,26 +97,6 @@ export default class List extends PureComponent {
         const name = markerNames.findLast(value => value.get('index') === markerIndex);
 
         return name.get('name');
-    }
-
-    /**
-     * Filtering marker coords by delete indexes
-     * @param coordsArray {immutable List}
-     * @return coordsArray {immutable List}
-     */
-    processingMarkerDeleteIndexes(coordsArray) {
-        return coordsArray.filter(marker =>
-            !this.props.getMarkerDeleteIndexes.includes(marker.get('index')));
-    }
-
-    /**
-     * Filtering marker coords by search indexes
-     * @param coordsArray {immutable List}
-     * @return coordsArray {immutable List}
-     */
-    processingMarkerSearchNames(coordsArray) {
-        return coordsArray.filter(marker =>
-            this.props.getMarkerSearchIndexes.includes(marker.get('index')));
     }
 
     /**

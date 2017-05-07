@@ -1,12 +1,13 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import GoogleMapReact from 'google-map-react';
 
 import StyledMap from './styled-map';
 import { Marker, MarkerNameField } from 'Components';
+import Filter from 'Components/filter/filter';
 import { MAP_SETTINGS } from 'Constants';
 
-export default class Map extends PureComponent {
+export default class Map extends Filter {
     render() {
         return (
             <StyledMap>

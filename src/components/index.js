@@ -1,3 +1,4 @@
+export Filter from './filter/filter';
 export Map from './map/map';
 export Marker from './marker/marker';
 export MarkerNameField from './marker-name-field/marker-name-field';
