@@ -19,6 +19,11 @@ export default class ListItemText extends PureComponent {
         );
     }
 
+    /**
+     * Render editing input field, when component has an editMarkerName property,
+     * otherwise render marker name component
+     * @return {XML} react component
+     */
     renderMarkerName() {
         if (this.props.editMarkerName)
             return (
@@ -40,6 +45,10 @@ export default class ListItemText extends PureComponent {
         );
     }
 
+    /**
+     * OnKeyDown handler, execute when editing marker name
+     * @param e {object} native js event object
+     */
     onKeyDownMarkerName(e) {
         if (e.keyCode === 27)
             this.props.switchEditMarkerName(false);
@@ -48,12 +57,19 @@ export default class ListItemText extends PureComponent {
             this.props.switchEditMarkerName(true);
     }
 
+    /**
+     * OnChange handler, execute when complete edit marker name
+     * @param e {object} native js event object
+     */
     onChangeMarkerName(e) {
         const value = e.target.value;
 
         this.props.setNewMarkerName(value);
     }
 
+    /**
+     * Auto focus into input
+     */
     componentDidUpdate() {
         if (this.props.editMarkerName && this.input)
             this.input.focus();

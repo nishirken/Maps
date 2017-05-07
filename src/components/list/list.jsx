@@ -28,6 +28,7 @@ export default class List extends PureComponent {
 
     /**
      * Renders marks list items
+     * @return {XML} react component
      */
     marksListItemsRender() {
         let markers = this.props.getMarkerCoords;
@@ -73,6 +74,11 @@ export default class List extends PureComponent {
         });
     }
 
+    /**
+     * Calculate current list item or not
+     * @param {number} markerIndex
+     * @return {boolean}
+     */
     setCurrent(markerIndex) {
         if (this.props.getCurrentMarker)
             return this.props.getCurrentMarker.get('index') === markerIndex;

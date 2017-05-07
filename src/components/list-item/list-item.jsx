@@ -32,6 +32,7 @@ export default class ListItem extends PureComponent {
 
     /**
      * Render objects list for each list-item, if it is current
+     * @return {XML} react component or {null}
      */
     renderObjectsList() {
         if (this.props.current)
