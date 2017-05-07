@@ -66,4 +66,7 @@ export default fromJS({
             index: 0,
         },
     ],
+    getCurrentMarker: {
+        index: 0,
+    },
 });

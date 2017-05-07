@@ -39,15 +39,12 @@ export default class List extends PureComponent {
             markers = this.processingMarkerSearchNames(markers);
 
         return markers.map((marker, key) => {
-            let current = false;
             const coords = marker.get('coords');
             const index = marker.get('index');
 
-            if (this.props.getCurrentMarker.get('index') === index) current = true;
-
             return (
                 <ListItem
-                    current={current}
+                    current={this.setCurrent(index)}
                     getEditMarkerNameCondition={this.props.getEditMarkerNameCondition}
                     key={index}
                     markerCoords={Map({
@@ -74,6 +71,13 @@ export default class List extends PureComponent {
                 />
             );
         });
+    }
+
+    setCurrent(markerIndex) {
+        if (this.props.getCurrentMarker)
+            return this.props.getCurrentMarker.get('index') === markerIndex;
+
+        return false;
     }
 
     /**

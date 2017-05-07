@@ -32,7 +32,6 @@ export default class ListItem extends PureComponent {
 
     /**
      * Render objects list for each list-item, if it is current
-     * @returns {react component} objects list
      */
     renderObjectsList() {
         if (this.props.current)
@@ -51,24 +50,34 @@ export default class ListItem extends PureComponent {
         return null;
     }
 
+    /**
+     * Set state with new marker name after editing it
+     * @param value {string} value from editing input
+     */
     setNewMarkerName(value) {
-        this.setState(prevState => {
-            return {
-                ...prevState,
-                newMarkerName: value,
-            };
-        });
+        this.newMarkerName = value;
     }
 
+    /**
+     * Set state.
+     * Switch edit marker name condition. And need because it's two different places,
+     * where we can cancel edit of marker name:
+     * 1) By input (push esc on the keyboard) and don't save edited value
+     * 2) By input (push enter on the keyboard), clicking on the edit button and save new marker name
+     * @param condition {bool}
+     */
     switchEditMarkerName(condition) {
         this.setState(prevState => {
             return {
                 editMarkerName: !prevState.editMarkerName,
-                canSendMarkerName: condition,
             };
         });
+        this.canSendMarkerName = condition;
     }
 
+    /**
+     * Set current marker after clicking on the appropriate list item
+     */
     listItemOnclickHandler() {
         this.props.setCurrentMarker(this.props.markerIndex, this.props.markerCoords);
     }
@@ -77,25 +86,19 @@ export default class ListItem extends PureComponent {
         super(props);
         this.state = {
             editMarkerName: false,
-            canSendMarkerName: false,
-            newMarkerName: null,
         };
+        this.newMarkerName = null;
+        this.canSendMarkerName = false;
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        if (nextState.canSendMarkerName)
-            this.setState(prevState => {
-                return {
-                    ...prevState,
-                    canSendMarkerName: false,
-                };
-            });
-    }
+    componentDidUpdate() {
+        if (this.canSendMarkerName && this.newMarkerName) {
+            if (this.newMarkerName !== this.props.markerName)
+                this.props.setMarkerName(this.props.markerIndex, this.newMarkerName);
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.canSendMarkerName && this.state.newMarkerName)
-            if (this.state.newMarkerName !== this.props.markerName)
-                this.props.setMarkerName(this.props.markerIndex, this.state.newMarkerName);
+            this.newMarkerName = null;
+            this.canSendMarkerName = false;
+        }
     }
 
     static propTypes = {

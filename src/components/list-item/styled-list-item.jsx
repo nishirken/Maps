@@ -16,6 +16,7 @@ const StyledListItem = styled.div`
 
 StyledListItem.propTypes = {
     current: PropTypes.bool,
+    onClick: PropTypes.func,
 };
 
 export default StyledListItem;

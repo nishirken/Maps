@@ -10,8 +10,8 @@
   "license": "MIT",
   "scripts": {
     "start": "BABEL_ENV=development webpack-dev-server --progress --config config/webpack.development.js",
-    "build-server": "BABEL_ENV=node webpack --config config/webpack.server.development ",
-    "server": "npm-run-all --parallel build-server && nodemon build/server.js --warch src",
+    "server:build": "BABEL_ENV=node webpack --config config/webpack.server.development ",
+    "server:start": "nodemon build/server.js --watch src",
     "prod": "NODE_ENV=production webpack --progress --config config/webpack.production.js",
     "test": "NODE_ENV=test BABEL_ENV=node jest --watch --config jest.config.json"
   },

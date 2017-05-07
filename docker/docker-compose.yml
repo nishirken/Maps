@@ -14,7 +14,7 @@ services:
       - ../node_modules:/node_modules
       - ../build/server.js:/build/server.js
       - ../src:/src
-    command: npm run server
+    command: npm run server:start
 
   client_nginx:
     container_name: maps_nginx

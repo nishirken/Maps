@@ -110,6 +110,20 @@ describe('List', () => {
         expect(TestList.instance().props.setMarkerSearchIndexes.mock.calls[0][0].size).toBe(3);
     });
 
+    it('Should set current property to marker', () => {
+        TestList.setProps({ getCurrentMarker: initialState.get('getCurrentMarker') });
+        expect(
+            TestList.instance().setCurrent(
+                initialState.get('getMarkerCoords').get(0).get('index')
+            )
+        ).toBeTruthy();
+        expect(
+            TestList.instance().setCurrent(
+                initialState.get('getMarkerCoords').get(1).get('index')
+            )
+        ).toBeFalsy();
+    });
+
     it('Change state when called mouseEnterHandler method', () => {
         expect(TestList.state('mouseEnter')).toBe(false);
         TestList.instance().mouseEnterHandler();
