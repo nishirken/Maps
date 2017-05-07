@@ -1,7 +1,7 @@
 import { apiUrlSend } from 'Constants';
 import { Map, List } from 'immutable';
 
-const checkEnvironment = action => {
+export const checkEnvironment = action => {
     if (typeof window !== 'undefined' && (Map.isMap(action.payload) || List.isList(action.payload)))
         if (action.payload.get('sendToApi'))
             return true;

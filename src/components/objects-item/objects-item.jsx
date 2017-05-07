@@ -21,6 +21,10 @@ export default class ObjectsItem extends PureComponent {
         );
     }
 
+    /**
+     * OnClick handler for set object delete indexes
+     * @param e {object} native js event object
+     */
     deleteHandler(e) {
         e.stopPropagation();
         this.props.setObjectDeleteIndex(this.props.markerIndex, this.props.index);

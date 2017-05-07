@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 
 export default fromJS({
+    getMarkerIndex: 2,
     getMarkerCoords: [
         {
             index: 0,

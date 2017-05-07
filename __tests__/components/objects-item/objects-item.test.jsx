@@ -1,19 +1,28 @@
-import store from 'Store';
 import { ObjectsItem } from 'Components';
 
 describe('Objects item component', () => {
-    const ObjectsItemShallow = shallow(<ObjectsItem store={store} />);
-    const ObjectsItemMount = mount(<ObjectsItem store={store} />);
+    const TestObjectsItem = shallow(<ObjectsItem />);
 
     it('Rendered', () => {
-        expect(ObjectsItemShallow).toMatchSnapshot();
+        expect(TestObjectsItem).toMatchSnapshot();
     });
+    
+    it('Should set delete object indexes', () => {
+        const event = {
+            stopPropagation: jest.fn(),
+        };
 
-    it('Has a delete button', () => {
-        expect(ObjectsItemMount.find('svg').length).toBe(1);
-    });
-
-    it('Has an inner text', () => {
-        expect(ObjectsItemMount.text().length).toBeGreaterThan(1);
+        TestObjectsItem.setProps({
+            setObjectDeleteIndex: jest.fn(),
+            markerIndex: 1,
+            index: 0,
+        });
+        TestObjectsItem.instance().deleteHandler(event);
+        expect(event.stopPropagation).toHaveBeenCalledTimes(1);
+        expect(TestObjectsItem.instance().props.setObjectDeleteIndex)
+            .toHaveBeenCalledWith(
+                TestObjectsItem.instance().props.markerIndex,
+                TestObjectsItem.instance().props.index,
+            );
     });
 });
