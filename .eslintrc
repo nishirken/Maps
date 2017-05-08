@@ -32,7 +32,7 @@
     "mount": true,
     "render": true,
     "shallow": true,
-    "sinon": true
+    "nock": true
   },
   "rules": {
     "no-await-in-loop": "error",

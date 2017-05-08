@@ -1,4 +1,4 @@
-import { apiUrlSend } from 'Constants';
+import { apiUrl, sendPath } from 'Constants';
 import { Map, List } from 'immutable';
 
 export const checkEnvironment = action => {
@@ -13,7 +13,7 @@ export default () => next => action => {
     if (checkEnvironment(action)) {
         const newPayload = action.payload.remove('sendToApi');
 
-        fetch(apiUrlSend, {
+        fetch(`${apiUrl}${sendPath}`, {
             method: 'post',
             mode: 'cors',
             headers: {
@@ -24,8 +24,8 @@ export default () => next => action => {
                 payload: newPayload,
             }),
         })
-            .then(response => console.log(response))
-            .catch(error => console.log(error));
+            .then(response => response)
+            .catch(error => error);
     }
 
     return result;
