@@ -1,8 +1,8 @@
 import { ListContainer } from 'Containers';
-import store from 'TestStore';
+import { testStore } from 'Store';
 
 describe('List container', () => {
-    const TestListContainer = shallow(<ListContainer store={store} />);
+    const TestListContainer = shallow(<ListContainer store={testStore} />);
 
     it('Rendered', () => {
         expect(TestListContainer).toMatchSnapshot();

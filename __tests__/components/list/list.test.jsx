@@ -1,6 +1,6 @@
 import { Map, List as ImmutableList } from 'immutable';
 import { List } from 'Components';
-import initialState from 'InitialState';
+import { testInitialState } from 'Store';
 
 jest.useFakeTimers();
 
@@ -12,9 +12,9 @@ describe('List', () => {
         TestList = shallow(
             <List
                 getCurrentMarker={Map({})}
-                getMarkerCoords={initialState.get('getMarkerCoords')}
+                getMarkerCoords={testInitialState.get('getMarkerCoords')}
                 getMarkerDeleteIndexes={ImmutableList([])}
-                getMarkerName={initialState.get('getMarkerName')}
+                getMarkerName={testInitialState.get('getMarkerName')}
                 getMarkerSearchIndexes={ImmutableList([])}
                 getObjectDeleteIndexes={ImmutableList([])}
                 getObjects={ImmutableList([])}
@@ -27,17 +27,17 @@ describe('List', () => {
     });
 
     it('Render the list-items', () => {
-        expect(TestList.find('ListItem').length).toBe(initialState.get('getMarkerCoords').size);
+        expect(TestList.find('ListItem').length).toBe(testInitialState.get('getMarkerCoords').size);
     });
 
     test('№1 marker has a last in a list marker name', () => {
-        const expectedMarkerName = initialState.get('getMarkerName').get(2).get('name');
+        const expectedMarkerName = testInitialState.get('getMarkerName').get(2).get('name');
 
         expect(TestList.find('ListItem').at(1).prop('markerName')).toBe(expectedMarkerName);
     });
 
     test('№1 marker filtered an objects to the list-item', () => {
-        TestList.setProps({ getObjects: initialState.get('getObjects') });
+        TestList.setProps({ getObjects: testInitialState.get('getObjects') });
         expect(TestList.find('ListItem').at(1).prop('markerObjects').size).toBe(2);
     });
 
@@ -45,8 +45,8 @@ describe('List', () => {
         const expectedListItemProp = ImmutableList([0]);
 
         TestList.setProps({
-            getObjectDeleteIndexes: initialState.get('getObjectDeleteIndexes'),
-            getObjects: initialState.get('getObjects'),
+            getObjectDeleteIndexes: testInitialState.get('getObjectDeleteIndexes'),
+            getObjects: testInitialState.get('getObjects'),
         });
         expect(TestList.find('ListItem').at(1).prop('objectDeleteIndexes')).toEqual(expectedListItemProp);
     });
@@ -54,7 +54,7 @@ describe('List', () => {
     test('Search method', () => {
         const value1 = 'Marker';
         const value2 = '111';
-        const target = initialState.get('getMarkerName').get(2).get('name');
+        const target = testInitialState.get('getMarkerName').get(2).get('name');
 
         expect(TestList.instance().search(value1, target)).toBeTruthy();
         expect(TestList.instance().search(value2, target)).toBeFalsy();
@@ -103,15 +103,15 @@ describe('List', () => {
     });
 
     it('Should set current property to marker', () => {
-        TestList.setProps({ getCurrentMarker: initialState.get('getCurrentMarker') });
+        TestList.setProps({ getCurrentMarker: testInitialState.get('getCurrentMarker') });
         expect(
             TestList.instance().setCurrent(
-                initialState.get('getMarkerCoords').get(0).get('index')
+                testInitialState.get('getMarkerCoords').get(0).get('index')
             )
         ).toBeTruthy();
         expect(
             TestList.instance().setCurrent(
-                initialState.get('getMarkerCoords').get(1).get('index')
+                testInitialState.get('getMarkerCoords').get(1).get('index')
             )
         ).toBeFalsy();
     });

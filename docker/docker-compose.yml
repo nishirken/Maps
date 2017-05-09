@@ -12,7 +12,7 @@ services:
       - ../.babelrc:/.babelrc
       - ../package.json:/package.json
       - ../node_modules:/node_modules
-      - ../build/server.js:/build/server.js
+      - ../build/index.js:/build/index.js
       - ../src:/src
     command: npm run server:start
 

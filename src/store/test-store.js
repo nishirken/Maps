@@ -1,5 +1,5 @@
 import configureStore from 'redux-mock-store';
-import initialState from 'InitialState';
+import initialState from './test-initial-state';
 
 const mockStore = configureStore();
 const store = mockStore(initialState.toObject());

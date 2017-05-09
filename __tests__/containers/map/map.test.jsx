@@ -1,8 +1,8 @@
 import { MapContainer } from 'Containers';
-import store from 'TestStore';
+import { testStore } from 'Store';
 
 describe('Map container', () => {
-    const TestMapContainer = shallow(<MapContainer store={store} />);
+    const TestMapContainer = shallow(<MapContainer store={testStore} />);
 
     it('Rendered', () => {
         expect(TestMapContainer).toMatchSnapshot();

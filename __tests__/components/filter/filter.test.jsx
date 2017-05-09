@@ -1,12 +1,11 @@
 import { Filter } from 'Components';
-import initialState from 'InitialState';
+import { testInitialState } from 'Store';
 import { List } from 'immutable';
 
 describe('Filter class', () => {
     const TestFilter = shallow(<Filter />);
-    const coords = initialState.get('getMarkerCoords');
+    const coords = testInitialState.get('getMarkerCoords');
     const deleteIndexes = List([0]);
-    const searchIndexes = List([1]);
 
     test('processingMarkerDeleteIndexes method, for filtering coords array by delete indexes array', () => {
         const expectedCoordsArray = coords.remove(0);

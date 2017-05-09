@@ -44,7 +44,7 @@ const commonConfig = {
             Containers: pathResolve('src/containers'),
             Reducers: pathResolve('src/reducers'),
             Styles: pathResolve('src/style-resources'),
-            Store: pathResolve('src/create-store'),
+            Store: pathResolve('src/store/create-store'),
         },
         extensions: ['.js', '.jsx', '.json'],
         modules: ['node_modules'],

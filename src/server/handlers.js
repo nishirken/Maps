@@ -1,10 +1,9 @@
-import Koa from 'koa';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import App from './index';
-import { createStore, applyMiddleware } from 'redux';
 import request from 'request-promise-native';
 import { List, fromJS } from 'immutable';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from '../index';
+import { createStore, applyMiddleware } from 'redux';
 
 import { sendReducerPayload } from 'Middlewares';
 import reducers from 'Reducers';
@@ -14,8 +13,6 @@ import {
     setMarkerName,
     setObject,
 } from 'Actions';
-
-const app = new Koa();
 
 const renderHTML = (componentHTML, preloadedState) => `
     <!doctype html>
@@ -40,7 +37,7 @@ const renderHTML = (componentHTML, preloadedState) => `
     </html>
 `;
 
-const fetchFromApi = async () => {
+export const fetchFromApi = async () => {
     try {
         const result = await request({
             uri: 'http://nginx/get-state',
@@ -49,32 +46,34 @@ const fetchFromApi = async () => {
 
         return fromJS(JSON.parse(result));
     } catch (error) {
-        console.error('There are some error with fetching from api: ', error.message);
+        if (NODE_ENV === 'development')
+            console.error('There are some error with fetching from api: ', error.message);
 
         return List([]);
     }
 };
 
-app.use(async ctx => {
+export const serverStoreDispatch = (markers, serverStore) => {
+    markers.forEach(marker => {
+        const index = marker.get('index');
+
+        serverStore.dispatch(setMarkerIndex(index));
+        serverStore.dispatch(setMarkerName(index, marker.get('name')));
+        serverStore.dispatch(setMarkerCoords(index, marker.get('coords')));
+        marker.get('objects').forEach(object =>
+            serverStore.dispatch(setObject(index, object.get('index'), object.get('name'))));
+    });
+};
+
+export const handler = async ctx => {
     const serverStore = createStore(reducers, {}, applyMiddleware(sendReducerPayload));
     const markers = await fetchFromApi();
 
     if (markers.size)
-        markers.forEach(marker => {
-            const index = marker.get('index');
-
-            serverStore.dispatch(setMarkerIndex(index));
-            serverStore.dispatch(setMarkerName(index, marker.get('name')));
-            serverStore.dispatch(setMarkerCoords(index, marker.get('coords')));
-            marker.get('objects').forEach(object =>
-                serverStore.dispatch(setObject(index, object.get('index'), object.get('name'))));
-        });
+        serverStoreDispatch(markers, serverStore);
 
     const preloadedState = serverStore.getState();
 
     ctx.body = renderHTML(renderToString(<App store={serverStore} />), preloadedState);
-});
+};
 
-const PORT = 3000;
-
-app.listen(PORT, () => console.log(`Server started on ${PORT} port`));

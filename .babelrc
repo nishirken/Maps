@@ -54,6 +54,7 @@
         "transform-function-bind",
         "transform-export-extensions",
         "transform-es2015-modules-commonjs",
+        "transform-async-to-generator",
         ["module-resolver", {
           "root": ["./"],
           "alias": {
@@ -65,8 +66,7 @@
             "Containers": "./src/containers",
             "Reducers": "./src/reducers",
             "Styles": "./src/style-resources",
-            "InitialState": "./src/test-initial-state",
-            "TestStore": "./src/test-store"
+            "Store": "./src/store"
           }
         }]
       ]

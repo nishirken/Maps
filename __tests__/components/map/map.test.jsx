@@ -1,6 +1,6 @@
 import { Map, MarkerNameField } from 'Components';
 import { List, Map as ImmutableMap } from 'immutable';
-import initialState from 'InitialState';
+import { testInitialState } from 'Store';
 
 describe('Map', () => {
     let TestMap = {};
@@ -16,9 +16,9 @@ describe('Map', () => {
                         lng: 300,
                     }),
                 })}
-                getMarkerCoords={initialState.get('getMarkerCoords')}
+                getMarkerCoords={testInitialState.get('getMarkerCoords')}
                 getMarkerDeleteIndexes={List([])}
-                getMarkerIndex={initialState.get('getMarkerCoords').size}
+                getMarkerIndex={testInitialState.get('getMarkerCoords').size}
                 getMarkerSearchIndexes={List([])}
             />
         );
@@ -29,16 +29,16 @@ describe('Map', () => {
     });
 
     it('Rendered the markers', () => {
-        expect(TestMap.find('Marker').length).toBe(initialState.get('getMarkerCoords').size);
+        expect(TestMap.find('Marker').length).toBe(testInitialState.get('getMarkerCoords').size);
     });
 
     const expectedCoords = {
-        lat: initialState.get('getCurrentMarker').get('coords').get('lat'),
-        lng: initialState.get('getCurrentMarker').get('coords').get('lng'),
+        lat: testInitialState.get('getCurrentMarker').get('coords').get('lat'),
+        lng: testInitialState.get('getCurrentMarker').get('coords').get('lng'),
     };
 
     it('Should centered map when current marker is selected', () => {
-        expect(TestMap.instance().centerMap(initialState.get('getCurrentMarker')))
+        expect(TestMap.instance().centerMap(testInitialState.get('getCurrentMarker')))
             .toEqual(expectedCoords);
     });
 

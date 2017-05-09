@@ -46,3 +46,11 @@
 2017/05/05 15:14:17 [notice] 1#1: start worker process 7
 2017/05/06 05:44:17 [error] 6#6: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.22.0.1, server: , request: "GET / HTTP/1.1", upstream: "http://172.22.0.2:3000/", host: "192.168.1.205"
 2017/05/06 05:44:19 [info] 6#6: *1 client 172.22.0.1 closed keepalive connection
+2017/05/09 10:18:01 [notice] 1#1: using the "epoll" event method
+2017/05/09 10:18:01 [notice] 1#1: nginx/1.11.10
+2017/05/09 10:18:01 [notice] 1#1: built by gcc 4.9.2 (Debian 4.9.2-10) 
+2017/05/09 10:18:01 [notice] 1#1: OS: Linux 4.9.13-moby
+2017/05/09 10:18:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2017/05/09 10:18:01 [notice] 1#1: start worker processes
+2017/05/09 10:18:01 [notice] 1#1: start worker process 8
+2017/05/09 10:18:01 [notice] 1#1: start worker process 9

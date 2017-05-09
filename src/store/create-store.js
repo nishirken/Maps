@@ -2,8 +2,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { fromJS } from 'immutable';
 
-import { sendReducerPayload } from 'Middlewares';
-import reducers from 'Reducers';
+import { sendReducerPayload } from '../middlewares/index';
+import reducers from '../reducers/index';
 
 let store = null;
 

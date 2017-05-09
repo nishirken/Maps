@@ -1,13 +1,13 @@
 import { List } from 'immutable';
-import initialState from 'InitialState';
+import { testInitialState } from 'Store';
 import { Objects } from 'Components';
 import StyledObjectNameField from 'Components/objects/styled-object-name-field';
 import StyledCreateObjectButton from 'Components/objects/styled-create-object-button';
 
 describe('Objects component', () => {
     const objects = List([
-        initialState.get('getObjects').get(1).get('object'),
-        initialState.get('getObjects').get(2).get('object'),
+        testInitialState.get('getObjects').get(1).get('object'),
+        testInitialState.get('getObjects').get(2).get('object'),
     ]);
     let TestObjects = {};
 
