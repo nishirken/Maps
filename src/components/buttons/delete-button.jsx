@@ -1,16 +1,8 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledButtonSvg from './styled-button-svg';
 
 export default class DeleteButton extends PureComponent {
-    static propTypes = {
-        markerIndex: PropTypes.number,
-        setDeleteMarkerIndex: PropTypes.func,
-    }
-
-    deleteMarker(e) {
-        e.stopPropagation();
-        this.props.setDeleteMarkerIndex(this.props.markerIndex);
-    }
-
     render() {
         return (
             <StyledButtonSvg
@@ -23,5 +15,15 @@ export default class DeleteButton extends PureComponent {
                 />
             </StyledButtonSvg>
         );
+    }
+
+    deleteMarker(e) {
+        e.stopPropagation();
+        this.props.setDeleteMarkerIndex(this.props.markerIndex);
+    }
+
+    static propTypes = {
+        markerIndex: PropTypes.number,
+        setDeleteMarkerIndex: PropTypes.func,
     }
 }

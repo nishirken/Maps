@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text in a marks list item Rendered 1`] = `
+<div>
+  <styled.h5 />
+  <styled.p>
+    coords: 
+    299.00
+    ,  
+    300.00
+     
+    <br />
+    №: 
+  </styled.p>
+</div>
+`;

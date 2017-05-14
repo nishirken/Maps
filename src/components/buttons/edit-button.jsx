@@ -1,20 +1,8 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledButtonSvg from './styled-button-svg';
 
 export default class EditButton extends PureComponent {
-    static propTypes = {
-        switchEditMarkerName: PropTypes.func,
-        editMarkerName: PropTypes.bool,
-    }
-
-    switchEditMarkerName(e) {
-        e.stopPropagation();
-        if (this.props.editMarkerName)
-            this.props.switchEditMarkerName(true);
-
-        if (!this.props.editMarkerName)
-            this.props.switchEditMarkerName(false);
-    }
-
     render() {
         return (
             <StyledButtonSvg
@@ -28,5 +16,19 @@ export default class EditButton extends PureComponent {
                 />
             </StyledButtonSvg>
         );
+    }
+
+    switchEditMarkerName(e) {
+        e.stopPropagation();
+        if (this.props.editMarkerName)
+            this.props.switchEditMarkerName(true);
+
+        if (!this.props.editMarkerName)
+            this.props.switchEditMarkerName(false);
+    }
+
+    static propTypes = {
+        editMarkerName: PropTypes.bool,
+        switchEditMarkerName: PropTypes.func,
     }
 }

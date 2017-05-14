@@ -1,0 +1,39 @@
+version: '3'
+services:
+  client_node:
+    container_name: maps_node
+    image: node:7.9.0
+    networks:
+      - maps
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../config:/config
+      - ../.babelrc:/.babelrc
+      - ../package.json:/package.json
+      - ../node_modules:/node_modules
+      - ../build/server.js:/build/server.js
+      - ../src:/src
+      - ../jest.config.json:/jest.config.json
+      - ../jest.setup.js:/jest.setup.js
+      - ../__tests__:/__tests__
+      - ../__mocks__:/__mocks__
+
+  client_nginx:
+    container_name: maps_nginx
+    image: nginx:1.11
+    networks:
+      - maps
+    ports:
+      - 80:80
+    volumes:
+      - ../build:/var/www/build
+      - ./nginx:/etc/nginx
+      - ./logs:/etc/nginx/logs
+    depends_on:
+      - client_node
+
+networks:
+  maps:
+    external:
+      name: mapsapi_default

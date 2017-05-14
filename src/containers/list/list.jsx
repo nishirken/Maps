@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -30,42 +32,7 @@ import { List } from 'Components';
         setObjectDeleteIndex: bindActionCreators(setObjectDeleteIndex, dispatch),
     })
 )
-export default class MarksListContainer extends PureComponent {
-    static propTypes = {
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        })).isRequired,
-        getMarkerName: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            name: PropTypes.string,
-        })).isRequired,
-        getCurrentMarker: PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        }),
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        getObjects: PropTypes.arrayOf(
-            PropTypes.shape({
-                markerIndex: PropTypes.number,
-                object: PropTypes.shape({
-                    index: PropTypes.number,
-                    name: PropTypes.string,
-                }),
-            })
-        ),
-        getObjectDeleteIndexes: PropTypes.arrayOf(PropTypes.shape({
-            markerIndex: PropTypes.number,
-            index: PropTypes.number,
-        })),
-        setMarkerName: PropTypes.func,
-        setCurrentMarker: PropTypes.func,
-        setMarkerSearchIndexes: PropTypes.func,
-        setMarkerDeleteIndex: PropTypes.func,
-        setObject: PropTypes.func,
-        setObjectDeleteIndex: PropTypes.func,
-    }
+export default class ListContainer extends PureComponent {
     render() {
         return (
             <List
@@ -84,5 +51,41 @@ export default class MarksListContainer extends PureComponent {
                 setObjectDeleteIndex={this.props.setObjectDeleteIndex}
             />
         );
+    }
+
+    static propTypes = {
+        getCurrentMarker: ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        }),
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        })).isRequired,
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerName: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            name: PropTypes.string,
+        })).isRequired,
+        getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getObjectDeleteIndexes: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            markerIndex: PropTypes.number,
+            index: PropTypes.number,
+        })),
+        getObjects: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.mapContains({
+                markerIndex: PropTypes.number,
+                object: ImmutablePropTypes.mapContains({
+                    index: PropTypes.number,
+                    name: PropTypes.string,
+                }),
+            })
+        ),
+        setCurrentMarker: PropTypes.func,
+        setMarkerDeleteIndex: PropTypes.func,
+        setMarkerName: PropTypes.func,
+        setMarkerSearchIndexes: PropTypes.func,
+        setObject: PropTypes.func,
+        setObjectDeleteIndex: PropTypes.func,
     }
 }

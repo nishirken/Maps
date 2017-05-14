@@ -31,7 +31,8 @@
     "StyleFunc": true,
     "mount": true,
     "render": true,
-    "shallow": true
+    "shallow": true,
+    "nock": true
   },
   "rules": {
     "no-await-in-loop": "error",
@@ -49,19 +50,18 @@
     "no-unexpected-multiline": "warn",
     "no-unsafe-negation": "error",
     "valid-jsdoc": [
-      "warn",
+      "error",
       {
         "prefer": {
           "arg": "param",
           "argument": "param",
           "class": "constructor",
-          "return": "returns",
           "virtual": "abstract"
         },
         "preferType": {
           "Boolean": "boolean",
           "Number": "number",
-          "object": "Object",
+          "object": "object",
           "String": "string"
         },
         "requireReturnType": false,
@@ -85,7 +85,7 @@
       "property"
     ],
     "dot-notation": [
-      "error",
+      "off",
       {
         "allowKeywords": false
       }
@@ -165,7 +165,7 @@
       }
     ],
     "no-undef": "error",
-    "no-undefined": "error",
+    "no-undefined": "off",
     "no-use-before-define": "error",
     "array-bracket-spacing": [
       "error",
@@ -248,7 +248,9 @@
     "indent": [
       "error",
       4,
-      { "SwitchCase": 1 }
+      {
+        "SwitchCase": 1
+      }
     ],
     "jsx-quotes": "error",
     "key-spacing": "error",
@@ -292,7 +294,7 @@
     ],
     "max-nested-callbacks": [
       "error",
-      3
+      4
     ],
     "max-params": "error",
     "max-statements-per-line": "error",
@@ -307,7 +309,13 @@
       "off",
       "never"
     ],
-    "new-cap": "error",
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": true,
+        "capIsNew": false
+      }
+    ],
     "newline-after-var": "error",
     "newline-before-return": "error",
     "newline-per-chained-call": [
@@ -465,10 +473,15 @@
     "react/no-danger-with-children": "error",
     "react/no-did-mount-set-state": "error",
     "react/no-did-update-set-state": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-find-dom-node": "error",
+    "react/no-is-mounted": "error",
     "react/no-multi-comp": "error",
     "react/no-string-refs": "error",
     "react/no-unescaped-entities": "error",
     "react/no-unused-prop-types": "error",
+    "react/sort-prop-types": "error",
+    "react/no-unknown-property": "error",
     "react/prefer-es6-class": "error",
     "react/prefer-stateless-function": "off",
     "react/self-closing-comp": [
@@ -478,7 +491,40 @@
         "html": true
       }
     ],
-    "react/sort-comp": "error",
+    "react/sort-comp": [
+      "error",
+      {
+        "order": [
+          "render",
+          "everything-else",
+          "lifecycle",
+          "static-methods"
+        ],
+        "groups": {
+          "lifecycle": [
+            "constructor",
+            "getDefaultProps",
+            "getInitialState",
+            "componentWillMount",
+            "componentDidMount",
+            "componentWillReceiveProps",
+            "shouldComponentUpdate",
+            "componentWillUpdate",
+            "componentDidUpdate",
+            "componentWillUnmount",
+            "state",
+            "displayName",
+            "mixins",
+            "defaultProps",
+            "propTypes",
+            "statics",
+            "getChildContext",
+            "contextTypes",
+            "childContextTypes"
+          ]
+        }
+      }
+    ],
     "react/style-prop-object": "error",
     "react/jsx-boolean-value": [
       "error",
@@ -521,6 +567,7 @@
       }
     ],
     "react/jsx-space-before-closing": "error",
-    "react/jsx-wrap-multilines": "error"
+    "react/jsx-wrap-multilines": "error",
+    "react/no-deprecated": "error"
   }
 }

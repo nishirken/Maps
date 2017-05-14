@@ -1,14 +1,13 @@
+import { Map } from 'immutable';
+import { createAction } from 'redux-actions';
 import { OBJECTS } from 'Constants';
 
-export default (markerIndex, index, name) => {
-    return {
-        type: OBJECTS,
-        payload: {
-            markerIndex,
-            object: {
-                index,
-                name,
-            },
-        },
-    };
-};
+export default createAction(OBJECTS, (markerIndex, index, name) =>
+    Map({
+        markerIndex,
+        object: Map({
+            index,
+            name,
+        }),
+        sendToApi: true,
+    }));

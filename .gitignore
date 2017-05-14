@@ -1,2 +1,7 @@
 /.idea/
 /node_modules/
+/docker/logs/
+/coverage/
+/build/server.js
+/build/common.js
+/build/main.js

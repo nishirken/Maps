@@ -1,11 +1,11 @@
+import styles from 'Styles';
 import styled from 'styled-components';
 
 const StyledMarksList = styled.div`
     height: 100%;
-//    overflow-y: auto;
-    background: ${StyleConst.colors.windowsBackground};
+    background: ${styles.colors.get('windowsBackground')};
     font-size: 1rem;
-    color: ${StyleConst.colors.secondary};
+    color: ${styles.colors.get('secondary')};
 `;
 
 export default StyledMarksList;

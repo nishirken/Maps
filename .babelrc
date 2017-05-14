@@ -17,7 +17,9 @@
         "transform-class-properties",
         "transform-function-bind",
         "transform-export-extensions",
-        "transform-react-remove-prop-types"
+        "transform-react-remove-prop-types",
+        "transform-async-to-generator",
+        "react-hot-loader/babel"
       ]
     },
     "development": {
@@ -37,18 +39,12 @@
         "transform-object-rest-spread",
         "transform-class-properties",
         "transform-export-extensions",
-        "transform-function-bind"
+        "transform-function-bind",
+        "transform-async-to-generator"
       ]
     },
-    "test": {
+    "node": {
       "presets": [
-        "es2016",
-        [
-          "es2015",
-          {
-            "modules": false
-          }
-        ],
         "react"
       ],
       "plugins": [
@@ -58,16 +54,19 @@
         "transform-function-bind",
         "transform-export-extensions",
         "transform-es2015-modules-commonjs",
+        "transform-async-to-generator",
         ["module-resolver", {
           "root": ["./"],
           "alias": {
-            "Containers": "./src/containers",
             "Actions": "./src/actions",
+            "Api": "./src/api",
+            "Middlewares": "./src/middlewares",
             "Components": "./src/components",
             "Constants": "./src/constants",
+            "Containers": "./src/containers",
             "Reducers": "./src/reducers",
             "Styles": "./src/style-resources",
-            "Store": "./src/create-test-store"
+            "Store": "./src/store"
           }
         }]
       ]

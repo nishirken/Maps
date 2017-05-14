@@ -1,10 +1,9 @@
+import { List } from 'immutable';
+import { handleAction } from 'redux-actions';
 import { MARKER_SEARCH } from 'Constants';
 
-export default (state = [], action) => {
-    switch (action.type) {
-        case MARKER_SEARCH:
-            return action.markerSearchIndexes || state;
-        default:
-            return state;
-    }
-};
+export default handleAction(
+    MARKER_SEARCH,
+    (state, action) => List(action.payload),
+    List([])
+);

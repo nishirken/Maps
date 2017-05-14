@@ -1,21 +1,28 @@
+import { Map } from 'immutable';
 import { setObject } from 'Actions';
 import { OBJECTS } from 'Constants';
 
 describe('Set object action', () => {
-    it('Should create an object for lis item', () => {
-        const value = {
+    it('Should create an object for list item', () => {
+        const payload = Map({
             markerIndex: 1,
-            object: {
+            object: Map({
                 index: 0,
                 name: 'Objects',
-            },
-        };
+            }),
+            sendToApi: true,
+        });
 
         const expectedValue = {
             type: OBJECTS,
-            payload: value,
+            payload,
         };
 
-        expect(setObject(value.markerIndex, value.object.index, value.object.name)).toEqual(expectedValue);
+        expect(setObject(
+            payload.get('markerIndex'),
+            payload.get('object').get('index'),
+            payload.get('object').get('name')
+        ))
+            .toEqual(expectedValue);
     });
 });

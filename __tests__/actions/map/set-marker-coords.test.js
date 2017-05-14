@@ -1,8 +1,9 @@
+import { fromJS } from 'immutable';
 import { setMarkerCoords } from 'Actions';
 import { MARKER_COORDS } from 'Constants';
 
 describe('Action set marker coords', () => {
-    const payload = {
+    const payload = fromJS({
         index: 1,
         coords: {
             lat: 322,
@@ -10,7 +11,8 @@ describe('Action set marker coords', () => {
             x: 10,
             y: 11,
         },
-    };
+        sendToApi: true,
+    });
 
     it('Should create an action to add marker coords', () => {
         const expectedValue = {
@@ -18,6 +20,6 @@ describe('Action set marker coords', () => {
             payload,
         };
 
-        expect(setMarkerCoords(payload.index, payload.coords)).toEqual(expectedValue);
+        expect(setMarkerCoords(payload.get('index'), payload.get('coords'))).toEqual(expectedValue);
     });
 });

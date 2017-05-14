@@ -1,14 +1,8 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledMarkerSvg from './styled-marker-svg';
 
 export default class Marker extends PureComponent {
-    static propTypes = {
-        center: PropTypes.bool,
-    }
-
-    static defaultProps = {
-        center: false,
-    }
-
     render() {
         return (
             <StyledMarkerSvg
@@ -21,5 +15,13 @@ export default class Marker extends PureComponent {
                 />
             </StyledMarkerSvg>
         );
+    }
+
+    static defaultProps = {
+        center: false,
+    }
+
+    static propTypes = {
+        center: PropTypes.bool,
     }
 }

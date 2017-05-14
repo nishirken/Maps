@@ -1,37 +1,10 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledMarkerNameField from './styled-name-field';
 import StyledTitle from './styled-title';
 import StyledInput from './styled-input';
 
 export default class MarkerNameField extends PureComponent {
-    static propTypes = {
-        completeCreateMarker: PropTypes.func,
-        cancelCreateMarker: PropTypes.func,
-        x: PropTypes.number.isRequired,
-        y: PropTypes.number.isRequired,
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            completeCreateMarkerWithoutName: false,
-        };
-    }
-
-    componentDidMount() {
-        this.textInput.focus();
-    }
-
-    getMarkerName(e) {
-        if (e.keyCode === 13) {
-            const value = e.target.value || 'Your marker';
-
-            this.props.completeCreateMarker(value);
-        }
-
-        if (e.keyCode === 27)
-            this.props.cancelCreateMarker();
-    }
-
     render() {
         if (this.state.completeCreateMarkerWithoutName)
             return null;
@@ -53,5 +26,44 @@ export default class MarkerNameField extends PureComponent {
                 />
             </StyledMarkerNameField>
         );
+    }
+
+    /**
+     * Get marker name from input, when creating the marker
+     * @param {object} e -native js event object
+     * @return {undefined}
+     */
+    getMarkerName(e) {
+        if (e.keyCode === 13) {
+            const value = e.target.value || 'Your marker';
+
+            this.props.completeCreateMarker(value);
+        }
+
+        if (e.keyCode === 27)
+            this.props.cancelCreateMarker();
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            completeCreateMarkerWithoutName: false,
+        };
+    }
+
+    /**
+     * Auto focus in the text input, when started to create a marker
+     * @return {undefined}
+     */
+    componentDidMount() {
+        if (this.textInput)
+            this.textInput.focus();
+    }
+
+    static propTypes = {
+        cancelCreateMarker: PropTypes.func,
+        completeCreateMarker: PropTypes.func,
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired,
     }
 }

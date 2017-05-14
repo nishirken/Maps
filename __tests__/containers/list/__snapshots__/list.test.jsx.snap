@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List container Rendered 1`] = `
+<ListContainer
+  getCurrentMarker={
+    Object {
+      "coords": Object {
+        "lat": 299,
+        "lng": 300,
+      },
+      "index": 0,
+    }
+  }
+  getMarkerCoords={
+    Array [
+      Object {
+        "coords": Object {
+          "lat": 299,
+          "lng": 300,
+          "x": 200,
+          "y": 201,
+        },
+        "index": 0,
+      },
+      Object {
+        "coords": Object {
+          "lat": 300,
+          "lng": 301,
+          "x": 100,
+          "y": 101,
+        },
+        "index": 1,
+      },
+    ]
+  }
+  getMarkerDeleteIndexes={
+    Array [
+      0,
+    ]
+  }
+  getMarkerName={
+    Array [
+      Object {
+        "index": 0,
+        "name": "Marker0",
+      },
+      Object {
+        "index": 1,
+        "name": "Marker1",
+      },
+      Object {
+        "index": 1,
+        "name": "EditedMarkerName",
+      },
+    ]
+  }
+  getMarkerSearchIndexes={
+    Array [
+      0,
+    ]
+  }
+  getObjectDeleteIndexes={
+    Array [
+      Object {
+        "index": 0,
+        "markerIndex": 1,
+      },
+    ]
+  }
+  getObjects={
+    Array [
+      Object {
+        "markerIndex": 0,
+        "object": Object {
+          "index": 0,
+          "name": "Object for 0",
+        },
+      },
+      Object {
+        "markerIndex": 1,
+        "object": Object {
+          "index": 0,
+          "name": "Object for 1",
+        },
+      },
+      Object {
+        "markerIndex": 1,
+        "object": Object {
+          "index": 1,
+          "name": "Object for 1",
+        },
+      },
+    ]
+  }
+  setCurrentMarker={[Function]}
+  setMarkerDeleteIndex={[Function]}
+  setMarkerName={[Function]}
+  setMarkerSearchIndexes={[Function]}
+  setObject={[Function]}
+  setObjectDeleteIndex={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;

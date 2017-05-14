@@ -1,3 +1,5 @@
+import React, { PureComponent, PropTypes } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -21,24 +23,6 @@ import { setMarkerIndex, setMarkerCoords, setMarkerName, setCurrentMarker } from
     })
 )
 export default class MapContainer extends PureComponent {
-    static propTypes = {
-        getMarkerIndex: PropTypes.number.isRequired,
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        })).isRequired,
-        getCurrentMarker: PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        }),
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        setMarkerIndex: PropTypes.func,
-        setMarkerCoords: PropTypes.func,
-        setMarkerName: PropTypes.func,
-        setCurrentMarker: PropTypes.func,
-    }
-
     render() {
         return (
             <Map
@@ -53,5 +37,23 @@ export default class MapContainer extends PureComponent {
                 setMarkerName={this.props.setMarkerName}
             />
         );
+    }
+
+    static propTypes = {
+        getCurrentMarker: ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        }),
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        })).isRequired,
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerIndex: PropTypes.number.isRequired,
+        getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        setCurrentMarker: PropTypes.func,
+        setMarkerCoords: PropTypes.func,
+        setMarkerIndex: PropTypes.func,
+        setMarkerName: PropTypes.func,
     }
 }

@@ -1,165 +1,13 @@
-import { findLast, includes } from 'lodash';
+import React, { PropTypes } from 'react';
+import ImmutablePropTypes from 'react-immutable-proptypes';
+import { Map } from 'immutable';
 
 import StyledList from './styled-list';
 import StyledListWrapper from './styled-list-wrapper';
 import { ListItem, StyledSearchField } from 'Components';
+import Filter from 'Components/filter/filter';
 
-export default class List extends PureComponent {
-    static propTypes = {
-        getMarkerCoords: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        })).isRequired,
-        getMarkerName: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number,
-            name: PropTypes.string,
-        })).isRequired,
-        getCurrentMarker: PropTypes.shape({
-            index: PropTypes.number,
-            coords: PropTypes.objectOf(PropTypes.number),
-        }),
-        getMarkerDeleteIndexes: PropTypes.arrayOf(PropTypes.number),
-        getMarkerSearchIndexes: PropTypes.arrayOf(PropTypes.number),
-        getEditMarkerNameCondition: PropTypes.bool,
-        getObjects: PropTypes.arrayOf(
-            PropTypes.shape({
-                markerIndex: PropTypes.number,
-                object: PropTypes.shape({
-                    index: PropTypes.number,
-                    name: PropTypes.string,
-                }),
-            })
-        ),
-        getObjectDeleteIndexes: PropTypes.arrayOf(PropTypes.shape({
-            markerIndex: PropTypes.number,
-            index: PropTypes.number,
-        })),
-        setMarkerName: PropTypes.func,
-        setCurrentMarker: PropTypes.func,
-        setMarkerSearchIndexes: PropTypes.func,
-        setMarkerDeleteIndex: PropTypes.func,
-        setEditMarkerNameCondition: PropTypes.func,
-        setObject: PropTypes.func,
-        setObjectDeleteIndex: PropTypes.func,
-    }
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            mouseEnter: false,
-        };
-    }
-
-    mouseEnterHandler() {
-        this.setState({
-            mouseEnter: true,
-        });
-        clearTimeout(this.mouseLeaveTimeOut);
-    }
-
-    mouseLeaveHandler() {
-        this.mouseLeaveTimeOut = setTimeout(() => {
-            this.setState({
-                mouseEnter: false,
-            });
-        }, 2000);
-    }
-
-    markerSearchIndex(e) {
-        const value = e.target.value;
-
-        const searchIndexes = [];
-
-        const search = (searchValue, ...args) => {
-            for (const argument in args)
-                if (Object.prototype.hasOwnProperty.call(args, argument))
-                    return String(args[argument]).toLowerCase().indexOf(searchValue) !== -1;
-
-            return -1;
-        };
-
-        if (value)
-            this.props.getMarkerName.forEach(marker => {
-                if (search(value, marker.name)) searchIndexes.push(marker.index);
-            });
-
-        this.props.setMarkerSearchIndexes(searchIndexes);
-    }
-
-    processingMarkerDeleteIndexes(coordsArray) {
-        return coordsArray.filter(marker =>
-            !includes(this.props.getMarkerDeleteIndexes, marker.index));
-    }
-
-    processingMarkerSearchIndexes(coordsArray) {
-        return coordsArray.filter(marker =>
-            includes(this.props.getMarkerSearchIndexes, marker.index));
-    }
-
-    processingObjects(markerIndex, objects) {
-        if (objects && objects.length > 0)
-            return objects
-                .filter(object => {
-                    if (object.markerIndex === markerIndex)
-                        return true;
-
-                    return false;
-                })
-                .map(object => object.object);
-
-        return objects;
-    }
-
-    processingObjectDeleteIndexes(markerIndex, objectDeleteIndexes) {
-        if (objectDeleteIndexes && objectDeleteIndexes.length > 0)
-            return objectDeleteIndexes
-                .filter(object => object.markerIndex === markerIndex)
-                .map(object => object.index);
-
-        return objectDeleteIndexes;
-    }
-
-    marksListItemsRender() {
-        let markersCoords = this.props.getMarkerCoords;
-
-        if (this.props.getMarkerDeleteIndexes.length > 0)
-            markersCoords = this.processingMarkerDeleteIndexes(markersCoords);
-
-        if (this.props.getMarkerSearchIndexes.length > 0)
-            markersCoords = this.processingMarkerSearchIndexes(markersCoords);
-
-        return markersCoords.map((marker, key) => {
-            let current = false;
-
-            if (this.props.getCurrentMarker)
-                if (this.props.getCurrentMarker.index === marker.index) current = true;
-
-            return (
-                <ListItem
-                    current={current}
-                    getEditMarkerNameCondition={this.props.getEditMarkerNameCondition}
-                    key={marker.index}
-                    markerCoords={{
-                        lat: marker.coords.lat,
-                        lng: marker.coords.lng,
-                    }}
-                    markerIndex={marker.index}
-                    markerName={findLast(this.props.getMarkerName, { index: marker.index }).name}
-                    markerNumber={key + 1}
-                    markerObjects={this.processingObjects(marker.index, this.props.getObjects)}
-                    mouseEnter={this.state.mouseEnter}
-                    objectDeleteIndexes={this.processingObjectDeleteIndexes(marker.index, this.props.getObjectDeleteIndexes)}
-                    setCurrentMarker={this.props.setCurrentMarker}
-                    setDeleteMarkerIndex={this.props.setMarkerDeleteIndex}
-                    setEditMarkerNameCondition={this.props.setEditMarkerNameCondition}
-                    setMarkerName={this.props.setMarkerName}
-                    setObject={this.props.setObject}
-                    setObjectDeleteIndex={this.props.setObjectDeleteIndex}
-                />
-            );
-        });
-    }
-
+export default class List extends Filter {
     render() {
         return (
             <StyledListWrapper
@@ -177,5 +25,197 @@ export default class List extends PureComponent {
                 </StyledList>
             </StyledListWrapper>
         );
+    }
+
+    /**
+     * Renders marks list items
+     * @return {object} immutable List of react components
+     */
+    marksListItemsRender() {
+        let markers = this.props.getMarkerCoords;
+
+        if (this.props.getMarkerDeleteIndexes.size)
+            markers = this.processingMarkerDeleteIndexes(markers, this.props.getMarkerDeleteIndexes);
+
+        if (this.props.getMarkerSearchIndexes.size)
+            markers = this.processingMarkerSearchNames(markers, this.props.getMarkerSearchIndexes);
+
+        return markers.map((marker, key) => {
+            const coords = marker.get('coords');
+            const index = marker.get('index');
+
+            return (
+                <ListItem
+                    current={this.setCurrent(index)}
+                    getEditMarkerNameCondition={this.props.getEditMarkerNameCondition}
+                    key={index}
+                    markerCoords={Map({
+                        lat: coords.get('lat'),
+                        lng: coords.get('lng'),
+                    })}
+                    markerIndex={index}
+                    markerName={this.proceessingMarkerName(this.props.getMarkerName, index)}
+                    markerNumber={key + 1}
+                    markerObjects={this.processingObjects(index, this.props.getObjects)}
+                    mouseEnter={this.state.mouseEnter}
+                    objectDeleteIndexes={
+                        this.processingObjectDeleteIndexes(
+                            index,
+                            this.props.getObjectDeleteIndexes
+                        )
+                    }
+                    setCurrentMarker={this.props.setCurrentMarker}
+                    setDeleteMarkerIndex={this.props.setMarkerDeleteIndex}
+                    setEditMarkerNameCondition={this.props.setEditMarkerNameCondition}
+                    setMarkerName={this.props.setMarkerName}
+                    setObject={this.props.setObject}
+                    setObjectDeleteIndex={this.props.setObjectDeleteIndex}
+                />
+            );
+        });
+    }
+
+    /**
+     * Calculate current list item or not
+     * @param {number} markerIndex
+     * @return {boolean} default value of current
+     */
+    setCurrent(markerIndex) {
+        if (this.props.getCurrentMarker)
+            return this.props.getCurrentMarker.get('index') === markerIndex;
+
+        return false;
+    }
+
+    /**
+     * Get current marker name
+     * @param {object} markerNames - immutable List
+     * @param {number} markerIndex
+     * @return {string} markerName
+     */
+    proceessingMarkerName(markerNames, markerIndex) {
+        const name = markerNames.findLast(value => value.get('index') === markerIndex);
+
+        return name.get('name');
+    }
+
+    /**
+     * Filtering marker objects by marker index
+     * @param {number} markerIndex
+     * @param {object} objects - immutable List
+     * @return {object} immutable List of objects
+     */
+    processingObjects(markerIndex, objects) {
+        return objects
+            .filter(object => object.get('markerIndex') === markerIndex)
+            .map(object => object.get('object'));
+    }
+
+    /**
+     * Filtering marker object delete indexes immutable list by marker index
+     * @param {number} markerIndex
+     * @param {object} objectDeleteIndexes - immutable List
+     * @return {object} immutable List of objectDeleteIndexes
+     */
+    processingObjectDeleteIndexes(markerIndex, objectDeleteIndexes) {
+        return objectDeleteIndexes
+            .filter(object => object.get('markerIndex') === markerIndex)
+            .map(object => object.get('index'));
+    }
+
+    /**
+     * SetState and clear timeout
+     * @return {undefined}
+     */
+    mouseEnterHandler() {
+        this.setState({
+            mouseEnter: true,
+        });
+        clearTimeout(this.mouseLeaveTimeOut);
+    }
+
+    /**
+     * Set timeout after mouse leave, for setState after 2s
+     * @return {undefined}
+     */
+    mouseLeaveHandler() {
+        this.mouseLeaveTimeOut = setTimeout(() => {
+            this.setState({
+                mouseEnter: false,
+            });
+        }, 2000);
+    }
+
+    /**
+     * Searching values from string by search value
+     * @param {string} searchValue
+     * @param {string} searchTarget
+     * @return {boolean} the result of searching
+     */
+    search(searchValue, searchTarget) {
+        return String(searchTarget).toLowerCase().indexOf(String(searchValue).toLowerCase()) !== -1;
+    }
+
+    /**
+     * Search marker index by input value
+     * @param {object} e - native js event object
+     * @return {undefined}
+     */
+    markerSearchIndex(e) {
+        const value = e.target.value;
+        let markerSearchIndexes = [];
+
+        if (value)
+            markerSearchIndexes =
+                this.props.getMarkerName.filter(marker =>
+                    this.search(value, marker.get('name')))
+                    .map(marker => marker.get('index'));
+
+        this.props.setMarkerSearchIndexes(markerSearchIndexes);
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            mouseEnter: false,
+        };
+    }
+
+    static propTypes = {
+        getCurrentMarker: ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        }),
+        getEditMarkerNameCondition: PropTypes.bool,
+        getMarkerCoords: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            coords: ImmutablePropTypes.mapOf(PropTypes.number),
+        })),
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerName: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            index: PropTypes.number,
+            name: PropTypes.string,
+        })),
+        getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getObjectDeleteIndexes: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
+            markerIndex: PropTypes.number,
+            index: PropTypes.number,
+        })),
+        getObjects: ImmutablePropTypes.listOf(
+            ImmutablePropTypes.mapContains({
+                markerIndex: PropTypes.number,
+                object: ImmutablePropTypes.mapContains({
+                    index: PropTypes.number,
+                    name: PropTypes.string,
+                }),
+            })
+        ),
+        setCurrentMarker: PropTypes.func,
+        setEditMarkerNameCondition: PropTypes.func,
+        setMarkerDeleteIndex: PropTypes.func,
+        setMarkerName: PropTypes.func,
+        setMarkerSearchIndexes: PropTypes.func,
+        setObject: PropTypes.func,
+        setObjectDeleteIndex: PropTypes.func,
     }
 }

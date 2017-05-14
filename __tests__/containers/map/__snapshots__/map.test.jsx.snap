@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map container Rendered 1`] = `
+<MapContainer
+  getCurrentMarker={
+    Object {
+      "coords": Object {
+        "lat": 299,
+        "lng": 300,
+      },
+      "index": 0,
+    }
+  }
+  getMarkerCoords={
+    Array [
+      Object {
+        "coords": Object {
+          "lat": 299,
+          "lng": 300,
+          "x": 200,
+          "y": 201,
+        },
+        "index": 0,
+      },
+      Object {
+        "coords": Object {
+          "lat": 300,
+          "lng": 301,
+          "x": 100,
+          "y": 101,
+        },
+        "index": 1,
+      },
+    ]
+  }
+  getMarkerDeleteIndexes={
+    Array [
+      0,
+    ]
+  }
+  getMarkerIndex={2}
+  getMarkerName={
+    Array [
+      Object {
+        "index": 0,
+        "name": "Marker0",
+      },
+      Object {
+        "index": 1,
+        "name": "Marker1",
+      },
+      Object {
+        "index": 1,
+        "name": "EditedMarkerName",
+      },
+    ]
+  }
+  getMarkerSearchIndexes={
+    Array [
+      0,
+    ]
+  }
+  setCurrentMarker={[Function]}
+  setMarkerCoords={[Function]}
+  setMarkerIndex={[Function]}
+  setMarkerName={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;

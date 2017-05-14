@@ -1,20 +1,9 @@
+import React, { PureComponent, PropTypes } from 'react';
+
 import StyledObjectsItem from './styled-objects-item';
 import StyledObejectDeleteButton from './styled-object-delete-button';
 
 export default class ObjectsItem extends PureComponent {
-    static propTypes = {
-        markerIndex: PropTypes.number,
-        index: PropTypes.number,
-        name: PropTypes.string,
-        number: PropTypes.number,
-        setObjectDeleteIndex: PropTypes.func,
-    };
-
-    deleteHandler(e) {
-        e.stopPropagation();
-        this.props.setObjectDeleteIndex(this.props.markerIndex, this.props.index);
-    }
-
     render() {
         return (
             <StyledObjectsItem>
@@ -30,5 +19,23 @@ export default class ObjectsItem extends PureComponent {
                 {this.props.number}. {this.props.name}
             </StyledObjectsItem>
         );
+    }
+
+    /**
+     * OnClick handler for set object delete indexes
+     * @param {object} e - native js event object
+     * @return {undefined}
+     */
+    deleteHandler(e) {
+        e.stopPropagation();
+        this.props.setObjectDeleteIndex(this.props.markerIndex, this.props.index);
+    }
+
+    static propTypes = {
+        index: PropTypes.number,
+        markerIndex: PropTypes.number,
+        name: PropTypes.string,
+        number: PropTypes.number,
+        setObjectDeleteIndex: PropTypes.func,
     }
 }

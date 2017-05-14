@@ -1,4 +1,7 @@
+import { PropTypes } from 'react';
 import styled from 'styled-components';
+
+import styles from 'Styles';
 import StyledList from 'Components/list/styled-list';
 
 const StyledObjects = styled(StyledList)`
@@ -11,7 +14,7 @@ const StyledObjects = styled(StyledList)`
     max-height: 300px;
     min-height: 100%;
     height: auto;
-    transition: ${StyleConst.transition('right')};
+    transition: ${styles.transition('right')};
 `;
 
 StyledObjects.propTypes = {

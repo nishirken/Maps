@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Rendered 1`] = `
+<styled.div
+  mouseEnter={false}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <styled.div>
+    <styled.input
+      onChange={[Function]}
+      placeholder="search"
+      type="text"
+    />
+    <ListItem
+      current={false}
+      markerCoords={
+        Object {
+          "lat": 299,
+          "lng": 300,
+        }
+      }
+      markerIndex={0}
+      markerName="Marker0"
+      markerNumber={1}
+      markerObjects={Array []}
+      mouseEnter={false}
+      objectDeleteIndexes={Array []}
+    />
+    <ListItem
+      current={false}
+      markerCoords={
+        Object {
+          "lat": 300,
+          "lng": 301,
+        }
+      }
+      markerIndex={1}
+      markerName="EditedMarkerName"
+      markerNumber={2}
+      markerObjects={Array []}
+      mouseEnter={false}
+      objectDeleteIndexes={Array []}
+    />
+  </styled.div>
+</styled.div>
+`;

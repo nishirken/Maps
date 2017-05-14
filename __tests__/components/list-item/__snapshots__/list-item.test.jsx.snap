@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marks list item Rendered 1`] = `
+<styled.div
+  current={false}
+  onClick={[Function]}
+>
+  <ListItemText
+    editMarkerName={false}
+    markerCoords={
+      Object {
+        "lat": 299,
+        "lng": 300,
+      }
+    }
+    setNewMarkerName={[Function]}
+    switchEditMarkerName={[Function]}
+  />
+  <Buttons
+    editMarkerName={false}
+    markerIndex={1}
+    switchEditMarkerName={[Function]}
+  />
+</styled.div>
+`;

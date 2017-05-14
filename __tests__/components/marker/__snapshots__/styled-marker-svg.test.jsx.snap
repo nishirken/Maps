@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendered Rendered 1`] = `
+.bxjcOQ {
+  width: 15px;
+  height: 15px;
+  fill: #E53935;
+  cursor: pointer;
+  transition: [object Object] 0.4s ease-in-out;
+  -webkit-transition: [object Object] 0.4s ease-in-out;
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.bxjcOQ:hover {
+  fill: #8C2321;
+}
+
+<svg
+  className="bxjcOQ"
+/>
+`;
+
+exports[`Rendered Should change transform style property, when getting a center property 1`] = `
+.bxjcOQ {
+  width: 15px;
+  height: 15px;
+  fill: #E53935;
+  cursor: pointer;
+  transition: [object Object] 0.4s ease-in-out;
+  -webkit-transition: [object Object] 0.4s ease-in-out;
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.bxjcOQ:hover {
+  fill: #8C2321;
+}
+
+<svg
+  className="bxjcOQ"
+/>
+`;
