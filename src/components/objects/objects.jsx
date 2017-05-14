@@ -42,7 +42,7 @@ export default class Objects extends PureComponent {
 
     /**
      * Render objects item
-     * @return {immutable List} of react components
+     * @return {object} immutable list of react components
      */
     renderObjectsItem() {
         let objects = this.props.markerObjects;
@@ -68,6 +68,7 @@ export default class Objects extends PureComponent {
 
     /**
      * Set state with createObject property, used by renderCreateObject method
+     * @return {undefined}
      */
     toggleCreateObject() {
         this.setState(prevState => {
@@ -80,7 +81,8 @@ export default class Objects extends PureComponent {
 
     /**
      * OnChange method for handle entering an object name
-     * @param e {object} native js event object
+     * @param {object} e - native js event object
+     * @return {undefined}
      */
     onChangeHandler(e) {
         this.objectName = e.target.value;
@@ -88,7 +90,7 @@ export default class Objects extends PureComponent {
 
     /**
      * Check entered object name is empty or not
-     * @param objectName {string}
+     * @param {string} objectName
      * @return {string} same object name or default value
      */
     objectNameValidate(objectName) {
@@ -97,7 +99,8 @@ export default class Objects extends PureComponent {
 
     /**
      * OnKeyDown method for handle complete or not entering object name
-     * @param e {object} native js event object
+     * @param {object} e - native js event object
+     * @return {undefined}
      */
     onKeyDownHandler(e) {
         if (e.keyCode === 27 || e.keyCode === 13)
@@ -123,6 +126,7 @@ export default class Objects extends PureComponent {
 
     /**
      * Auto focus in input, when creating an object
+     * @return {undefined}
      */
     componentDidUpdate() {
         if (this.state.createObject && this.input)

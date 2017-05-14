@@ -1,4 +1,3 @@
-import { Map } from 'immutable';
 import { createAction } from 'redux-actions';
 import { MARKER_INDEX } from 'Constants';
 

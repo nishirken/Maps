@@ -53,7 +53,8 @@ export default class ListItem extends PureComponent {
 
     /**
      * Set state with new marker name after editing it
-     * @param value {string} value from editing input
+     * @param {string} value - from editing input
+     * @return {undefined}
      */
     setNewMarkerName(value) {
         this.newMarkerName = value;
@@ -65,7 +66,8 @@ export default class ListItem extends PureComponent {
      * where we can cancel edit of marker name:
      * 1) By input (push esc on the keyboard) and don't save edited value
      * 2) By input (push enter on the keyboard), clicking on the edit button and save new marker name
-     * @param condition {bool}
+     * @param {boolean} condition
+     * @return {undefined}
      */
     switchEditMarkerName(condition) {
         this.setState(prevState => {
@@ -78,6 +80,7 @@ export default class ListItem extends PureComponent {
 
     /**
      * Set current marker after clicking on the appropriate list item
+     * @return {undefined}
      */
     listItemOnclickHandler() {
         this.props.setCurrentMarker(this.props.markerIndex, this.props.markerCoords);
@@ -92,6 +95,11 @@ export default class ListItem extends PureComponent {
         this.canSendMarkerName = false;
     }
 
+    /**
+     * Check if marker name editing is complete, and we can send it,
+     * And the new name is edited, set new name
+     * @return {undefined}
+     */
     componentDidUpdate() {
         if (this.canSendMarkerName && this.newMarkerName) {
             if (this.newMarkerName !== this.props.markerName)

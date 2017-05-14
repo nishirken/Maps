@@ -23,7 +23,8 @@ export default class ObjectsItem extends PureComponent {
 
     /**
      * OnClick handler for set object delete indexes
-     * @param e {object} native js event object
+     * @param {object} e - native js event object
+     * @return {undefined}
      */
     deleteHandler(e) {
         e.stopPropagation();

@@ -5,6 +5,8 @@ export const checkEnvironment = action => {
     if (typeof window !== 'undefined' && (Map.isMap(action.payload) || List.isList(action.payload)))
         if (action.payload.get('sendToApi'))
             return true;
+
+    return false;
 };
 
 export default () => next => action => {

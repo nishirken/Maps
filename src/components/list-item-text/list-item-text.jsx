@@ -47,7 +47,8 @@ export default class ListItemText extends PureComponent {
 
     /**
      * OnKeyDown handler, execute when editing marker name
-     * @param e {object} native js event object
+     * @param {object} e - native js event object
+     * @return {undefined}
      */
     onKeyDownMarkerName(e) {
         if (e.keyCode === 27)
@@ -59,7 +60,8 @@ export default class ListItemText extends PureComponent {
 
     /**
      * OnChange handler, execute when complete edit marker name
-     * @param e {object} native js event object
+     * @param {object} e - native js event object
+     * @return {undefined}
      */
     onChangeMarkerName(e) {
         const value = e.target.value;
@@ -69,6 +71,7 @@ export default class ListItemText extends PureComponent {
 
     /**
      * Auto focus into input
+     * @return {undefined}
      */
     componentDidUpdate() {
         if (this.props.editMarkerName && this.input)

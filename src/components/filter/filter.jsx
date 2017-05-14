@@ -8,9 +8,9 @@ export default class Filter extends PureComponent {
 
     /**
      * Filtering marker coords by delete indexes
-     * @param coordsArray {immutable List}
-     * @param deleteIndexesArray {immutable List}
-     * @return coordsArray {immutable List}
+     * @param {object} coordsArray - immutable List
+     * @param {object} deleteIndexesArray - immutable List
+     * @return {object} immutable List of coordsArray
      */
     processingMarkerDeleteIndexes(coordsArray, deleteIndexesArray) {
         return coordsArray.filter(marker =>
@@ -19,8 +19,9 @@ export default class Filter extends PureComponent {
 
     /**
      * Filtering marker coords by search indexes
-     * @param coordsArray {immutable List}
-     * @return coordsArray {immutable List}
+     * @param {object} coordsArray - immutable List
+     * @param {object} searchIndexesArray - immutable List
+     * @return {object} immutable List of coordsArray
      */
     processingMarkerSearchNames(coordsArray, searchIndexesArray) {
         return coordsArray.filter(marker =>

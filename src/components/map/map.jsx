@@ -32,7 +32,7 @@ export default class Map extends Filter {
 
     /**
      * Render markers on the map
-     * @return {immutable List} of react components
+     * @return {object} immutable List of react components
      */
     markersRender() {
         let markers = this.props.getMarkerCoords;
@@ -63,8 +63,8 @@ export default class Map extends Filter {
 
     /**
      * Gives coords object from current marker Map
-     * @param currentMarker {immutable Map}
-     * @return {object} of coords
+     * @param {object} currentMarker - immutable Map
+     * @return {object} of coords or {boolean}
      */
     centerMap(currentMarker) {
         if (currentMarker.get('index') !== null)
@@ -72,12 +72,15 @@ export default class Map extends Filter {
                 lat: currentMarker.get('coords').get('lat'),
                 lng: currentMarker.get('coords').get('lng'),
             };
+
+        return false;
     }
 
     /**
      * Set state with coords object
      * Executed when clicking on the map
-     * @param coords {object} arise when clicking on the map
+     * @param {object} coords - arise when clicking on the map
+     * @return {undefined}
      */
     getMarkerCoords(coords) {
         delete coords.event;
@@ -95,7 +98,8 @@ export default class Map extends Filter {
      * Set state for hide MarkerNameField
      * Send info of marker index, coords and name, when completed create it
      * Executed on enter button from keyboard
-     * @param markerName {string} name of marker from MarkerNameField
+     * @param {string} markerName - name of marker from MarkerNameField
+     * @return {undefined}
      */
     completeCreateMarker(markerName) {
         const currentMarkerIndex = this.props.getMarkerIndex + 1;
@@ -113,6 +117,7 @@ export default class Map extends Filter {
     /**
      * Set state for hide MarkerNameField, without saving an info of the marker
      * Executed on esc button from keyboard
+     * @return {undefined}
      */
     cancelCreateMarker() {
         this.setState({
@@ -124,8 +129,9 @@ export default class Map extends Filter {
     /**
      * Select current marker, executed when clicking on the marker
      * Get params from GoogleMapReact component
-     * @param index {number} marker index
-     * @param coords {object} object with info of the marker
+     * @param {number} index - marker index
+     * @param {object} coords - info of the marker
+     * @return {undefined}
      */
     markerChoice(index, coords) {
         const { lat, lng } = coords;

@@ -50,19 +50,18 @@
     "no-unexpected-multiline": "warn",
     "no-unsafe-negation": "error",
     "valid-jsdoc": [
-      "warn",
+      "error",
       {
         "prefer": {
           "arg": "param",
           "argument": "param",
           "class": "constructor",
-          "return": "returns",
           "virtual": "abstract"
         },
         "preferType": {
           "Boolean": "boolean",
           "Number": "number",
-          "object": "Object",
+          "object": "object",
           "String": "string"
         },
         "requireReturnType": false,
@@ -166,7 +165,7 @@
       }
     ],
     "no-undef": "error",
-    "no-undefined": "warn",
+    "no-undefined": "off",
     "no-use-before-define": "error",
     "array-bracket-spacing": [
       "error",

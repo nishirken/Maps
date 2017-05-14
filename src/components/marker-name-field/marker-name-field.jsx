@@ -30,7 +30,8 @@ export default class MarkerNameField extends PureComponent {
 
     /**
      * Get marker name from input, when creating the marker
-     * @param e {object} native js event object
+     * @param {object} e -native js event object
+     * @return {undefined}
      */
     getMarkerName(e) {
         if (e.keyCode === 13) {
@@ -52,6 +53,7 @@ export default class MarkerNameField extends PureComponent {
 
     /**
      * Auto focus in the text input, when started to create a marker
+     * @return {undefined}
      */
     componentDidMount() {
         if (this.textInput)

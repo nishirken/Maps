@@ -29,7 +29,7 @@ export default class List extends Filter {
 
     /**
      * Renders marks list items
-     * @return {immutable List} of react components
+     * @return {object} immutable List of react components
      */
     marksListItemsRender() {
         let markers = this.props.getMarkerCoords;
@@ -78,7 +78,7 @@ export default class List extends Filter {
     /**
      * Calculate current list item or not
      * @param {number} markerIndex
-     * @return {boolean}
+     * @return {boolean} default value of current
      */
     setCurrent(markerIndex) {
         if (this.props.getCurrentMarker)
@@ -89,9 +89,9 @@ export default class List extends Filter {
 
     /**
      * Get current marker name
-     * @param markerNames {immutable List}
-     * @param markerIndex {number}
-     * @return markerName {string}
+     * @param {object} markerNames - immutable List
+     * @param {number} markerIndex
+     * @return {string} markerName
      */
     proceessingMarkerName(markerNames, markerIndex) {
         const name = markerNames.findLast(value => value.get('index') === markerIndex);
@@ -101,9 +101,9 @@ export default class List extends Filter {
 
     /**
      * Filtering marker objects by marker index
-     * @param markerIndex {number}
-     * @param objects {immutable List}
-     * @return objects {immutable List}
+     * @param {number} markerIndex
+     * @param {object} objects - immutable List
+     * @return {object} immutable List of objects
      */
     processingObjects(markerIndex, objects) {
         return objects
@@ -113,9 +113,9 @@ export default class List extends Filter {
 
     /**
      * Filtering marker object delete indexes immutable list by marker index
-     * @param markerIndex {number}
-     * @param objectDeleteIndexes {immutable List}
-     * @return objectDeleteIndexes {immutable List}
+     * @param {number} markerIndex
+     * @param {object} objectDeleteIndexes - immutable List
+     * @return {object} immutable List of objectDeleteIndexes
      */
     processingObjectDeleteIndexes(markerIndex, objectDeleteIndexes) {
         return objectDeleteIndexes
@@ -125,6 +125,7 @@ export default class List extends Filter {
 
     /**
      * SetState and clear timeout
+     * @return {undefined}
      */
     mouseEnterHandler() {
         this.setState({
@@ -135,6 +136,7 @@ export default class List extends Filter {
 
     /**
      * Set timeout after mouse leave, for setState after 2s
+     * @return {undefined}
      */
     mouseLeaveHandler() {
         this.mouseLeaveTimeOut = setTimeout(() => {
@@ -146,9 +148,9 @@ export default class List extends Filter {
 
     /**
      * Searching values from string by search value
-     * @param searchValue {string}
-     * @param searchTarget {string}
-     * @return {bool}
+     * @param {string} searchValue
+     * @param {string} searchTarget
+     * @return {boolean} the result of searching
      */
     search(searchValue, searchTarget) {
         return String(searchTarget).toLowerCase().indexOf(String(searchValue).toLowerCase()) !== -1;
@@ -156,7 +158,8 @@ export default class List extends Filter {
 
     /**
      * Search marker index by input value
-     * @param e {object} native js event object
+     * @param {object} e - native js event object
+     * @return {undefined}
      */
     markerSearchIndex(e) {
         const value = e.target.value;

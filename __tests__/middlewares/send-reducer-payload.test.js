@@ -2,7 +2,6 @@ import { sendReducerPayload } from 'Middlewares';
 import { apiUrl, sendPath } from 'Constants';
 import { checkEnvironment } from 'Middlewares/send-reducer-payload';
 import { Map } from 'immutable';
-import request from 'request-promise-native';
 
 describe('Send reducer payload middleware', () => {
     const action = {
@@ -29,7 +28,7 @@ describe('Send reducer payload middleware', () => {
     test('Check environment function', () => {
         global.window = {};
         expect(checkEnvironment(action)).toBeTruthy();
-        expect(checkEnvironment({})).toBe();
+        expect(checkEnvironment({})).toBeFalsy();
     });
 
     it('Should send an correct body', () => {

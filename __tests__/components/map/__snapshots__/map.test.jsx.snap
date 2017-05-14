@@ -9,6 +9,7 @@ exports[`Map Rendered 1`] = `
         "language": "ru",
       }
     }
+    center={false}
     debounced={true}
     defaultCenter={
       Object {

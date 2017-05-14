@@ -12,9 +12,12 @@ services:
       - ../.babelrc:/.babelrc
       - ../package.json:/package.json
       - ../node_modules:/node_modules
-      - ../build/index.js:/build/index.js
+      - ../build/server.js:/build/server.js
       - ../src:/src
-    command: npm run server:start
+      - ../jest.config.json:/jest.config.json
+      - ../jest.setup.js:/jest.setup.js
+      - ../__tests__:/__tests__
+      - ../__mocks__:/__mocks__
 
   client_nginx:
     container_name: maps_nginx
