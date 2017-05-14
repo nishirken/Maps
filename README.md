@@ -1,5 +1,5 @@
 <h2>
-There is a simple google maps application, created by react.<br>
+This is a simple google maps application, created by react.<br>
 AWS deploy in the process.
 </h2>
 <h3>Set up environment</h3>
