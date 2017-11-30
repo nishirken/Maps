@@ -13,8 +13,10 @@ export default class Filter extends PureComponent {
      * @return {object} immutable List of coordsArray
      */
     processingMarkerDeleteIndexes(coordsArray, deleteIndexesArray) {
+        const deleteIndexes = deleteIndexesArray.map(di => di.get('index'));
+
         return coordsArray.filter(marker =>
-            !deleteIndexesArray.includes(marker.get('index')));
+            !deleteIndexes.includes(marker.get('index')));
     }
 
     /**

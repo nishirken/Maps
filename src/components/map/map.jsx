@@ -196,7 +196,7 @@ export default class Map extends Filter {
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })).isRequired,
-        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(ImmutablePropTypes.map),
         getMarkerIndex: PropTypes.number.isRequired,
         getMarkerSearchIndexes: ImmutablePropTypes.listOf(PropTypes.number),
         options: PropTypes.shape({

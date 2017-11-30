@@ -191,7 +191,7 @@ export default class List extends Filter {
             index: PropTypes.number,
             coords: ImmutablePropTypes.mapOf(PropTypes.number),
         })),
-        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(PropTypes.number),
+        getMarkerDeleteIndexes: ImmutablePropTypes.listOf(ImmutablePropTypes.map),
         getMarkerName: ImmutablePropTypes.listOf(ImmutablePropTypes.mapContains({
             index: PropTypes.number,
             name: PropTypes.string,
