@@ -72,8 +72,6 @@ export default class Map extends Filter {
                 lat: currentMarker.get('coords').get('lat'),
                 lng: currentMarker.get('coords').get('lng'),
             };
-
-        return false;
     }
 
     /**
