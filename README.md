@@ -1,6 +1,5 @@
 <h2>
-This is a simple google maps application, created by react.<br>
-AWS deploy in the process.
+Simple google maps application with react and redux.<br>
 </h2>
 <h3>Set up environment</h3>
 <pre>cd docker && docker-compose -p maps up -d --build</pre>
@@ -13,7 +12,7 @@ Start node server
 <pre>npm run server-dev-start</pre>
 Then start webpack dev server
 <pre>npm start</pre>
-And go to http://localhost:8000
+And go to http://localhost:8000<br>
 For run tests
 <pre>npm test</pre>
 <h3>Production</h3>
